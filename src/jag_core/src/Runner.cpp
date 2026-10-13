@@ -164,13 +164,13 @@ RunOptions readRunFile( std::string const& path )
       for ( std::string word; in >> word; )
       {
         if ( !args.empty() && ( args.back() == "--load" || args.back() == "--cart" || args.back() == "--bios" ) )
-          word = ( dir / word ).string();
+          word = ( dir / word ).generic_string();
         args.push_back( word );
       }
   }
   if ( program.empty() )
     throw std::runtime_error( path + " names no PROGRAM" );
-  std::string const file = ( dir / program ).string();
+  std::string const file = ( dir / program ).generic_string();
   std::ifstream binary( file, std::ios::binary );
   char magic[4] = {};
   binary.read( magic, sizeof magic );
