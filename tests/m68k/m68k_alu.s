@@ -1,0 +1,57 @@
+| RUN: --m68k --cycles 6000 --mem $10000:$200
+| Arithmetic and logic of every size between registers, immediates and memory, the flags of each
+| kept by Scc and MOVE from SR; the registers stored at the end.
+	.text
+	lea	0x10000,%a5
+	lea	0x10100,%a4
+	move.l	#0x8000fffe,%d0
+	move.l	#0x7fff0001,%d1
+	move.l	#0x12345678,%d2
+	move.l	#0xfedcba98,%d3
+	add.l	%d0,%d1
+	move.w	%sr,(%a4)+
+	addx.l	%d2,%d3
+	move.w	%sr,(%a4)+
+	sub.w	%d0,%d2
+	move.w	%sr,(%a4)+
+	subx.b	%d1,%d3
+	move.w	%sr,(%a4)+
+	neg.l	%d0
+	negx.w	%d1
+	move.w	%sr,(%a4)+
+	cmp.l	%d0,%d1
+	scs	(%a4)+
+	sgt	(%a4)+
+	and.l	#0x0ff00ff0,%d2
+	or.w	#0x8001,%d3
+	eor.b	%d2,%d3
+	not.l	%d0
+	move.w	%sr,(%a4)+
+	addq.w	#7,%d0
+	subq.l	#3,%d1
+	addi.b	#0x7f,%d2
+	subi.w	#0x1234,%d3
+	cmpi.l	#0x12345678,%d2
+	seq	(%a4)+
+	clr.w	%d4
+	tst.b	%d3
+	smi	(%a4)+
+	ext.w	%d3
+	ext.l	%d3
+	swap	%d2
+	exg	%d0,%a0
+	move.l	#0x10180,%a1
+	move.l	%d2,(%a1)
+	add.l	%d1,(%a1)
+	sub.w	%d3,(%a1)+
+	and.w	%d0,(%a1)+
+	or.l	(%a1),%d5
+	addq.l	#1,(%a1)
+	neg.b	(%a1)
+	move.w	#0x0099,%d6
+	move.w	#0x0045,%d7
+	abcd	%d6,%d7
+	sbcd	%d7,%d6
+	move.w	%sr,(%a4)+
+	movem.l	%d0-%d7/%a0-%a6,(%a5)
+	stop	#0x2700

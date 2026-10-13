@@ -1,0 +1,12 @@
+# Text is LF in the tree and in every checkout, so that a Windows runner's autocrlf does not turn
+# the recorded traces into files the core's output differs from.
+* text=auto eol=lf
+
+# Recorded runs and their programs are compared byte for byte.
+tests/reference/** -text
+tests/programs/** -text
+tests/control/*.expect -text
+*.o binary
+*.bin binary
+*.lsbank binary
+*.lsmusic binary

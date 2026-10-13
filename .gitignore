@@ -1,0 +1,6 @@
+build/
+sim/obj_dir/
+__pycache__/
+.DS_Store
+.vscode/
+*.log

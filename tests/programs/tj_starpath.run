@@ -1,0 +1,8 @@
+; tj_starpath, a 256 byte intro of JaguarDemos (256/tj_starpath, read at 1954a05): the GPU clears
+; the screen, copies half of itself into the DSP's RAM and starts it, then both draw, the DSP also
+; writing samples read from Jerry's noise ROM to the I2S registers. Assembled by lyxass with
+; -D MODEL_M -D _PAL, tests/asm's jaghard.inc and help.mac in place of BJL's includes, and
+; DSP_FLAGS, DSP_PC, DSP_CTRL defined. There is no BIOS: the object list entry the intro waits on at
+; $37000 is set for its first frame.
+; PROGRAM: tj_starpath/jsp.o
+; RUN: --gpu --poke $37000=$04000000 --mem $40000:$80000 --cycles 50000

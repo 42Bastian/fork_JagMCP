@@ -1,0 +1,84 @@
+# The control protocol over JSON-lines (docs/spec/control-protocol.md), on programs of the
+# repository; lines.expect holds the answers. Paths are relative to tests/.
+# Before a load
+{"id":1,"method":"emu.status"}
+{"id":2,"method":"memory.read","params":{"address":0,"size":4}}
+{"id":3,"method":"emu.load","params":{"args":["missing.o"]}}
+# A GPU program with video: frames, a screenshot, the GPU's state and code
+{"id":4,"method":"emu.load","params":{"args":["reference/op_bitmap.o","--gpu"]}}
+{"id":5,"method":"emu.run_frames","params":{"count":2}}
+{"id":6,"method":"emu.status"}
+{"id":7,"method":"video.screenshot"}
+{"id":8,"method":"cpu.get_state"}
+{"id":9,"method":"cpu.disassemble","params":{"address":"0xf03000","count":8}}
+{"id":10,"method":"cpu.get_state","params":{"cpu":"m68k"}}
+{"id":11,"method":"emu.run_cycles","params":{"count":1000}}
+{"id":12,"method":"emu.reset"}
+{"id":13,"method":"emu.status"}
+# The 68000 starting the GPU: memory written by both, read and written back
+{"id":14,"method":"emu.load","params":{"args":["reference/m68k_gpu_start.o","--m68k"]}}
+{"id":15,"method":"cpu.get_state"}
+{"id":16,"method":"emu.run_cycles","params":{"count":10000}}
+{"id":17,"method":"cpu.get_state"}
+{"id":18,"method":"cpu.get_state","params":{"cpu":"gpu"}}
+{"id":19,"method":"cpu.disassemble","params":{"cpu":"gpu","address":"0xf03000","count":6}}
+{"id":20,"method":"memory.read","params":{"address":"0x10000","size":8}}
+{"id":21,"method":"memory.write","params":{"address":"0x10000","data_hex":"cafef00d"}}
+{"id":22,"method":"memory.read","params":{"address":"$10000","size":4}}
+{"id":23,"method":"memory.write","params":{"address":"0xf03000","data_hex":"e400"}}
+{"id":24,"method":"cpu.disassemble","params":{"cpu":"gpu","address":"0xf03000","count":1}}
+# Sound captured from a DSP program
+{"id":25,"method":"emu.load","params":{"args":["programs/tj_julia.run"]}}
+{"id":26,"method":"audio.capture_stop"}
+{"id":27,"method":"emu.run_cycles","params":{"count":2000000}}
+{"id":28,"method":"cpu.get_state","params":{"cpu":"dsp"}}
+# Breakpoints, watchpoints and the trace: the GPU alone (exact stops), then the 68000 and the GPU
+{"id":40,"method":"emu.load","params":{"args":["reference/op_bitmap.o","--gpu"]}}
+{"id":41,"method":"debug.breakpoint.add","params":{"address":"0xf0300e"}}
+{"id":42,"method":"emu.run_cycles","params":{"count":10000}}
+{"id":43,"method":"cpu.get_state"}
+{"id":44,"method":"debug.watchpoint.add","params":{"address":"0x10000","size":4}}
+{"id":45,"method":"emu.run_cycles","params":{"count":10000}}
+{"id":46,"method":"debug.trace","params":{"count":4}}
+{"id":47,"method":"emu.status"}
+{"id":48,"method":"emu.reset"}
+{"id":49,"method":"debug.breakpoint.list"}
+{"id":50,"method":"debug.watchpoint.list"}
+{"id":51,"method":"emu.load","params":{"args":["reference/m68k_gpu_start.o","--m68k"]}}
+{"id":52,"method":"debug.breakpoint.list"}
+{"id":53,"method":"debug.breakpoint.add","params":{"address":"0x4030"}}
+{"id":54,"method":"emu.run_cycles","params":{"count":10000}}
+{"id":55,"method":"debug.trace","params":{"cpu":"m68k","count":2}}
+{"id":56,"method":"debug.breakpoint.remove","params":{"address":"0x4030"}}
+{"id":57,"method":"debug.watchpoint.add","params":{"address":"0x10004","size":4,"access":"write"}}
+{"id":58,"method":"emu.run_cycles","params":{"count":10000}}
+{"id":59,"method":"emu.reset"}
+{"id":60,"method":"debug.watchpoint.remove","params":{"address":"0x10004"}}
+{"id":61,"method":"debug.breakpoint.add","params":{"cpu":"gpu","address":"0xf0300a"}}
+{"id":62,"method":"emu.run_cycles","params":{"count":10000}}
+{"id":63,"method":"emu.pause"}
+{"id":64,"method":"emu.resume"}
+# The pads, read by a 68000 program through JOYSTICK and JOYBUTS
+{"id":70,"method":"emu.load","params":{"args":["reference/m68k_joypad.o","--m68k"]}}
+{"id":71,"method":"input.set","params":{"buttons":["up","a","pause","3","star"]}}
+{"id":72,"method":"input.set","params":{"port":2,"buttons":["right","c","hash"]}}
+{"id":73,"method":"input.get_state"}
+{"id":74,"method":"emu.run_cycles","params":{"count":5000}}
+{"id":75,"method":"memory.read","params":{"address":"0x10000","size":20}}
+{"id":76,"method":"input.clear"}
+{"id":77,"method":"input.set","params":{"buttons":["select"]}}
+{"id":78,"method":"input.set","params":{"port":3,"buttons":[]}}
+{"id":79,"method":"debug.watchpoint.add","params":{"address":0,"access":"execute"}}
+# Malformed requests and errors, on a DSP program
+{"id":80,"method":"emu.load","params":{"args":["reference/abs.o"]}}
+{"id":29,"method":"memory.read","params":{"address":"0xe00000","size":2}}
+{"id":30,"method":"memory.write","params":{"address":"0x800000","data_hex":"00"}}
+{"id":31,"method":"memory.read","params":{"address":0,"size":2000000}}
+{"id":32,"method":"memory.write","params":{"address":0,"data_hex":"0"}}
+{"id":33,"method":"cpu.get_state","params":{"cpu":"z80"}}
+{"id":34,"method":"cpu.get_state","params":{"cpu":"gpu"}}
+{"id":35,"method":"emu.run_frames","params":{"count":-1}}
+{"id":36,"method":"emu.nonsense"}
+{"id":37,"method":"emu.status","params":[]}
+{"method":"emu.status"}
+not json

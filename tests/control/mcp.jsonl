@@ -1,0 +1,15 @@
+# The control protocol over MCP (docs/spec/control-protocol.md); mcp.expect holds the answers.
+{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"test","version":"0"}}}
+{"jsonrpc":"2.0","method":"notifications/initialized"}
+{"jsonrpc":"2.0","id":2,"method":"ping"}
+{"jsonrpc":"2.0","id":3,"method":"tools/list"}
+{"jsonrpc":"2.0","id":4,"method":"tools/call","params":{"name":"emu_load","arguments":{"args":["reference/op_bitmap.o","--gpu"]}}}
+{"jsonrpc":"2.0","id":5,"method":"tools/call","params":{"name":"emu_run_frames","arguments":{"count":1}}}
+{"jsonrpc":"2.0","id":6,"method":"tools/call","params":{"name":"video_screenshot","arguments":{}}}
+{"jsonrpc":"2.0","id":7,"method":"tools/call","params":{"name":"cpu_get_state","arguments":{"cpu":"dsp"}}}
+{"jsonrpc":"2.0","id":10,"method":"tools/call","params":{"name":"debug_breakpoint_add","arguments":{"address":"0xf0300e"}}}
+{"jsonrpc":"2.0","id":11,"method":"tools/call","params":{"name":"emu_run_cycles","arguments":{"count":10000}}}
+{"jsonrpc":"2.0","id":12,"method":"tools/call","params":{"name":"cpu_get_state","arguments":{"cpu":"m68k"}}}
+{"jsonrpc":"2.0","id":8,"method":"tools/call","params":{"name":"no_such_tool","arguments":{}}}
+{"jsonrpc":"2.0","id":9,"method":"no/such/method"}
+not json

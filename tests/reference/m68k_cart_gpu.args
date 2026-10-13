@@ -1,0 +1,1 @@
+--m68k --cycles 20000 --mem $30000:$100 --mem $40000:$200 --cart m68k_cart_gpu.cart

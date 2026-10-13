@@ -1,0 +1,6 @@
+finished: 0
+cycles: 20000
+dsp_cycles: 40000
+sys_cycles: 160000
+log_lines: 1250
+mem[10000:200]: 7359b12f

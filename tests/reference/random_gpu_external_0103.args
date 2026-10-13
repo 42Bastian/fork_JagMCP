@@ -1,0 +1,1 @@
+--cycles 20000 --gpu --mem $1000:$1000 --mem $2000:$1000 --mem $3000:$1000 --poke $1000=$12345678 --poke $1010=$9abcdef0 --poke $1800=$cafef00d --poke $3ff8=$0badc0de --poke $2000=$76543210 --poke $2804=$55aa33cc

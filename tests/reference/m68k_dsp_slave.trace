@@ -1,0 +1,5502 @@
+29 A(000000) r fc6
+54 D=0000
+57 A(000002) r fc6
+82 D=4000
+85 A(000004) r fc6
+110 D=00e0
+113 A(000006) r fc6
+138 D=0008
+141 A(e00008) r fc6
+166 D=33fc
+173 A(e0000a) r fc6
+198 D=1861
+201 A(e0000c) r fc6
+226 D=00f0
+229 A(e0000e) r fc6
+254 D=0000
+257 A(e00010) r fc6
+282 D=33fc
+285 A(f00000) w fc5
+294 D=1861
+297 A(e00012) r fc6
+322 D=35cc
+325 A(e00014) r fc6
+350 D=00f0
+353 A(e00016) r fc6
+378 D=0002
+381 A(e00018) r fc6
+406 D=23fc
+409 A(f00002) w fc5
+418 D=35cc
+421 A(e0001a) r fc6
+446 D=0007
+449 A(e0001c) r fc6
+474 D=0007
+477 A(e0001e) r fc6
+502 D=00f0
+505 A(e00020) r fc6
+530 D=210c
+533 A(e00022) r fc6
+558 D=23fc
+561 A(f0210c) w fc5
+570 D=0007
+573 A(f0210e) w fc5
+582 D=0007
+585 A(e00024) r fc6
+610 D=0007
+613 A(e00026) r fc6
+638 D=0007
+641 A(e00028) r fc6
+666 D=00f1
+669 A(e0002a) r fc6
+694 D=a10c
+697 A(e0002c) r fc6
+722 D=33fc
+725 A(f1a10c) w fc5
+738 D=0007
+741 A(f1a10e) w fc5
+754 D=0007
+757 A(e0002e) r fc6
+782 D=0100
+785 A(e00030) r fc6
+810 D=00f1
+813 A(e00032) r fc6
+838 D=4000
+841 A(e00034) r fc6
+866 D=4ef9
+869 A(f14000) w fc5
+882 D=0100
+885 A(e00036) r fc6
+910 D=0000
+913 A(e00038) r fc6
+938 D=4000
+941 A(004000) r fc6
+952 D=41fa
+955 A(004002) r fc6
+962 D=006e
+965 A(004004) r fc6
+972 D=43f9
+975 A(004006) r fc6
+982 D=00f1
+985 A(004008) r fc6
+992 D=b000
+995 A(00400a) r fc6
+1002 D=7011
+1005 A(00400c) r fc6
+1012 D=22d8
+1015 A(00400e) r fc6
+1022 D=51c8
+1025 A(004070) r fc5
+1032 D=8c01
+1035 A(004072) r fc5
+1042 D=8c03
+1045 A(f1b000) w fc5
+1058 D=8c01
+1061 A(f1b002) w fc5
+1074 D=8c03
+1077 A(004010) r fc6
+1084 D=fffc
+1091 A(00400c) r fc6
+1098 D=22d8
+1101 A(00400e) r fc6
+1108 D=51c8
+1111 A(004074) r fc5
+1118 D=9806
+1121 A(004076) r fc5
+1128 D=b00a
+1131 A(f1b004) w fc5
+1144 D=9806
+1147 A(f1b006) w fc5
+1160 D=b00a
+1163 A(004010) r fc6
+1170 D=fffc
+1177 A(00400c) r fc6
+1184 D=22d8
+1187 A(00400e) r fc6
+1194 D=51c8
+1197 A(004078) r fc5
+1204 D=00f1
+1207 A(00407a) r fc5
+1214 D=980e
+1217 A(f1b008) w fc5
+1230 D=00f1
+1233 A(f1b00a) w fc5
+1246 D=980e
+1249 A(004010) r fc6
+1256 D=fffc
+1263 A(00400c) r fc6
+1270 D=22d8
+1273 A(00400e) r fc6
+1280 D=51c8
+1283 A(00407c) r fc5
+1290 D=c100
+1293 A(00407e) r fc5
+1300 D=00f1
+1303 A(f1b00c) w fc5
+1316 D=c100
+1319 A(f1b00e) w fc5
+1332 D=00f1
+1335 A(004010) r fc6
+1342 D=fffc
+1349 A(00400c) r fc6
+1356 D=22d8
+1359 A(00400e) r fc6
+1366 D=51c8
+1369 A(004080) r fc5
+1376 D=9800
+1379 A(004082) r fc5
+1386 D=0100
+1389 A(f1b010) w fc5
+1402 D=9800
+1405 A(f1b012) w fc5
+1418 D=0100
+1421 A(004010) r fc6
+1428 D=fffc
+1435 A(00400c) r fc6
+1442 D=22d8
+1445 A(00400e) r fc6
+1452 D=51c8
+1455 A(004084) r fc5
+1462 D=0000
+1465 A(004086) r fc5
+1472 D=bdc1
+1475 A(f1b014) w fc5
+1488 D=0000
+1491 A(f1b016) w fc5
+1504 D=bdc1
+1507 A(004010) r fc6
+1514 D=fffc
+1521 A(00400c) r fc6
+1528 D=22d8
+1531 A(00400e) r fc6
+1538 D=51c8
+1541 A(004088) r fc5
+1548 D=188e
+1551 A(00408a) r fc5
+1558 D=1880
+1561 A(f1b018) w fc5
+1574 D=188e
+1577 A(f1b01a) w fc5
+1590 D=1880
+1593 A(004010) r fc6
+1600 D=fffc
+1607 A(00400c) r fc6
+1614 D=22d8
+1617 A(00400e) r fc6
+1624 D=51c8
+1627 A(00408c) r fc5
+1634 D=d781
+1637 A(00408e) r fc5
+1644 D=e400
+1647 A(f1b01c) w fc5
+1660 D=d781
+1663 A(f1b01e) w fc5
+1676 D=e400
+1679 A(004010) r fc6
+1686 D=fffc
+1693 A(00400c) r fc6
+1700 D=22d8
+1703 A(00400e) r fc6
+1710 D=51c8
+1713 A(004090) r fc5
+1720 D=0823
+1723 A(004092) r fc5
+1730 D=9802
+1733 A(f1b020) w fc5
+1746 D=0823
+1749 A(f1b022) w fc5
+1762 D=9802
+1765 A(004010) r fc6
+1772 D=fffc
+1779 A(00400c) r fc6
+1786 D=22d8
+1789 A(00400e) r fc6
+1796 D=51c8
+1799 A(004094) r fc5
+1806 D=c200
+1809 A(004096) r fc5
+1816 D=00f1
+1819 A(f1b024) w fc5
+1832 D=c200
+1835 A(f1b026) w fc5
+1848 D=00f1
+1851 A(004010) r fc6
+1858 D=fffc
+1865 A(00400c) r fc6
+1872 D=22d8
+1875 A(00400e) r fc6
+1882 D=51c8
+1885 A(004098) r fc5
+1892 D=a444
+1895 A(00409a) r fc5
+1902 D=7c04
+1905 A(f1b028) w fc5
+1918 D=a444
+1921 A(f1b02a) w fc5
+1934 D=7c04
+1937 A(004010) r fc6
+1944 D=fffc
+1951 A(00400c) r fc6
+1958 D=22d8
+1961 A(00400e) r fc6
+1968 D=51c8
+1971 A(00409c) r fc5
+1978 D=d0c2
+1981 A(00409e) r fc5
+1988 D=e400
+1991 A(f1b02c) w fc5
+2004 D=d0c2
+2007 A(f1b02e) w fc5
+2020 D=e400
+2023 A(004010) r fc6
+2030 D=fffc
+2037 A(00400c) r fc6
+2044 D=22d8
+2047 A(00400e) r fc6
+2054 D=51c8
+2057 A(0040a0) r fc5
+2064 D=9804
+2067 A(0040a2) r fc5
+2074 D=0000
+2077 A(f1b030) w fc5
+2090 D=9804
+2093 A(f1b032) w fc5
+2106 D=0000
+2109 A(004010) r fc6
+2116 D=fffc
+2123 A(00400c) r fc6
+2130 D=22d8
+2133 A(00400e) r fc6
+2140 D=51c8
+2143 A(0040a4) r fc5
+2150 D=0003
+2153 A(0040a6) r fc5
+2160 D=bc83
+2163 A(f1b034) w fc5
+2176 D=0003
+2179 A(f1b036) w fc5
+2192 D=bc83
+2195 A(004010) r fc6
+2202 D=fffc
+2209 A(00400c) r fc6
+2216 D=22d8
+2219 A(00400e) r fc6
+2226 D=51c8
+2229 A(0040a8) r fc5
+2236 D=9804
+2239 A(0040aa) r fc5
+2246 D=a114
+2249 A(f1b038) w fc5
+2262 D=9804
+2265 A(f1b03a) w fc5
+2278 D=a114
+2281 A(004010) r fc6
+2288 D=fffc
+2295 A(00400c) r fc6
+2302 D=22d8
+2305 A(00400e) r fc6
+2312 D=51c8
+2315 A(0040ac) r fc5
+2322 D=00f1
+2325 A(0040ae) r fc5
+2332 D=8c05
+2335 A(f1b03c) w fc5
+2348 D=00f1
+2351 A(f1b03e) w fc5
+2364 D=8c05
+2367 A(004010) r fc6
+2374 D=fffc
+2381 A(00400c) r fc6
+2388 D=22d8
+2391 A(00400e) r fc6
+2398 D=51c8
+2401 A(0040b0) r fc5
+2408 D=bc85
+2411 A(0040b2) r fc5
+2418 D=e400
+2421 A(f1b040) w fc5
+2434 D=bc85
+2437 A(f1b042) w fc5
+2450 D=e400
+2453 A(004010) r fc6
+2460 D=fffc
+2467 A(00400c) r fc6
+2474 D=22d8
+2477 A(00400e) r fc6
+2484 D=51c8
+2487 A(0040b4) r fc5
+2494 D=e400
+2497 A(0040b6) r fc5
+2504 D=0000
+2507 A(f1b044) w fc5
+2520 D=e400
+2523 A(f1b046) w fc5
+2536 D=0000
+2539 A(004010) r fc6
+2546 D=fffc
+2553 A(00400c) r fc6
+2560 D=22d8
+2563 A(004012) r fc6
+2570 D=23fc
+2573 A(004014) r fc6
+2580 D=0000
+2583 A(004016) r fc6
+2590 D=0000
+2593 A(004018) r fc6
+2600 D=00f1
+2603 A(00401a) r fc6
+2610 D=c200
+2613 A(00401c) r fc6
+2620 D=23fc
+2623 A(f1c200) w fc5
+2636 D=0000
+2639 A(f1c202) w fc5
+2652 D=0000
+2655 A(00401e) r fc6
+2662 D=00f1
+2665 A(004020) r fc6
+2672 D=b000
+2675 A(004022) r fc6
+2682 D=00f1
+2685 A(004024) r fc6
+2692 D=a110
+2695 A(004026) r fc6
+2702 D=23fc
+2705 A(f1a110) w fc5
+2718 D=00f1
+2721 A(f1a112) w fc5
+2734 D=b000
+2737 A(004028) r fc6
+2744 D=0000
+2747 A(00402a) r fc6
+2754 D=0001
+2757 A(00402c) r fc6
+2764 D=00f1
+2767 A(00402e) r fc6
+2774 D=a114
+2777 A(004030) r fc6
+2784 D=45f9
+2787 A(f1a114) w fc5
+2800 D=0000
+2803 A(f1a116) w fc5
+2814 dsp:X f1b000
+2815 dsp:X f1b002
+2815 dsp:W01':00000000 A
+2816 dsp:X f1b004
+2816 dsp:W03':00000000 B
+2816 D=0001
+2818 dsp:W06':00f1b00a B
+2819 dsp:X f1b00a
+2819 A(004032) r fc6
+2821 dsp:W14':00f1c100 B
+2822 dsp:X f1b010
+2824 dsp:W00':00000100 B
+2825 dsp:X f1b016
+2826 dsp:X f1b018
+2826 D=0003
+2827 dsp:X f1b01a
+2828 dsp:W14':00f1c0fc B
+2829 dsp:X f1b01c
+2829 dsp:W00':000000fc B
+2829 A(004034) r fc6
+2830 dsp:X f1b01e
+2834 dsp:X f1b016
+2835 dsp:X f1b018
+2836 dsp:X f1b01a
+2836 D=0004
+2837 dsp:W14':00f1c0f8 B
+2838 dsp:X f1b01c
+2838 dsp:W00':000000f8 B
+2839 dsp:X f1b01e
+2839 A(004036) r fc6
+2843 dsp:X f1b016
+2844 dsp:X f1b018
+2845 dsp:X f1b01a
+2846 dsp:W14':00f1c0f4 B
+2846 D=7e0b
+2847 dsp:X f1b01c
+2847 dsp:W00':000000f4 B
+2848 dsp:X f1b01e
+2849 A(004038) r fc6
+2852 dsp:X f1b016
+2853 dsp:X f1b018
+2854 dsp:X f1b01a
+2855 dsp:W14':00f1c0f0 B
+2856 dsp:X f1b01c
+2856 dsp:W00':000000f0 B
+2856 D=1039
+2857 dsp:X f1b01e
+2859 A(00403a) r fc6
+2861 dsp:X f1b016
+2862 dsp:X f1b018
+2863 dsp:X f1b01a
+2864 dsp:W14':00f1c0ec B
+2865 dsp:X f1b01c
+2865 dsp:W00':000000ec B
+2866 dsp:X f1b01e
+2866 D=00f1
+2869 A(00403c) r fc6
+2870 dsp:X f1b016
+2871 dsp:X f1b018
+2872 dsp:X f1b01a
+2873 dsp:W14':00f1c0e8 B
+2874 dsp:X f1b01c
+2874 dsp:W00':000000e8 B
+2875 dsp:X f1b01e
+2876 D=c0f0
+2879 dsp:X f1b016
+2879 A(00403e) r fc6
+2880 dsp:X f1b018
+2881 dsp:X f1b01a
+2882 dsp:W14':00f1c0e4 B
+2883 dsp:X f1b01c
+2883 dsp:W00':000000e4 B
+2884 dsp:X f1b01e
+2886 D=3207
+2888 dsp:X f1b016
+2889 dsp:X f1b018
+2889 A(f1c0f0) r fc5
+2890 dsp:X f1b01a
+2891 dsp:W14':00f1c0e0 B
+2892 dsp:X f1b01c
+2892 dsp:W00':000000e0 B
+2893 dsp:X f1b01e
+2897 dsp:X f1b016
+2898 dsp:X f1b018
+2899 dsp:X f1b01a
+2900 dsp:W14':00f1c0dc B
+2900 D=00--
+2901 dsp:X f1b01c
+2901 dsp:W00':000000dc B
+2902 dsp:X f1b01e
+2903 A(004040) r fc6
+2906 dsp:X f1b016
+2907 dsp:X f1b018
+2908 dsp:X f1b01a
+2909 dsp:W14':00f1c0d8 B
+2910 dsp:X f1b01c
+2910 dsp:W00':000000d8 B
+2910 D=51c9
+2911 dsp:X f1b01e
+2913 A(004042) r fc6
+2915 dsp:X f1b016
+2916 dsp:X f1b018
+2917 dsp:X f1b01a
+2918 dsp:W14':00f1c0d4 B
+2919 dsp:X f1b01c
+2919 dsp:W00':000000d4 B
+2920 dsp:X f1b01e
+2920 D=fffe
+2924 dsp:X f1b016
+2925 dsp:X f1b018
+2926 dsp:X f1b01a
+2927 dsp:W14':00f1c0d0 B
+2927 A(004040) r fc6
+2928 dsp:X f1b01c
+2928 dsp:W00':000000d0 B
+2929 dsp:X f1b01e
+2933 dsp:X f1b016
+2934 dsp:X f1b018
+2934 D=51c9
+2935 dsp:X f1b01a
+2936 dsp:W14':00f1c0cc B
+2937 dsp:X f1b01c
+2937 dsp:W00':000000cc B
+2937 A(004042) r fc6
+2938 dsp:X f1b01e
+2942 dsp:X f1b016
+2943 dsp:X f1b018
+2944 dsp:X f1b01a
+2944 D=fffe
+2945 dsp:W14':00f1c0c8 B
+2946 dsp:X f1b01c
+2946 dsp:W00':000000c8 B
+2947 dsp:X f1b01e
+2951 dsp:X f1b016
+2951 A(004040) r fc6
+2952 dsp:X f1b018
+2953 dsp:X f1b01a
+2954 dsp:W14':00f1c0c4 B
+2955 dsp:X f1b01c
+2955 dsp:W00':000000c4 B
+2956 dsp:X f1b01e
+2958 D=51c9
+2960 dsp:X f1b016
+2961 dsp:X f1b018
+2961 A(004042) r fc6
+2962 dsp:X f1b01a
+2963 dsp:W14':00f1c0c0 B
+2964 dsp:X f1b01c
+2964 dsp:W00':000000c0 B
+2965 dsp:X f1b01e
+2968 D=fffe
+2969 dsp:X f1b016
+2970 dsp:X f1b018
+2971 dsp:X f1b01a
+2972 dsp:W14':00f1c0bc B
+2973 dsp:X f1b01c
+2973 dsp:W00':000000bc B
+2974 dsp:X f1b01e
+2975 A(004040) r fc6
+2978 dsp:X f1b016
+2979 dsp:X f1b018
+2980 dsp:X f1b01a
+2981 dsp:W14':00f1c0b8 B
+2982 dsp:X f1b01c
+2982 dsp:W00':000000b8 B
+2982 D=51c9
+2983 dsp:X f1b01e
+2985 A(004042) r fc6
+2987 dsp:X f1b016
+2988 dsp:X f1b018
+2989 dsp:X f1b01a
+2990 dsp:W14':00f1c0b4 B
+2991 dsp:X f1b01c
+2991 dsp:W00':000000b4 B
+2992 dsp:X f1b01e
+2992 D=fffe
+2996 dsp:X f1b016
+2997 dsp:X f1b018
+2998 dsp:X f1b01a
+2999 dsp:W14':00f1c0b0 B
+2999 A(004040) r fc6
+3000 dsp:X f1b01c
+3000 dsp:W00':000000b0 B
+3001 dsp:X f1b01e
+3005 dsp:X f1b016
+3006 dsp:X f1b018
+3006 D=51c9
+3007 dsp:X f1b01a
+3008 dsp:W14':00f1c0ac B
+3009 dsp:X f1b01c
+3009 dsp:W00':000000ac B
+3009 A(004042) r fc6
+3010 dsp:X f1b01e
+3014 dsp:X f1b016
+3015 dsp:X f1b018
+3016 dsp:X f1b01a
+3016 D=fffe
+3017 dsp:W14':00f1c0a8 B
+3018 dsp:X f1b01c
+3018 dsp:W00':000000a8 B
+3019 dsp:X f1b01e
+3023 dsp:X f1b016
+3023 A(004040) r fc6
+3024 dsp:X f1b018
+3025 dsp:X f1b01a
+3026 dsp:W14':00f1c0a4 B
+3027 dsp:X f1b01c
+3027 dsp:W00':000000a4 B
+3028 dsp:X f1b01e
+3030 D=51c9
+3032 dsp:X f1b016
+3033 dsp:X f1b018
+3033 A(004042) r fc6
+3034 dsp:X f1b01a
+3035 dsp:W14':00f1c0a0 B
+3036 dsp:X f1b01c
+3036 dsp:W00':000000a0 B
+3037 dsp:X f1b01e
+3040 D=fffe
+3041 dsp:X f1b016
+3042 dsp:X f1b018
+3043 dsp:X f1b01a
+3044 dsp:W14':00f1c09c B
+3045 dsp:X f1b01c
+3045 dsp:W00':0000009c B
+3046 dsp:X f1b01e
+3047 A(004040) r fc6
+3050 dsp:X f1b016
+3051 dsp:X f1b018
+3052 dsp:X f1b01a
+3053 dsp:W14':00f1c098 B
+3054 dsp:X f1b01c
+3054 dsp:W00':00000098 B
+3054 D=51c9
+3055 dsp:X f1b01e
+3057 A(004042) r fc6
+3059 dsp:X f1b016
+3060 dsp:X f1b018
+3061 dsp:X f1b01a
+3062 dsp:W14':00f1c094 B
+3063 dsp:X f1b01c
+3063 dsp:W00':00000094 B
+3064 dsp:X f1b01e
+3064 D=fffe
+3068 dsp:X f1b016
+3069 dsp:X f1b018
+3070 dsp:X f1b01a
+3071 dsp:W14':00f1c090 B
+3071 A(004040) r fc6
+3072 dsp:X f1b01c
+3072 dsp:W00':00000090 B
+3073 dsp:X f1b01e
+3077 dsp:X f1b016
+3078 dsp:X f1b018
+3078 D=51c9
+3079 dsp:X f1b01a
+3080 dsp:W14':00f1c08c B
+3081 dsp:X f1b01c
+3081 dsp:W00':0000008c B
+3081 A(004042) r fc6
+3082 dsp:X f1b01e
+3086 dsp:X f1b016
+3087 dsp:X f1b018
+3088 dsp:X f1b01a
+3088 D=fffe
+3089 dsp:W14':00f1c088 B
+3090 dsp:X f1b01c
+3090 dsp:W00':00000088 B
+3091 dsp:X f1b01e
+3095 dsp:X f1b016
+3095 A(004040) r fc6
+3096 dsp:X f1b018
+3097 dsp:X f1b01a
+3098 dsp:W14':00f1c084 B
+3099 dsp:X f1b01c
+3099 dsp:W00':00000084 B
+3100 dsp:X f1b01e
+3102 D=51c9
+3104 dsp:X f1b016
+3105 dsp:X f1b018
+3105 A(004042) r fc6
+3106 dsp:X f1b01a
+3107 dsp:W14':00f1c080 B
+3108 dsp:X f1b01c
+3108 dsp:W00':00000080 B
+3109 dsp:X f1b01e
+3112 D=fffe
+3113 dsp:X f1b016
+3114 dsp:X f1b018
+3115 dsp:X f1b01a
+3116 dsp:W14':00f1c07c B
+3117 dsp:X f1b01c
+3117 dsp:W00':0000007c B
+3118 dsp:X f1b01e
+3119 A(004040) r fc6
+3122 dsp:X f1b016
+3123 dsp:X f1b018
+3124 dsp:X f1b01a
+3125 dsp:W14':00f1c078 B
+3126 dsp:X f1b01c
+3126 dsp:W00':00000078 B
+3126 D=51c9
+3127 dsp:X f1b01e
+3129 A(004042) r fc6
+3131 dsp:X f1b016
+3132 dsp:X f1b018
+3133 dsp:X f1b01a
+3134 dsp:W14':00f1c074 B
+3135 dsp:X f1b01c
+3135 dsp:W00':00000074 B
+3136 dsp:X f1b01e
+3136 D=fffe
+3140 dsp:X f1b016
+3141 dsp:X f1b018
+3142 dsp:X f1b01a
+3143 dsp:W14':00f1c070 B
+3143 A(004040) r fc6
+3144 dsp:X f1b01c
+3144 dsp:W00':00000070 B
+3145 dsp:X f1b01e
+3149 dsp:X f1b016
+3150 dsp:X f1b018
+3151 dsp:X f1b01a
+3152 dsp:W14':00f1c06c B
+3153 dsp:X f1b01c
+3153 dsp:W00':0000006c B
+3154 dsp:X f1b01e
+3158 dsp:X f1b016
+3159 dsp:X f1b018
+3160 dsp:X f1b01a
+3161 dsp:W14':00f1c068 B
+3162 dsp:X f1b01c
+3162 dsp:W00':00000068 B
+3163 dsp:X f1b01e
+3167 dsp:X f1b016
+3168 dsp:X f1b018
+3169 dsp:X f1b01a
+3170 dsp:W14':00f1c064 B
+3171 dsp:X f1b01c
+3171 dsp:W00':00000064 B
+3172 dsp:X f1b01e
+3176 dsp:X f1b016
+3177 dsp:X f1b018
+3178 dsp:X f1b01a
+3179 dsp:W14':00f1c060 B
+3180 dsp:X f1b01c
+3180 dsp:W00':00000060 B
+3181 dsp:X f1b01e
+3185 dsp:X f1b016
+3186 dsp:X f1b018
+3187 dsp:X f1b01a
+3188 dsp:W14':00f1c05c B
+3189 dsp:X f1b01c
+3189 dsp:W00':0000005c B
+3190 dsp:X f1b01e
+3192 D=51c9
+3194 dsp:X f1b016
+3195 dsp:X f1b018
+3195 A(004042) r fc6
+3196 dsp:X f1b01a
+3197 dsp:W14':00f1c058 B
+3198 dsp:X f1b01c
+3198 dsp:W00':00000058 B
+3199 dsp:X f1b01e
+3202 D=fffe
+3203 dsp:X f1b016
+3204 dsp:X f1b018
+3205 dsp:X f1b01a
+3206 dsp:W14':00f1c054 B
+3207 dsp:X f1b01c
+3207 dsp:W00':00000054 B
+3208 dsp:X f1b01e
+3209 A(004040) r fc6
+3212 dsp:X f1b016
+3213 dsp:X f1b018
+3214 dsp:X f1b01a
+3215 dsp:W14':00f1c050 B
+3216 dsp:X f1b01c
+3216 dsp:W00':00000050 B
+3216 D=51c9
+3217 dsp:X f1b01e
+3219 A(004042) r fc6
+3221 dsp:X f1b016
+3222 dsp:X f1b018
+3223 dsp:X f1b01a
+3224 dsp:W14':00f1c04c B
+3225 dsp:X f1b01c
+3225 dsp:W00':0000004c B
+3226 dsp:X f1b01e
+3226 D=fffe
+3230 dsp:X f1b016
+3231 dsp:X f1b018
+3232 dsp:X f1b01a
+3233 dsp:W14':00f1c048 B
+3233 A(004040) r fc6
+3234 dsp:X f1b01c
+3234 dsp:W00':00000048 B
+3235 dsp:X f1b01e
+3239 dsp:X f1b016
+3240 dsp:X f1b018
+3240 D=51c9
+3241 dsp:X f1b01a
+3242 dsp:W14':00f1c044 B
+3243 dsp:X f1b01c
+3243 dsp:W00':00000044 B
+3243 A(004044) r fc6
+3244 dsp:X f1b01e
+3248 dsp:X f1b016
+3249 dsp:X f1b018
+3250 dsp:X f1b01a
+3250 D=3039
+3251 dsp:W14':00f1c040 B
+3252 dsp:X f1b01c
+3252 dsp:W00':00000040 B
+3253 dsp:X f1b01e
+3253 A(004046) r fc6
+3257 dsp:X f1b016
+3258 dsp:X f1b018
+3259 dsp:X f1b01a
+3260 dsp:W14':00f1c03c B
+3260 D=00f1
+3261 dsp:X f1b01c
+3261 dsp:W00':0000003c B
+3262 dsp:X f1b01e
+3263 A(004048) r fc6
+3266 dsp:X f1b016
+3267 dsp:X f1b018
+3268 dsp:X f1b01a
+3269 dsp:W14':00f1c038 B
+3270 dsp:X f1b01c
+3270 dsp:W00':00000038 B
+3270 D=c0f4
+3271 dsp:X f1b01e
+3273 A(00404a) r fc6
+3275 dsp:X f1b016
+3276 dsp:X f1b018
+3277 dsp:X f1b01a
+3278 dsp:W14':00f1c034 B
+3279 dsp:X f1b01c
+3279 dsp:W00':00000034 B
+3280 dsp:X f1b01e
+3280 D=2039
+3283 A(f1c0f4) r fc5
+3284 dsp:X f1b016
+3285 dsp:X f1b018
+3286 dsp:X f1b01a
+3287 dsp:W14':00f1c030 B
+3288 dsp:X f1b01c
+3288 dsp:W00':00000030 B
+3289 dsp:X f1b01e
+3293 dsp:X f1b016
+3294 dsp:X f1b018
+3294 D=0000
+3295 dsp:X f1b01a
+3296 dsp:W14':00f1c02c B
+3297 dsp:X f1b01c
+3297 dsp:W00':0000002c B
+3297 A(00404c) r fc6
+3298 dsp:X f1b01e
+3302 dsp:X f1b016
+3303 dsp:X f1b018
+3304 dsp:X f1b01a
+3304 D=00f1
+3305 dsp:W14':00f1c028 B
+3306 dsp:X f1b01c
+3306 dsp:W00':00000028 B
+3307 dsp:X f1b01e
+3307 A(00404e) r fc6
+3311 dsp:X f1b016
+3312 dsp:X f1b018
+3313 dsp:X f1b01a
+3314 dsp:W14':00f1c024 B
+3314 D=c0f8
+3315 dsp:X f1b01c
+3315 dsp:W00':00000024 B
+3316 dsp:X f1b01e
+3317 A(004050) r fc6
+3320 dsp:X f1b016
+3321 dsp:X f1b018
+3322 dsp:X f1b01a
+3323 dsp:W14':00f1c020 B
+3324 dsp:X f1b01c
+3324 dsp:W00':00000020 B
+3324 D=2039
+3325 dsp:X f1b01e
+3327 A(f1c0f8) r fc5
+3329 dsp:X f1b016
+3330 dsp:X f1b018
+3331 dsp:X f1b01a
+3332 dsp:W14':00f1c01c B
+3333 dsp:X f1b01c
+3333 dsp:W00':0000001c B
+3334 dsp:X f1b01e
+3338 dsp:X f1b016
+3338 D=0000
+3339 dsp:X f1b018
+3340 dsp:X f1b01a
+3341 dsp:W14':00f1c018 B
+3341 A(f1c0fa) r fc5
+3342 dsp:X f1b01c
+3342 dsp:W00':00000018 B
+3343 dsp:X f1b01e
+3347 dsp:X f1b016
+3348 dsp:X f1b018
+3349 dsp:X f1b01a
+3350 dsp:W14':00f1c014 B
+3351 dsp:X f1b01c
+3351 dsp:W00':00000014 B
+3352 dsp:X f1b01e
+3352 D=0000
+3355 A(004052) r fc6
+3356 dsp:X f1b016
+3357 dsp:X f1b018
+3358 dsp:X f1b01a
+3359 dsp:W14':00f1c010 B
+3360 dsp:X f1b01c
+3360 dsp:W00':00000010 B
+3361 dsp:X f1b01e
+3362 D=00f1
+3365 dsp:X f1b016
+3365 A(004054) r fc6
+3366 dsp:X f1b018
+3367 dsp:X f1b01a
+3368 dsp:W14':00f1c00c B
+3369 dsp:X f1b01c
+3369 dsp:W00':0000000c B
+3370 dsp:X f1b01e
+3372 D=a114
+3374 dsp:X f1b016
+3375 dsp:X f1b018
+3375 A(004056) r fc6
+3376 dsp:X f1b01a
+3377 dsp:W14':00f1c008 B
+3378 dsp:X f1b01c
+3378 dsp:W00':00000008 B
+3379 dsp:X f1b01e
+3382 D=51cf
+3383 dsp:X f1b016
+3384 dsp:X f1b018
+3385 dsp:X f1b01a
+3385 A(f1a114) r fc5
+3386 dsp:W14':00f1c004 B
+3387 dsp:X f1b01c
+3387 dsp:W00':00000004 B
+3388 dsp:X f1b01e
+3393 dsp:X f1b016
+3394 dsp:X f1b018
+3395 dsp:X f1b01a
+3396 dsp:W14':00f1c000 B
+3396 D=2038
+3397 dsp:F --Z
+3397 dsp:X f1b01c
+3397 dsp:W00':00000000 B
+3398 dsp:X f1b01e
+3399 dsp:X f1b020
+3399 A(f1a116) r fc5
+3400 dsp:X f1b022
+3401 dsp:F ---
+3401 dsp:W03':00000001 B
+3402 dsp:W02':00f1c200 B
+3403 dsp:X f1b028
+3405 dsp:X f1b02a
+3405 dsp:W04':00000000 B
+3407 dsp:F --Z
+3407 dsp:X f1b02c
+3408 dsp:X f1b008
+3410 D=2001
+3411 dsp:X f1b00a
+3413 dsp:W14':00f1c100 B
+3413 A(004058) r fc6
+3414 dsp:X f1b010
+3416 dsp:W00':00000100 B
+3417 dsp:X f1b016
+3418 dsp:X f1b018
+3419 dsp:X f1b01a
+3420 dsp:F ---
+3420 dsp:W14':00f1c0fc B
+3420 D=ffe0
+3421 dsp:X f1b01c
+3421 dsp:W00':000000fc B
+3422 dsp:X f1b01e
+3426 dsp:X f1b016
+3427 dsp:X f1b018
+3427 A(004038) r fc6
+3428 dsp:X f1b01a
+3429 dsp:W14':00f1c0f8 B
+3430 dsp:X f1b01c
+3430 dsp:W00':000000f8 B
+3431 dsp:X f1b01e
+3434 D=1039
+3435 dsp:X f1b016
+3436 dsp:X f1b018
+3437 dsp:X f1b01a
+3437 A(00403a) r fc6
+3438 dsp:W14':00f1c0f4 B
+3439 dsp:X f1b01c
+3439 dsp:W00':000000f4 B
+3440 dsp:X f1b01e
+3444 dsp:X f1b016
+3444 D=00f1
+3445 dsp:X f1b018
+3446 dsp:X f1b01a
+3447 dsp:W14':00f1c0f0 B
+3447 A(00403c) r fc6
+3448 dsp:X f1b01c
+3448 dsp:W00':000000f0 B
+3449 dsp:X f1b01e
+3453 dsp:X f1b016
+3454 dsp:X f1b018
+3454 D=c0f0
+3455 dsp:X f1b01a
+3456 dsp:W14':00f1c0ec B
+3457 dsp:X f1b01c
+3457 dsp:W00':000000ec B
+3457 A(00403e) r fc6
+3458 dsp:X f1b01e
+3462 dsp:X f1b016
+3463 dsp:X f1b018
+3464 dsp:X f1b01a
+3464 D=3207
+3465 dsp:W14':00f1c0e8 B
+3466 dsp:X f1b01c
+3466 dsp:W00':000000e8 B
+3467 dsp:X f1b01e
+3467 A(f1c0f0) r fc5
+3471 dsp:X f1b016
+3472 dsp:X f1b018
+3473 dsp:X f1b01a
+3474 dsp:W14':00f1c0e4 B
+3475 dsp:X f1b01c
+3475 dsp:W00':000000e4 B
+3476 dsp:X f1b01e
+3478 D=00--
+3480 dsp:X f1b016
+3481 dsp:X f1b018
+3481 A(004040) r fc6
+3482 dsp:X f1b01a
+3483 dsp:W14':00f1c0e0 B
+3484 dsp:X f1b01c
+3484 dsp:W00':000000e0 B
+3485 dsp:X f1b01e
+3488 D=51c9
+3489 dsp:X f1b016
+3490 dsp:X f1b018
+3491 dsp:X f1b01a
+3491 A(004042) r fc6
+3492 dsp:W14':00f1c0dc B
+3493 dsp:X f1b01c
+3493 dsp:W00':000000dc B
+3494 dsp:X f1b01e
+3498 dsp:X f1b016
+3498 D=fffe
+3499 dsp:X f1b018
+3500 dsp:X f1b01a
+3501 dsp:W14':00f1c0d8 B
+3502 dsp:X f1b01c
+3502 dsp:W00':000000d8 B
+3503 dsp:X f1b01e
+3505 A(004040) r fc6
+3507 dsp:X f1b016
+3508 dsp:X f1b018
+3509 dsp:X f1b01a
+3510 dsp:W14':00f1c0d4 B
+3511 dsp:X f1b01c
+3511 dsp:W00':000000d4 B
+3512 dsp:X f1b01e
+3512 D=51c9
+3515 A(004042) r fc6
+3516 dsp:X f1b016
+3517 dsp:X f1b018
+3518 dsp:X f1b01a
+3519 dsp:W14':00f1c0d0 B
+3520 dsp:X f1b01c
+3520 dsp:W00':000000d0 B
+3521 dsp:X f1b01e
+3522 D=fffe
+3525 dsp:X f1b016
+3526 dsp:X f1b018
+3527 dsp:X f1b01a
+3528 dsp:W14':00f1c0cc B
+3529 dsp:X f1b01c
+3529 dsp:W00':000000cc B
+3529 A(004040) r fc6
+3530 dsp:X f1b01e
+3534 dsp:X f1b016
+3535 dsp:X f1b018
+3536 dsp:X f1b01a
+3536 D=51c9
+3537 dsp:W14':00f1c0c8 B
+3538 dsp:X f1b01c
+3538 dsp:W00':000000c8 B
+3539 dsp:X f1b01e
+3539 A(004042) r fc6
+3543 dsp:X f1b016
+3544 dsp:X f1b018
+3545 dsp:X f1b01a
+3546 dsp:W14':00f1c0c4 B
+3546 D=fffe
+3547 dsp:X f1b01c
+3547 dsp:W00':000000c4 B
+3548 dsp:X f1b01e
+3552 dsp:X f1b016
+3553 dsp:X f1b018
+3553 A(004040) r fc6
+3554 dsp:X f1b01a
+3555 dsp:W14':00f1c0c0 B
+3556 dsp:X f1b01c
+3556 dsp:W00':000000c0 B
+3557 dsp:X f1b01e
+3560 D=51c9
+3561 dsp:X f1b016
+3562 dsp:X f1b018
+3563 dsp:X f1b01a
+3563 A(004042) r fc6
+3564 dsp:W14':00f1c0bc B
+3565 dsp:X f1b01c
+3565 dsp:W00':000000bc B
+3566 dsp:X f1b01e
+3570 dsp:X f1b016
+3570 D=fffe
+3571 dsp:X f1b018
+3572 dsp:X f1b01a
+3573 dsp:W14':00f1c0b8 B
+3574 dsp:X f1b01c
+3574 dsp:W00':000000b8 B
+3575 dsp:X f1b01e
+3577 A(004040) r fc6
+3579 dsp:X f1b016
+3580 dsp:X f1b018
+3581 dsp:X f1b01a
+3582 dsp:W14':00f1c0b4 B
+3583 dsp:X f1b01c
+3583 dsp:W00':000000b4 B
+3584 dsp:X f1b01e
+3584 D=51c9
+3587 A(004042) r fc6
+3588 dsp:X f1b016
+3589 dsp:X f1b018
+3590 dsp:X f1b01a
+3591 dsp:W14':00f1c0b0 B
+3592 dsp:X f1b01c
+3592 dsp:W00':000000b0 B
+3593 dsp:X f1b01e
+3594 D=fffe
+3597 dsp:X f1b016
+3598 dsp:X f1b018
+3599 dsp:X f1b01a
+3600 dsp:W14':00f1c0ac B
+3601 dsp:X f1b01c
+3601 dsp:W00':000000ac B
+3601 A(004040) r fc6
+3602 dsp:X f1b01e
+3606 dsp:X f1b016
+3607 dsp:X f1b018
+3608 dsp:X f1b01a
+3608 D=51c9
+3609 dsp:W14':00f1c0a8 B
+3610 dsp:X f1b01c
+3610 dsp:W00':000000a8 B
+3611 dsp:X f1b01e
+3611 A(004042) r fc6
+3615 dsp:X f1b016
+3616 dsp:X f1b018
+3617 dsp:X f1b01a
+3618 dsp:W14':00f1c0a4 B
+3618 D=fffe
+3619 dsp:X f1b01c
+3619 dsp:W00':000000a4 B
+3620 dsp:X f1b01e
+3624 dsp:X f1b016
+3625 dsp:X f1b018
+3625 A(004040) r fc6
+3626 dsp:X f1b01a
+3627 dsp:W14':00f1c0a0 B
+3628 dsp:X f1b01c
+3628 dsp:W00':000000a0 B
+3629 dsp:X f1b01e
+3632 D=51c9
+3633 dsp:X f1b016
+3634 dsp:X f1b018
+3635 dsp:X f1b01a
+3635 A(004042) r fc6
+3636 dsp:W14':00f1c09c B
+3637 dsp:X f1b01c
+3637 dsp:W00':0000009c B
+3638 dsp:X f1b01e
+3642 dsp:X f1b016
+3642 D=fffe
+3643 dsp:X f1b018
+3644 dsp:X f1b01a
+3645 dsp:W14':00f1c098 B
+3646 dsp:X f1b01c
+3646 dsp:W00':00000098 B
+3647 dsp:X f1b01e
+3649 A(004040) r fc6
+3651 dsp:X f1b016
+3652 dsp:X f1b018
+3653 dsp:X f1b01a
+3654 dsp:W14':00f1c094 B
+3655 dsp:X f1b01c
+3655 dsp:W00':00000094 B
+3656 dsp:X f1b01e
+3656 D=51c9
+3659 A(004042) r fc6
+3660 dsp:X f1b016
+3661 dsp:X f1b018
+3662 dsp:X f1b01a
+3663 dsp:W14':00f1c090 B
+3664 dsp:X f1b01c
+3664 dsp:W00':00000090 B
+3665 dsp:X f1b01e
+3666 D=fffe
+3669 dsp:X f1b016
+3670 dsp:X f1b018
+3671 dsp:X f1b01a
+3672 dsp:W14':00f1c08c B
+3673 dsp:X f1b01c
+3673 dsp:W00':0000008c B
+3673 A(004040) r fc6
+3674 dsp:X f1b01e
+3678 dsp:X f1b016
+3679 dsp:X f1b018
+3680 dsp:X f1b01a
+3680 D=51c9
+3681 dsp:W14':00f1c088 B
+3682 dsp:X f1b01c
+3682 dsp:W00':00000088 B
+3683 dsp:X f1b01e
+3683 A(004042) r fc6
+3687 dsp:X f1b016
+3688 dsp:X f1b018
+3689 dsp:X f1b01a
+3690 dsp:W14':00f1c084 B
+3690 D=fffe
+3691 dsp:X f1b01c
+3691 dsp:W00':00000084 B
+3692 dsp:X f1b01e
+3696 dsp:X f1b016
+3697 dsp:X f1b018
+3697 A(004040) r fc6
+3698 dsp:X f1b01a
+3699 dsp:W14':00f1c080 B
+3700 dsp:X f1b01c
+3700 dsp:W00':00000080 B
+3701 dsp:X f1b01e
+3704 D=51c9
+3705 dsp:X f1b016
+3706 dsp:X f1b018
+3707 dsp:X f1b01a
+3707 A(004042) r fc6
+3708 dsp:W14':00f1c07c B
+3709 dsp:X f1b01c
+3709 dsp:W00':0000007c B
+3710 dsp:X f1b01e
+3714 dsp:X f1b016
+3714 D=fffe
+3715 dsp:X f1b018
+3716 dsp:X f1b01a
+3717 dsp:W14':00f1c078 B
+3718 dsp:X f1b01c
+3718 dsp:W00':00000078 B
+3719 dsp:X f1b01e
+3721 A(004040) r fc6
+3723 dsp:X f1b016
+3724 dsp:X f1b018
+3725 dsp:X f1b01a
+3726 dsp:W14':00f1c074 B
+3727 dsp:X f1b01c
+3727 dsp:W00':00000074 B
+3728 dsp:X f1b01e
+3728 D=51c9
+3731 A(004042) r fc6
+3732 dsp:X f1b016
+3733 dsp:X f1b018
+3734 dsp:X f1b01a
+3735 dsp:W14':00f1c070 B
+3736 dsp:X f1b01c
+3736 dsp:W00':00000070 B
+3737 dsp:X f1b01e
+3738 D=fffe
+3741 dsp:X f1b016
+3742 dsp:X f1b018
+3743 dsp:X f1b01a
+3744 dsp:W14':00f1c06c B
+3745 dsp:X f1b01c
+3745 dsp:W00':0000006c B
+3745 A(004040) r fc6
+3746 dsp:X f1b01e
+3750 dsp:X f1b016
+3751 dsp:X f1b018
+3752 dsp:X f1b01a
+3752 D=51c9
+3753 dsp:W14':00f1c068 B
+3754 dsp:X f1b01c
+3754 dsp:W00':00000068 B
+3755 dsp:X f1b01e
+3755 A(004044) r fc6
+3759 dsp:X f1b016
+3760 dsp:X f1b018
+3761 dsp:X f1b01a
+3762 dsp:W14':00f1c064 B
+3762 D=3039
+3763 dsp:X f1b01c
+3763 dsp:W00':00000064 B
+3764 dsp:X f1b01e
+3765 A(004046) r fc6
+3768 dsp:X f1b016
+3769 dsp:X f1b018
+3770 dsp:X f1b01a
+3771 dsp:W14':00f1c060 B
+3772 dsp:X f1b01c
+3772 dsp:W00':00000060 B
+3772 D=00f1
+3773 dsp:X f1b01e
+3775 A(004048) r fc6
+3777 dsp:X f1b016
+3778 dsp:X f1b018
+3779 dsp:X f1b01a
+3780 dsp:W14':00f1c05c B
+3781 dsp:X f1b01c
+3781 dsp:W00':0000005c B
+3782 dsp:X f1b01e
+3782 D=c0f4
+3785 A(00404a) r fc6
+3786 dsp:X f1b016
+3787 dsp:X f1b018
+3788 dsp:X f1b01a
+3789 dsp:W14':00f1c058 B
+3790 dsp:X f1b01c
+3790 dsp:W00':00000058 B
+3791 dsp:X f1b01e
+3792 D=2039
+3795 dsp:X f1b016
+3795 A(f1c0f4) r fc5
+3796 dsp:X f1b018
+3797 dsp:X f1b01a
+3798 dsp:W14':00f1c054 B
+3799 dsp:X f1b01c
+3799 dsp:W00':00000054 B
+3800 dsp:X f1b01e
+3804 dsp:X f1b016
+3805 dsp:X f1b018
+3806 dsp:X f1b01a
+3806 D=0000
+3807 dsp:W14':00f1c050 B
+3808 dsp:X f1b01c
+3808 dsp:W00':00000050 B
+3809 dsp:X f1b01e
+3809 A(00404c) r fc6
+3813 dsp:X f1b016
+3814 dsp:X f1b018
+3815 dsp:X f1b01a
+3816 dsp:W14':00f1c04c B
+3816 D=00f1
+3817 dsp:X f1b01c
+3817 dsp:W00':0000004c B
+3818 dsp:X f1b01e
+3819 A(00404e) r fc6
+3822 dsp:X f1b016
+3823 dsp:X f1b018
+3824 dsp:X f1b01a
+3825 dsp:W14':00f1c048 B
+3826 dsp:X f1b01c
+3826 dsp:W00':00000048 B
+3826 D=c0f8
+3827 dsp:X f1b01e
+3829 A(004050) r fc6
+3831 dsp:X f1b016
+3832 dsp:X f1b018
+3833 dsp:X f1b01a
+3834 dsp:W14':00f1c044 B
+3835 dsp:X f1b01c
+3835 dsp:W00':00000044 B
+3836 dsp:X f1b01e
+3836 D=2039
+3839 A(f1c0f8) r fc5
+3840 dsp:X f1b016
+3841 dsp:X f1b018
+3842 dsp:X f1b01a
+3843 dsp:W14':00f1c040 B
+3844 dsp:X f1b01c
+3844 dsp:W00':00000040 B
+3845 dsp:X f1b01e
+3849 dsp:X f1b016
+3850 dsp:X f1b018
+3850 D=0000
+3851 dsp:X f1b01a
+3852 dsp:W14':00f1c03c B
+3853 dsp:X f1b01c
+3853 dsp:W00':0000003c B
+3853 A(f1c0fa) r fc5
+3854 dsp:X f1b01e
+3858 dsp:X f1b016
+3859 dsp:X f1b018
+3860 dsp:X f1b01a
+3861 dsp:W14':00f1c038 B
+3862 dsp:X f1b01c
+3862 dsp:W00':00000038 B
+3863 dsp:X f1b01e
+3864 D=0000
+3867 dsp:X f1b016
+3867 A(004052) r fc6
+3868 dsp:X f1b018
+3869 dsp:X f1b01a
+3870 dsp:W14':00f1c034 B
+3871 dsp:X f1b01c
+3871 dsp:W00':00000034 B
+3872 dsp:X f1b01e
+3874 D=00f1
+3876 dsp:X f1b016
+3877 dsp:X f1b018
+3877 A(004054) r fc6
+3878 dsp:X f1b01a
+3879 dsp:W14':00f1c030 B
+3880 dsp:X f1b01c
+3880 dsp:W00':00000030 B
+3881 dsp:X f1b01e
+3884 D=a114
+3885 dsp:X f1b016
+3886 dsp:X f1b018
+3887 dsp:X f1b01a
+3887 A(004056) r fc6
+3888 dsp:W14':00f1c02c B
+3889 dsp:X f1b01c
+3889 dsp:W00':0000002c B
+3890 dsp:X f1b01e
+3894 dsp:X f1b016
+3894 D=51cf
+3895 dsp:X f1b018
+3896 dsp:X f1b01a
+3897 dsp:W14':00f1c028 B
+3897 A(f1a114) r fc5
+3898 dsp:X f1b01c
+3898 dsp:W00':00000028 B
+3899 dsp:X f1b01e
+3903 dsp:X f1b016
+3906 dsp:X f1b018
+3907 dsp:X f1b01a
+3908 dsp:W14':00f1c024 B
+3908 D=2078
+3909 dsp:X f1b01c
+3909 dsp:W00':00000024 B
+3910 dsp:X f1b01e
+3911 A(f1a116) r fc5
+3914 dsp:X f1b016
+3915 dsp:X f1b018
+3916 dsp:X f1b01a
+3917 dsp:W14':00f1c020 B
+3918 dsp:X f1b01c
+3918 dsp:W00':00000020 B
+3919 dsp:X f1b01e
+3922 D=2001
+3923 dsp:X f1b016
+3924 dsp:X f1b018
+3925 dsp:X f1b01a
+3925 A(004058) r fc6
+3926 dsp:W14':00f1c01c B
+3927 dsp:X f1b01c
+3927 dsp:W00':0000001c B
+3928 dsp:X f1b01e
+3932 dsp:X f1b016
+3932 D=ffe0
+3933 dsp:X f1b018
+3934 dsp:X f1b01a
+3935 dsp:W14':00f1c018 B
+3936 dsp:X f1b01c
+3936 dsp:W00':00000018 B
+3937 dsp:X f1b01e
+3939 A(004038) r fc6
+3941 dsp:X f1b016
+3942 dsp:X f1b018
+3943 dsp:X f1b01a
+3944 dsp:W14':00f1c014 B
+3945 dsp:X f1b01c
+3945 dsp:W00':00000014 B
+3946 dsp:X f1b01e
+3946 D=1039
+3949 A(00403a) r fc6
+3950 dsp:X f1b016
+3951 dsp:X f1b018
+3952 dsp:X f1b01a
+3953 dsp:W14':00f1c010 B
+3954 dsp:X f1b01c
+3954 dsp:W00':00000010 B
+3955 dsp:X f1b01e
+3956 D=00f1
+3959 dsp:X f1b016
+3959 A(00403c) r fc6
+3960 dsp:X f1b018
+3961 dsp:X f1b01a
+3962 dsp:W14':00f1c00c B
+3963 dsp:X f1b01c
+3963 dsp:W00':0000000c B
+3964 dsp:X f1b01e
+3966 D=c0f0
+3968 dsp:X f1b016
+3969 dsp:X f1b018
+3969 A(00403e) r fc6
+3970 dsp:X f1b01a
+3971 dsp:W14':00f1c008 B
+3972 dsp:X f1b01c
+3972 dsp:W00':00000008 B
+3973 dsp:X f1b01e
+3976 D=3207
+3977 dsp:X f1b016
+3978 dsp:X f1b018
+3979 dsp:X f1b01a
+3979 A(f1c0f0) r fc5
+3980 dsp:W14':00f1c004 B
+3981 dsp:X f1b01c
+3981 dsp:W00':00000004 B
+3982 dsp:X f1b01e
+3987 dsp:X f1b016
+3988 dsp:X f1b018
+3989 dsp:X f1b01a
+3990 dsp:W14':00f1c000 B
+3990 D=00--
+3991 dsp:F --Z
+3991 dsp:X f1b01c
+3991 dsp:W00':00000000 B
+3992 dsp:X f1b01e
+3993 dsp:X f1b020
+3993 A(004040) r fc6
+3994 dsp:X f1b022
+3995 dsp:F ---
+3995 dsp:W03':00000002 B
+3996 dsp:W02':00f1c200 B
+3997 dsp:X f1b028
+3999 dsp:X f1b02a
+3999 dsp:W04':00000000 B
+4000 D=51c9
+4001 dsp:F --Z
+4001 dsp:X f1b02c
+4002 dsp:X f1b008
+4003 A(004042) r fc6
+4005 dsp:X f1b00a
+4007 dsp:W14':00f1c100 B
+4008 dsp:X f1b010
+4010 dsp:W00':00000100 B
+4010 D=fffe
+4011 dsp:X f1b016
+4012 dsp:X f1b018
+4013 dsp:X f1b01a
+4014 dsp:F ---
+4014 dsp:W14':00f1c0fc B
+4015 dsp:X f1b01c
+4015 dsp:W00':000000fc B
+4016 dsp:X f1b01e
+4017 A(004040) r fc6
+4020 dsp:X f1b016
+4021 dsp:X f1b018
+4022 dsp:X f1b01a
+4023 dsp:W14':00f1c0f8 B
+4024 dsp:X f1b01c
+4024 dsp:W00':000000f8 B
+4024 D=51c9
+4025 dsp:X f1b01e
+4027 A(004042) r fc6
+4029 dsp:X f1b016
+4030 dsp:X f1b018
+4031 dsp:X f1b01a
+4032 dsp:W14':00f1c0f4 B
+4033 dsp:X f1b01c
+4033 dsp:W00':000000f4 B
+4034 dsp:X f1b01e
+4034 D=fffe
+4038 dsp:X f1b016
+4039 dsp:X f1b018
+4040 dsp:X f1b01a
+4041 dsp:W14':00f1c0f0 B
+4041 A(004040) r fc6
+4042 dsp:X f1b01c
+4042 dsp:W00':000000f0 B
+4043 dsp:X f1b01e
+4047 dsp:X f1b016
+4048 dsp:X f1b018
+4048 D=51c9
+4049 dsp:X f1b01a
+4050 dsp:W14':00f1c0ec B
+4051 dsp:X f1b01c
+4051 dsp:W00':000000ec B
+4051 A(004042) r fc6
+4052 dsp:X f1b01e
+4056 dsp:X f1b016
+4057 dsp:X f1b018
+4058 dsp:X f1b01a
+4058 D=fffe
+4059 dsp:W14':00f1c0e8 B
+4060 dsp:X f1b01c
+4060 dsp:W00':000000e8 B
+4061 dsp:X f1b01e
+4065 dsp:X f1b016
+4065 A(004040) r fc6
+4066 dsp:X f1b018
+4067 dsp:X f1b01a
+4068 dsp:W14':00f1c0e4 B
+4069 dsp:X f1b01c
+4069 dsp:W00':000000e4 B
+4070 dsp:X f1b01e
+4072 D=51c9
+4074 dsp:X f1b016
+4075 dsp:X f1b018
+4075 A(004042) r fc6
+4076 dsp:X f1b01a
+4077 dsp:W14':00f1c0e0 B
+4078 dsp:X f1b01c
+4078 dsp:W00':000000e0 B
+4079 dsp:X f1b01e
+4082 D=fffe
+4083 dsp:X f1b016
+4084 dsp:X f1b018
+4085 dsp:X f1b01a
+4086 dsp:W14':00f1c0dc B
+4087 dsp:X f1b01c
+4087 dsp:W00':000000dc B
+4088 dsp:X f1b01e
+4089 A(004040) r fc6
+4092 dsp:X f1b016
+4093 dsp:X f1b018
+4094 dsp:X f1b01a
+4095 dsp:W14':00f1c0d8 B
+4096 dsp:X f1b01c
+4096 dsp:W00':000000d8 B
+4096 D=51c9
+4097 dsp:X f1b01e
+4099 A(004042) r fc6
+4101 dsp:X f1b016
+4102 dsp:X f1b018
+4103 dsp:X f1b01a
+4104 dsp:W14':00f1c0d4 B
+4105 dsp:X f1b01c
+4105 dsp:W00':000000d4 B
+4106 dsp:X f1b01e
+4106 D=fffe
+4110 dsp:X f1b016
+4111 dsp:X f1b018
+4112 dsp:X f1b01a
+4113 dsp:W14':00f1c0d0 B
+4113 A(004040) r fc6
+4114 dsp:X f1b01c
+4114 dsp:W00':000000d0 B
+4115 dsp:X f1b01e
+4119 dsp:X f1b016
+4120 dsp:X f1b018
+4120 D=51c9
+4121 dsp:X f1b01a
+4122 dsp:W14':00f1c0cc B
+4123 dsp:X f1b01c
+4123 dsp:W00':000000cc B
+4123 A(004042) r fc6
+4124 dsp:X f1b01e
+4128 dsp:X f1b016
+4129 dsp:X f1b018
+4130 dsp:X f1b01a
+4130 D=fffe
+4131 dsp:W14':00f1c0c8 B
+4132 dsp:X f1b01c
+4132 dsp:W00':000000c8 B
+4133 dsp:X f1b01e
+4137 dsp:X f1b016
+4137 A(004040) r fc6
+4138 dsp:X f1b018
+4139 dsp:X f1b01a
+4140 dsp:W14':00f1c0c4 B
+4141 dsp:X f1b01c
+4141 dsp:W00':000000c4 B
+4142 dsp:X f1b01e
+4144 D=51c9
+4146 dsp:X f1b016
+4147 dsp:X f1b018
+4147 A(004042) r fc6
+4148 dsp:X f1b01a
+4149 dsp:W14':00f1c0c0 B
+4150 dsp:X f1b01c
+4150 dsp:W00':000000c0 B
+4151 dsp:X f1b01e
+4154 D=fffe
+4155 dsp:X f1b016
+4156 dsp:X f1b018
+4157 dsp:X f1b01a
+4158 dsp:W14':00f1c0bc B
+4159 dsp:X f1b01c
+4159 dsp:W00':000000bc B
+4160 dsp:X f1b01e
+4161 A(004040) r fc6
+4164 dsp:X f1b016
+4165 dsp:X f1b018
+4166 dsp:X f1b01a
+4167 dsp:W14':00f1c0b8 B
+4168 dsp:X f1b01c
+4168 dsp:W00':000000b8 B
+4168 D=51c9
+4169 dsp:X f1b01e
+4171 A(004042) r fc6
+4173 dsp:X f1b016
+4174 dsp:X f1b018
+4175 dsp:X f1b01a
+4176 dsp:W14':00f1c0b4 B
+4177 dsp:X f1b01c
+4177 dsp:W00':000000b4 B
+4178 dsp:X f1b01e
+4178 D=fffe
+4182 dsp:X f1b016
+4183 dsp:X f1b018
+4184 dsp:X f1b01a
+4185 dsp:W14':00f1c0b0 B
+4185 A(004040) r fc6
+4186 dsp:X f1b01c
+4186 dsp:W00':000000b0 B
+4187 dsp:X f1b01e
+4191 dsp:X f1b016
+4192 dsp:X f1b018
+4192 D=51c9
+4193 dsp:X f1b01a
+4194 dsp:W14':00f1c0ac B
+4195 dsp:X f1b01c
+4195 dsp:W00':000000ac B
+4195 A(004042) r fc6
+4196 dsp:X f1b01e
+4200 dsp:X f1b016
+4201 dsp:X f1b018
+4202 dsp:X f1b01a
+4202 D=fffe
+4203 dsp:W14':00f1c0a8 B
+4204 dsp:X f1b01c
+4204 dsp:W00':000000a8 B
+4205 dsp:X f1b01e
+4209 dsp:X f1b016
+4209 A(004040) r fc6
+4210 dsp:X f1b018
+4211 dsp:X f1b01a
+4212 dsp:W14':00f1c0a4 B
+4213 dsp:X f1b01c
+4213 dsp:W00':000000a4 B
+4214 dsp:X f1b01e
+4216 D=51c9
+4218 dsp:X f1b016
+4219 dsp:X f1b018
+4219 A(004042) r fc6
+4220 dsp:X f1b01a
+4221 dsp:W14':00f1c0a0 B
+4222 dsp:X f1b01c
+4222 dsp:W00':000000a0 B
+4223 dsp:X f1b01e
+4226 D=fffe
+4227 dsp:X f1b016
+4228 dsp:X f1b018
+4229 dsp:X f1b01a
+4230 dsp:W14':00f1c09c B
+4231 dsp:X f1b01c
+4231 dsp:W00':0000009c B
+4232 dsp:X f1b01e
+4233 A(004040) r fc6
+4236 dsp:X f1b016
+4237 dsp:X f1b018
+4238 dsp:X f1b01a
+4239 dsp:W14':00f1c098 B
+4240 dsp:X f1b01c
+4240 dsp:W00':00000098 B
+4240 D=51c9
+4241 dsp:X f1b01e
+4243 A(004044) r fc6
+4245 dsp:X f1b016
+4246 dsp:X f1b018
+4247 dsp:X f1b01a
+4248 dsp:W14':00f1c094 B
+4249 dsp:X f1b01c
+4249 dsp:W00':00000094 B
+4250 dsp:X f1b01e
+4250 D=3039
+4253 A(004046) r fc6
+4254 dsp:X f1b016
+4255 dsp:X f1b018
+4256 dsp:X f1b01a
+4257 dsp:W14':00f1c090 B
+4258 dsp:X f1b01c
+4258 dsp:W00':00000090 B
+4259 dsp:X f1b01e
+4260 D=00f1
+4263 dsp:X f1b016
+4263 A(004048) r fc6
+4264 dsp:X f1b018
+4265 dsp:X f1b01a
+4266 dsp:W14':00f1c08c B
+4267 dsp:X f1b01c
+4267 dsp:W00':0000008c B
+4268 dsp:X f1b01e
+4270 D=c0f4
+4272 dsp:X f1b016
+4273 dsp:X f1b018
+4273 A(00404a) r fc6
+4274 dsp:X f1b01a
+4275 dsp:W14':00f1c088 B
+4276 dsp:X f1b01c
+4276 dsp:W00':00000088 B
+4277 dsp:X f1b01e
+4280 D=2039
+4281 dsp:X f1b016
+4282 dsp:X f1b018
+4283 dsp:X f1b01a
+4283 A(f1c0f4) r fc5
+4284 dsp:W14':00f1c084 B
+4285 dsp:X f1b01c
+4285 dsp:W00':00000084 B
+4286 dsp:X f1b01e
+4291 dsp:X f1b016
+4292 dsp:X f1b018
+4293 dsp:X f1b01a
+4294 dsp:W14':00f1c080 B
+4294 D=0000
+4295 dsp:X f1b01c
+4295 dsp:W00':00000080 B
+4296 dsp:X f1b01e
+4297 A(00404c) r fc6
+4300 dsp:X f1b016
+4301 dsp:X f1b018
+4302 dsp:X f1b01a
+4303 dsp:W14':00f1c07c B
+4304 dsp:X f1b01c
+4304 dsp:W00':0000007c B
+4304 D=00f1
+4305 dsp:X f1b01e
+4307 A(00404e) r fc6
+4309 dsp:X f1b016
+4310 dsp:X f1b018
+4311 dsp:X f1b01a
+4312 dsp:W14':00f1c078 B
+4313 dsp:X f1b01c
+4313 dsp:W00':00000078 B
+4314 dsp:X f1b01e
+4314 D=c0f8
+4317 A(004050) r fc6
+4318 dsp:X f1b016
+4319 dsp:X f1b018
+4320 dsp:X f1b01a
+4321 dsp:W14':00f1c074 B
+4322 dsp:X f1b01c
+4322 dsp:W00':00000074 B
+4323 dsp:X f1b01e
+4324 D=2039
+4327 dsp:X f1b016
+4327 A(f1c0f8) r fc5
+4328 dsp:X f1b018
+4329 dsp:X f1b01a
+4330 dsp:W14':00f1c070 B
+4331 dsp:X f1b01c
+4331 dsp:W00':00000070 B
+4332 dsp:X f1b01e
+4336 dsp:X f1b016
+4337 dsp:X f1b018
+4338 dsp:X f1b01a
+4338 D=0000
+4339 dsp:W14':00f1c06c B
+4340 dsp:X f1b01c
+4340 dsp:W00':0000006c B
+4341 dsp:X f1b01e
+4341 A(f1c0fa) r fc5
+4345 dsp:X f1b016
+4346 dsp:X f1b018
+4347 dsp:X f1b01a
+4348 dsp:W14':00f1c068 B
+4349 dsp:X f1b01c
+4349 dsp:W00':00000068 B
+4350 dsp:X f1b01e
+4352 D=0000
+4354 dsp:X f1b016
+4355 dsp:X f1b018
+4355 A(004052) r fc6
+4356 dsp:X f1b01a
+4357 dsp:W14':00f1c064 B
+4358 dsp:X f1b01c
+4358 dsp:W00':00000064 B
+4359 dsp:X f1b01e
+4362 D=00f1
+4363 dsp:X f1b016
+4364 dsp:X f1b018
+4365 dsp:X f1b01a
+4365 A(004054) r fc6
+4366 dsp:W14':00f1c060 B
+4367 dsp:X f1b01c
+4367 dsp:W00':00000060 B
+4368 dsp:X f1b01e
+4372 dsp:X f1b016
+4372 D=a114
+4373 dsp:X f1b018
+4374 dsp:X f1b01a
+4375 dsp:W14':00f1c05c B
+4375 A(004056) r fc6
+4376 dsp:X f1b01c
+4376 dsp:W00':0000005c B
+4377 dsp:X f1b01e
+4381 dsp:X f1b016
+4382 dsp:X f1b018
+4382 D=51cf
+4383 dsp:X f1b01a
+4384 dsp:W14':00f1c058 B
+4385 dsp:X f1b01c
+4385 dsp:W00':00000058 B
+4385 A(f1a114) r fc5
+4386 dsp:X f1b01e
+4390 dsp:X f1b016
+4391 dsp:X f1b018
+4392 dsp:X f1b01a
+4393 dsp:W14':00f1c054 B
+4394 dsp:W00':00000054 B
+4395 dsp:X f1b01c
+4396 dsp:X f1b01e
+4396 D=20ac
+4399 A(f1a116) r fc5
+4400 dsp:X f1b016
+4401 dsp:X f1b018
+4402 dsp:X f1b01a
+4403 dsp:W14':00f1c050 B
+4404 dsp:X f1b01c
+4404 dsp:W00':00000050 B
+4405 dsp:X f1b01e
+4409 dsp:X f1b016
+4410 dsp:X f1b018
+4410 D=2001
+4411 dsp:X f1b01a
+4412 dsp:W14':00f1c04c B
+4413 dsp:X f1b01c
+4413 dsp:W00':0000004c B
+4413 A(004058) r fc6
+4414 dsp:X f1b01e
+4418 dsp:X f1b016
+4419 dsp:X f1b018
+4420 dsp:X f1b01a
+4420 D=ffe0
+4421 dsp:W14':00f1c048 B
+4422 dsp:X f1b01c
+4422 dsp:W00':00000048 B
+4423 dsp:X f1b01e
+4427 dsp:X f1b016
+4427 A(004038) r fc6
+4428 dsp:X f1b018
+4429 dsp:X f1b01a
+4430 dsp:W14':00f1c044 B
+4431 dsp:X f1b01c
+4431 dsp:W00':00000044 B
+4432 dsp:X f1b01e
+4434 D=1039
+4436 dsp:X f1b016
+4437 dsp:X f1b018
+4437 A(00403a) r fc6
+4438 dsp:X f1b01a
+4439 dsp:W14':00f1c040 B
+4440 dsp:X f1b01c
+4440 dsp:W00':00000040 B
+4441 dsp:X f1b01e
+4444 D=00f1
+4445 dsp:X f1b016
+4446 dsp:X f1b018
+4447 dsp:X f1b01a
+4447 A(00403c) r fc6
+4448 dsp:W14':00f1c03c B
+4449 dsp:X f1b01c
+4449 dsp:W00':0000003c B
+4450 dsp:X f1b01e
+4454 dsp:X f1b016
+4454 D=c0f0
+4455 dsp:X f1b018
+4456 dsp:X f1b01a
+4457 dsp:W14':00f1c038 B
+4457 A(00403e) r fc6
+4458 dsp:X f1b01c
+4458 dsp:W00':00000038 B
+4459 dsp:X f1b01e
+4463 dsp:X f1b016
+4464 dsp:X f1b018
+4464 D=3207
+4465 dsp:X f1b01a
+4466 dsp:W14':00f1c034 B
+4467 dsp:X f1b01c
+4467 dsp:W00':00000034 B
+4467 A(f1c0f0) r fc5
+4468 dsp:X f1b01e
+4472 dsp:X f1b016
+4473 dsp:X f1b018
+4474 dsp:X f1b01a
+4475 dsp:W14':00f1c030 B
+4476 dsp:W00':00000030 B
+4477 dsp:X f1b01c
+4478 dsp:X f1b01e
+4478 D=00--
+4481 A(004040) r fc6
+4482 dsp:X f1b016
+4483 dsp:X f1b018
+4484 dsp:X f1b01a
+4485 dsp:W14':00f1c02c B
+4486 dsp:X f1b01c
+4486 dsp:W00':0000002c B
+4487 dsp:X f1b01e
+4488 D=51c9
+4491 dsp:X f1b016
+4491 A(004042) r fc6
+4492 dsp:X f1b018
+4493 dsp:X f1b01a
+4494 dsp:W14':00f1c028 B
+4495 dsp:X f1b01c
+4495 dsp:W00':00000028 B
+4496 dsp:X f1b01e
+4498 D=fffe
+4500 dsp:X f1b016
+4501 dsp:X f1b018
+4502 dsp:X f1b01a
+4503 dsp:W14':00f1c024 B
+4504 dsp:X f1b01c
+4504 dsp:W00':00000024 B
+4505 dsp:X f1b01e
+4505 A(004040) r fc6
+4509 dsp:X f1b016
+4510 dsp:X f1b018
+4511 dsp:X f1b01a
+4512 dsp:W14':00f1c020 B
+4512 D=51c9
+4513 dsp:X f1b01c
+4513 dsp:W00':00000020 B
+4514 dsp:X f1b01e
+4515 A(004042) r fc6
+4518 dsp:X f1b016
+4519 dsp:X f1b018
+4520 dsp:X f1b01a
+4521 dsp:W14':00f1c01c B
+4522 dsp:X f1b01c
+4522 dsp:W00':0000001c B
+4522 D=fffe
+4523 dsp:X f1b01e
+4527 dsp:X f1b016
+4528 dsp:X f1b018
+4529 dsp:X f1b01a
+4529 A(004040) r fc6
+4530 dsp:W14':00f1c018 B
+4531 dsp:X f1b01c
+4531 dsp:W00':00000018 B
+4532 dsp:X f1b01e
+4536 dsp:X f1b016
+4536 D=51c9
+4537 dsp:X f1b018
+4538 dsp:X f1b01a
+4539 dsp:W14':00f1c014 B
+4539 A(004042) r fc6
+4540 dsp:X f1b01c
+4540 dsp:W00':00000014 B
+4541 dsp:X f1b01e
+4545 dsp:X f1b016
+4546 dsp:X f1b018
+4546 D=fffe
+4547 dsp:X f1b01a
+4548 dsp:W14':00f1c010 B
+4549 dsp:X f1b01c
+4549 dsp:W00':00000010 B
+4550 dsp:X f1b01e
+4553 A(004040) r fc6
+4554 dsp:X f1b016
+4555 dsp:X f1b018
+4556 dsp:X f1b01a
+4557 dsp:W14':00f1c00c B
+4558 dsp:X f1b01c
+4558 dsp:W00':0000000c B
+4559 dsp:X f1b01e
+4560 D=51c9
+4563 dsp:X f1b016
+4563 A(004042) r fc6
+4564 dsp:X f1b018
+4565 dsp:X f1b01a
+4566 dsp:W14':00f1c008 B
+4567 dsp:X f1b01c
+4567 dsp:W00':00000008 B
+4568 dsp:X f1b01e
+4570 D=fffe
+4572 dsp:X f1b016
+4573 dsp:X f1b018
+4574 dsp:X f1b01a
+4575 dsp:W14':00f1c004 B
+4576 dsp:X f1b01c
+4576 dsp:W00':00000004 B
+4577 dsp:X f1b01e
+4577 A(004040) r fc6
+4581 dsp:X f1b016
+4582 dsp:X f1b018
+4583 dsp:X f1b01a
+4584 dsp:W14':00f1c000 B
+4584 D=51c9
+4585 dsp:F --Z
+4585 dsp:X f1b01c
+4585 dsp:W00':00000000 B
+4586 dsp:X f1b01e
+4587 dsp:X f1b020
+4587 A(004042) r fc6
+4588 dsp:X f1b022
+4589 dsp:F ---
+4589 dsp:W03':00000003 B
+4590 dsp:W02':00f1c200 B
+4591 dsp:X f1b028
+4593 dsp:X f1b02a
+4593 dsp:W04':00000000 B
+4594 D=fffe
+4595 dsp:F --Z
+4595 dsp:X f1b02c
+4596 dsp:X f1b008
+4599 dsp:X f1b00a
+4601 dsp:W14':00f1c100 B
+4601 A(004040) r fc6
+4602 dsp:X f1b010
+4604 dsp:W00':00000100 B
+4605 dsp:X f1b016
+4606 dsp:X f1b018
+4607 dsp:X f1b01a
+4608 dsp:F ---
+4608 dsp:W14':00f1c0fc B
+4608 D=51c9
+4609 dsp:X f1b01c
+4609 dsp:W00':000000fc B
+4610 dsp:X f1b01e
+4611 A(004042) r fc6
+4614 dsp:X f1b016
+4615 dsp:X f1b018
+4616 dsp:X f1b01a
+4617 dsp:W14':00f1c0f8 B
+4618 dsp:X f1b01c
+4618 dsp:W00':000000f8 B
+4618 D=fffe
+4619 dsp:X f1b01e
+4623 dsp:X f1b016
+4624 dsp:X f1b018
+4625 dsp:X f1b01a
+4625 A(004040) r fc6
+4626 dsp:W14':00f1c0f4 B
+4627 dsp:X f1b01c
+4627 dsp:W00':000000f4 B
+4628 dsp:X f1b01e
+4632 dsp:X f1b016
+4632 D=51c9
+4633 dsp:X f1b018
+4634 dsp:X f1b01a
+4635 dsp:W14':00f1c0f0 B
+4635 A(004042) r fc6
+4636 dsp:X f1b01c
+4636 dsp:W00':000000f0 B
+4637 dsp:X f1b01e
+4641 dsp:X f1b016
+4642 dsp:X f1b018
+4642 D=fffe
+4643 dsp:X f1b01a
+4644 dsp:W14':00f1c0ec B
+4645 dsp:X f1b01c
+4645 dsp:W00':000000ec B
+4646 dsp:X f1b01e
+4649 A(004040) r fc6
+4650 dsp:X f1b016
+4651 dsp:X f1b018
+4652 dsp:X f1b01a
+4653 dsp:W14':00f1c0e8 B
+4654 dsp:X f1b01c
+4654 dsp:W00':000000e8 B
+4655 dsp:X f1b01e
+4656 D=51c9
+4659 dsp:X f1b016
+4659 A(004042) r fc6
+4660 dsp:X f1b018
+4661 dsp:X f1b01a
+4662 dsp:W14':00f1c0e4 B
+4663 dsp:X f1b01c
+4663 dsp:W00':000000e4 B
+4664 dsp:X f1b01e
+4666 D=fffe
+4668 dsp:X f1b016
+4669 dsp:X f1b018
+4670 dsp:X f1b01a
+4671 dsp:W14':00f1c0e0 B
+4672 dsp:X f1b01c
+4672 dsp:W00':000000e0 B
+4673 dsp:X f1b01e
+4673 A(004040) r fc6
+4677 dsp:X f1b016
+4678 dsp:X f1b018
+4679 dsp:X f1b01a
+4680 dsp:W14':00f1c0dc B
+4680 D=51c9
+4681 dsp:X f1b01c
+4681 dsp:W00':000000dc B
+4682 dsp:X f1b01e
+4683 A(004042) r fc6
+4686 dsp:X f1b016
+4687 dsp:X f1b018
+4688 dsp:X f1b01a
+4689 dsp:W14':00f1c0d8 B
+4690 dsp:X f1b01c
+4690 dsp:W00':000000d8 B
+4690 D=fffe
+4691 dsp:X f1b01e
+4695 dsp:X f1b016
+4696 dsp:X f1b018
+4697 dsp:X f1b01a
+4697 A(004040) r fc6
+4698 dsp:W14':00f1c0d4 B
+4699 dsp:X f1b01c
+4699 dsp:W00':000000d4 B
+4700 dsp:X f1b01e
+4704 dsp:X f1b016
+4704 D=51c9
+4705 dsp:X f1b018
+4706 dsp:X f1b01a
+4707 dsp:W14':00f1c0d0 B
+4707 A(004044) r fc6
+4708 dsp:X f1b01c
+4708 dsp:W00':000000d0 B
+4709 dsp:X f1b01e
+4713 dsp:X f1b016
+4714 dsp:X f1b018
+4714 D=3039
+4715 dsp:X f1b01a
+4716 dsp:W14':00f1c0cc B
+4717 dsp:X f1b01c
+4717 dsp:W00':000000cc B
+4717 A(004046) r fc6
+4718 dsp:X f1b01e
+4722 dsp:X f1b016
+4723 dsp:X f1b018
+4724 dsp:X f1b01a
+4724 D=00f1
+4725 dsp:W14':00f1c0c8 B
+4726 dsp:X f1b01c
+4726 dsp:W00':000000c8 B
+4727 dsp:X f1b01e
+4727 A(004048) r fc6
+4731 dsp:X f1b016
+4732 dsp:X f1b018
+4733 dsp:X f1b01a
+4734 dsp:W14':00f1c0c4 B
+4734 D=c0f4
+4735 dsp:X f1b01c
+4735 dsp:W00':000000c4 B
+4736 dsp:X f1b01e
+4737 A(00404a) r fc6
+4740 dsp:X f1b016
+4741 dsp:X f1b018
+4742 dsp:X f1b01a
+4743 dsp:W14':00f1c0c0 B
+4744 dsp:X f1b01c
+4744 dsp:W00':000000c0 B
+4744 D=2039
+4745 dsp:X f1b01e
+4747 A(f1c0f4) r fc5
+4749 dsp:X f1b016
+4750 dsp:X f1b018
+4751 dsp:X f1b01a
+4752 dsp:W14':00f1c0bc B
+4753 dsp:X f1b01c
+4753 dsp:W00':000000bc B
+4754 dsp:X f1b01e
+4758 dsp:X f1b016
+4758 D=0000
+4759 dsp:X f1b018
+4760 dsp:X f1b01a
+4761 dsp:W14':00f1c0b8 B
+4761 A(00404c) r fc6
+4762 dsp:X f1b01c
+4762 dsp:W00':000000b8 B
+4763 dsp:X f1b01e
+4767 dsp:X f1b016
+4768 dsp:X f1b018
+4768 D=00f1
+4769 dsp:X f1b01a
+4770 dsp:W14':00f1c0b4 B
+4771 dsp:X f1b01c
+4771 dsp:W00':000000b4 B
+4771 A(00404e) r fc6
+4772 dsp:X f1b01e
+4776 dsp:X f1b016
+4777 dsp:X f1b018
+4778 dsp:X f1b01a
+4778 D=c0f8
+4779 dsp:W14':00f1c0b0 B
+4780 dsp:X f1b01c
+4780 dsp:W00':000000b0 B
+4781 dsp:X f1b01e
+4781 A(004050) r fc6
+4785 dsp:X f1b016
+4786 dsp:X f1b018
+4787 dsp:X f1b01a
+4788 dsp:W14':00f1c0ac B
+4788 D=2039
+4789 dsp:X f1b01c
+4789 dsp:W00':000000ac B
+4790 dsp:X f1b01e
+4791 A(f1c0f8) r fc5
+4794 dsp:X f1b016
+4795 dsp:X f1b018
+4796 dsp:X f1b01a
+4797 dsp:W14':00f1c0a8 B
+4798 dsp:X f1b01c
+4798 dsp:W00':000000a8 B
+4799 dsp:X f1b01e
+4802 D=0000
+4803 dsp:X f1b016
+4804 dsp:X f1b018
+4805 dsp:X f1b01a
+4805 A(f1c0fa) r fc5
+4806 dsp:W14':00f1c0a4 B
+4807 dsp:X f1b01c
+4807 dsp:W00':000000a4 B
+4808 dsp:X f1b01e
+4812 dsp:X f1b016
+4813 dsp:X f1b018
+4814 dsp:X f1b01a
+4815 dsp:W14':00f1c0a0 B
+4816 dsp:X f1b01c
+4816 dsp:W00':000000a0 B
+4816 D=0000
+4817 dsp:X f1b01e
+4819 A(004052) r fc6
+4821 dsp:X f1b016
+4822 dsp:X f1b018
+4823 dsp:X f1b01a
+4824 dsp:W14':00f1c09c B
+4825 dsp:X f1b01c
+4825 dsp:W00':0000009c B
+4826 dsp:X f1b01e
+4826 D=00f1
+4829 A(004054) r fc6
+4830 dsp:X f1b016
+4831 dsp:X f1b018
+4832 dsp:X f1b01a
+4833 dsp:W14':00f1c098 B
+4834 dsp:X f1b01c
+4834 dsp:W00':00000098 B
+4835 dsp:X f1b01e
+4836 D=a114
+4839 dsp:X f1b016
+4839 A(004056) r fc6
+4840 dsp:X f1b018
+4841 dsp:X f1b01a
+4842 dsp:W14':00f1c094 B
+4843 dsp:X f1b01c
+4843 dsp:W00':00000094 B
+4844 dsp:X f1b01e
+4846 D=51cf
+4848 dsp:X f1b016
+4849 dsp:X f1b018
+4849 A(f1a114) r fc5
+4850 dsp:X f1b01a
+4851 dsp:W14':00f1c090 B
+4852 dsp:X f1b01c
+4852 dsp:W00':00000090 B
+4853 dsp:X f1b01e
+4857 dsp:X f1b016
+4858 dsp:X f1b018
+4859 dsp:X f1b01a
+4860 dsp:W14':00f1c08c B
+4860 D=2038
+4861 dsp:X f1b01c
+4861 dsp:W00':0000008c B
+4862 dsp:X f1b01e
+4863 A(f1a116) r fc5
+4866 dsp:X f1b016
+4867 dsp:X f1b018
+4868 dsp:X f1b01a
+4869 dsp:W14':00f1c088 B
+4870 dsp:X f1b01c
+4870 dsp:W00':00000088 B
+4871 dsp:X f1b01e
+4874 D=2001
+4875 dsp:X f1b016
+4876 dsp:X f1b018
+4877 dsp:X f1b01a
+4877 A(004058) r fc6
+4878 dsp:W14':00f1c084 B
+4879 dsp:X f1b01c
+4879 dsp:W00':00000084 B
+4880 dsp:X f1b01e
+4884 dsp:X f1b016
+4884 D=ffe0
+4885 dsp:X f1b018
+4886 dsp:X f1b01a
+4887 dsp:W14':00f1c080 B
+4888 dsp:X f1b01c
+4888 dsp:W00':00000080 B
+4889 dsp:X f1b01e
+4891 A(004038) r fc6
+4893 dsp:X f1b016
+4894 dsp:X f1b018
+4895 dsp:X f1b01a
+4896 dsp:W14':00f1c07c B
+4897 dsp:X f1b01c
+4897 dsp:W00':0000007c B
+4898 dsp:X f1b01e
+4898 D=1039
+4901 A(00403a) r fc6
+4902 dsp:X f1b016
+4903 dsp:X f1b018
+4904 dsp:X f1b01a
+4905 dsp:W14':00f1c078 B
+4906 dsp:X f1b01c
+4906 dsp:W00':00000078 B
+4907 dsp:X f1b01e
+4908 D=00f1
+4911 dsp:X f1b016
+4911 A(00403c) r fc6
+4912 dsp:X f1b018
+4913 dsp:X f1b01a
+4914 dsp:W14':00f1c074 B
+4915 dsp:X f1b01c
+4915 dsp:W00':00000074 B
+4916 dsp:X f1b01e
+4918 D=c0f0
+4920 dsp:X f1b016
+4921 dsp:X f1b018
+4921 A(00403e) r fc6
+4922 dsp:X f1b01a
+4923 dsp:W14':00f1c070 B
+4924 dsp:X f1b01c
+4924 dsp:W00':00000070 B
+4925 dsp:X f1b01e
+4928 D=3207
+4929 dsp:X f1b016
+4930 dsp:X f1b018
+4931 dsp:X f1b01a
+4931 A(f1c0f0) r fc5
+4932 dsp:W14':00f1c06c B
+4933 dsp:X f1b01c
+4933 dsp:W00':0000006c B
+4934 dsp:X f1b01e
+4939 dsp:X f1b016
+4940 dsp:X f1b018
+4941 dsp:X f1b01a
+4942 dsp:W14':00f1c068 B
+4942 D=00--
+4943 dsp:X f1b01c
+4943 dsp:W00':00000068 B
+4944 dsp:X f1b01e
+4945 A(004040) r fc6
+4948 dsp:X f1b016
+4949 dsp:X f1b018
+4950 dsp:X f1b01a
+4951 dsp:W14':00f1c064 B
+4952 dsp:X f1b01c
+4952 dsp:W00':00000064 B
+4952 D=51c9
+4953 dsp:X f1b01e
+4955 A(004042) r fc6
+4957 dsp:X f1b016
+4958 dsp:X f1b018
+4959 dsp:X f1b01a
+4960 dsp:W14':00f1c060 B
+4961 dsp:X f1b01c
+4961 dsp:W00':00000060 B
+4962 dsp:X f1b01e
+4962 D=fffe
+4966 dsp:X f1b016
+4967 dsp:X f1b018
+4968 dsp:X f1b01a
+4969 dsp:W14':00f1c05c B
+4969 A(004040) r fc6
+4970 dsp:X f1b01c
+4970 dsp:W00':0000005c B
+4971 dsp:X f1b01e
+4975 dsp:X f1b016
+4976 dsp:X f1b018
+4976 D=51c9
+4977 dsp:X f1b01a
+4978 dsp:W14':00f1c058 B
+4979 dsp:X f1b01c
+4979 dsp:W00':00000058 B
+4979 A(004042) r fc6
+4980 dsp:X f1b01e
+4984 dsp:X f1b016
+4985 dsp:X f1b018
+4986 dsp:X f1b01a
+4986 D=fffe
+4987 dsp:W14':00f1c054 B
+4988 dsp:X f1b01c
+4988 dsp:W00':00000054 B
+4989 dsp:X f1b01e
+4993 dsp:X f1b016
+4993 A(004040) r fc6
+4994 dsp:X f1b018
+4995 dsp:X f1b01a
+4996 dsp:W14':00f1c050 B
+4997 dsp:X f1b01c
+4997 dsp:W00':00000050 B
+4998 dsp:X f1b01e
+5000 D=51c9
+5002 dsp:X f1b016
+5003 dsp:X f1b018
+5003 A(004042) r fc6
+5004 dsp:X f1b01a
+5005 dsp:W14':00f1c04c B
+5006 dsp:X f1b01c
+5006 dsp:W00':0000004c B
+5007 dsp:X f1b01e
+5010 D=fffe
+5011 dsp:X f1b016
+5012 dsp:X f1b018
+5013 dsp:X f1b01a
+5014 dsp:W14':00f1c048 B
+5015 dsp:X f1b01c
+5015 dsp:W00':00000048 B
+5016 dsp:X f1b01e
+5017 A(004040) r fc6
+5020 dsp:X f1b016
+5021 dsp:X f1b018
+5022 dsp:X f1b01a
+5023 dsp:W14':00f1c044 B
+5024 dsp:X f1b01c
+5024 dsp:W00':00000044 B
+5024 D=51c9
+5025 dsp:X f1b01e
+5027 A(004042) r fc6
+5029 dsp:X f1b016
+5030 dsp:X f1b018
+5031 dsp:X f1b01a
+5032 dsp:W14':00f1c040 B
+5033 dsp:X f1b01c
+5033 dsp:W00':00000040 B
+5034 dsp:X f1b01e
+5034 D=fffe
+5038 dsp:X f1b016
+5039 dsp:X f1b018
+5040 dsp:X f1b01a
+5041 dsp:W14':00f1c03c B
+5041 A(004040) r fc6
+5042 dsp:X f1b01c
+5042 dsp:W00':0000003c B
+5043 dsp:X f1b01e
+5047 dsp:X f1b016
+5048 dsp:X f1b018
+5048 D=51c9
+5049 dsp:X f1b01a
+5050 dsp:W14':00f1c038 B
+5051 dsp:X f1b01c
+5051 dsp:W00':00000038 B
+5051 A(004042) r fc6
+5052 dsp:X f1b01e
+5056 dsp:X f1b016
+5057 dsp:X f1b018
+5058 dsp:X f1b01a
+5058 D=fffe
+5059 dsp:W14':00f1c034 B
+5060 dsp:X f1b01c
+5060 dsp:W00':00000034 B
+5061 dsp:X f1b01e
+5065 dsp:X f1b016
+5065 A(004040) r fc6
+5066 dsp:X f1b018
+5067 dsp:X f1b01a
+5068 dsp:W14':00f1c030 B
+5069 dsp:X f1b01c
+5069 dsp:W00':00000030 B
+5070 dsp:X f1b01e
+5072 D=51c9
+5074 dsp:X f1b016
+5075 dsp:X f1b018
+5075 A(004042) r fc6
+5076 dsp:X f1b01a
+5077 dsp:W14':00f1c02c B
+5078 dsp:X f1b01c
+5078 dsp:W00':0000002c B
+5079 dsp:X f1b01e
+5082 D=fffe
+5083 dsp:X f1b016
+5084 dsp:X f1b018
+5085 dsp:X f1b01a
+5086 dsp:W14':00f1c028 B
+5087 dsp:X f1b01c
+5087 dsp:W00':00000028 B
+5088 dsp:X f1b01e
+5089 A(004040) r fc6
+5092 dsp:X f1b016
+5093 dsp:X f1b018
+5094 dsp:X f1b01a
+5095 dsp:W14':00f1c024 B
+5096 dsp:X f1b01c
+5096 dsp:W00':00000024 B
+5096 D=51c9
+5097 dsp:X f1b01e
+5099 A(004042) r fc6
+5101 dsp:X f1b016
+5102 dsp:X f1b018
+5103 dsp:X f1b01a
+5104 dsp:W14':00f1c020 B
+5105 dsp:X f1b01c
+5105 dsp:W00':00000020 B
+5106 dsp:X f1b01e
+5106 D=fffe
+5110 dsp:X f1b016
+5111 dsp:X f1b018
+5112 dsp:X f1b01a
+5113 dsp:W14':00f1c01c B
+5113 A(004040) r fc6
+5114 dsp:X f1b01c
+5114 dsp:W00':0000001c B
+5115 dsp:X f1b01e
+5119 dsp:X f1b016
+5120 dsp:X f1b018
+5120 D=51c9
+5121 dsp:X f1b01a
+5122 dsp:W14':00f1c018 B
+5123 dsp:X f1b01c
+5123 dsp:W00':00000018 B
+5123 A(004042) r fc6
+5124 dsp:X f1b01e
+5128 dsp:X f1b016
+5129 dsp:X f1b018
+5130 dsp:X f1b01a
+5130 D=fffe
+5131 dsp:W14':00f1c014 B
+5132 dsp:X f1b01c
+5132 dsp:W00':00000014 B
+5133 dsp:X f1b01e
+5137 dsp:X f1b016
+5137 A(004040) r fc6
+5138 dsp:X f1b018
+5139 dsp:X f1b01a
+5140 dsp:W14':00f1c010 B
+5141 dsp:X f1b01c
+5141 dsp:W00':00000010 B
+5142 dsp:X f1b01e
+5144 D=51c9
+5146 dsp:X f1b016
+5147 dsp:X f1b018
+5147 A(004044) r fc6
+5148 dsp:X f1b01a
+5149 dsp:W14':00f1c00c B
+5150 dsp:X f1b01c
+5150 dsp:W00':0000000c B
+5151 dsp:X f1b01e
+5154 D=3039
+5155 dsp:X f1b016
+5156 dsp:X f1b018
+5157 dsp:X f1b01a
+5157 A(004046) r fc6
+5158 dsp:W14':00f1c008 B
+5159 dsp:X f1b01c
+5159 dsp:W00':00000008 B
+5160 dsp:X f1b01e
+5164 dsp:X f1b016
+5164 D=00f1
+5165 dsp:X f1b018
+5166 dsp:X f1b01a
+5167 dsp:W14':00f1c004 B
+5167 A(004048) r fc6
+5168 dsp:X f1b01c
+5168 dsp:W00':00000004 B
+5169 dsp:X f1b01e
+5173 dsp:X f1b016
+5174 dsp:X f1b018
+5174 D=c0f4
+5175 dsp:X f1b01a
+5176 dsp:W14':00f1c000 B
+5177 dsp:F --Z
+5177 dsp:X f1b01c
+5177 dsp:W00':00000000 B
+5177 A(00404a) r fc6
+5178 dsp:X f1b01e
+5179 dsp:X f1b020
+5180 dsp:X f1b022
+5181 dsp:F ---
+5181 dsp:W03':00000004 B
+5182 dsp:W02':00f1c200 B
+5183 dsp:X f1b028
+5184 D=2039
+5185 dsp:X f1b02a
+5185 dsp:W04':00000000 B
+5187 dsp:F --Z
+5187 dsp:X f1b02c
+5187 A(f1c0f4) r fc5
+5188 dsp:X f1b008
+5191 dsp:X f1b00a
+5193 dsp:W14':00f1c100 B
+5194 dsp:X f1b010
+5196 dsp:W00':00000100 B
+5197 dsp:X f1b016
+5198 dsp:X f1b018
+5198 D=0000
+5199 dsp:X f1b01a
+5200 dsp:F ---
+5200 dsp:W14':00f1c0fc B
+5201 dsp:X f1b01c
+5201 dsp:W00':000000fc B
+5201 A(00404c) r fc6
+5202 dsp:X f1b01e
+5206 dsp:X f1b016
+5207 dsp:X f1b018
+5208 dsp:X f1b01a
+5208 D=00f1
+5209 dsp:W14':00f1c0f8 B
+5210 dsp:X f1b01c
+5210 dsp:W00':000000f8 B
+5211 dsp:X f1b01e
+5211 A(00404e) r fc6
+5215 dsp:X f1b016
+5216 dsp:X f1b018
+5217 dsp:X f1b01a
+5218 dsp:W14':00f1c0f4 B
+5218 D=c0f8
+5219 dsp:X f1b01c
+5219 dsp:W00':000000f4 B
+5220 dsp:X f1b01e
+5221 A(004050) r fc6
+5224 dsp:X f1b016
+5225 dsp:X f1b018
+5226 dsp:X f1b01a
+5227 dsp:W14':00f1c0f0 B
+5228 dsp:X f1b01c
+5228 dsp:W00':000000f0 B
+5228 D=2039
+5229 dsp:X f1b01e
+5231 A(f1c0f8) r fc5
+5233 dsp:X f1b016
+5234 dsp:X f1b018
+5235 dsp:X f1b01a
+5236 dsp:W14':00f1c0ec B
+5237 dsp:X f1b01c
+5237 dsp:W00':000000ec B
+5238 dsp:X f1b01e
+5242 dsp:X f1b016
+5242 D=0000
+5243 dsp:X f1b018
+5244 dsp:X f1b01a
+5245 dsp:W14':00f1c0e8 B
+5245 A(f1c0fa) r fc5
+5246 dsp:X f1b01c
+5246 dsp:W00':000000e8 B
+5247 dsp:X f1b01e
+5251 dsp:X f1b016
+5252 dsp:X f1b018
+5253 dsp:X f1b01a
+5254 dsp:W14':00f1c0e4 B
+5255 dsp:X f1b01c
+5255 dsp:W00':000000e4 B
+5256 dsp:X f1b01e
+5256 D=0000
+5259 A(004052) r fc6
+5260 dsp:X f1b016
+5261 dsp:X f1b018
+5262 dsp:X f1b01a
+5263 dsp:W14':00f1c0e0 B
+5264 dsp:X f1b01c
+5264 dsp:W00':000000e0 B
+5265 dsp:X f1b01e
+5266 D=00f1
+5269 dsp:X f1b016
+5269 A(004054) r fc6
+5270 dsp:X f1b018
+5271 dsp:X f1b01a
+5272 dsp:W14':00f1c0dc B
+5273 dsp:X f1b01c
+5273 dsp:W00':000000dc B
+5274 dsp:X f1b01e
+5276 D=a114
+5278 dsp:X f1b016
+5279 dsp:X f1b018
+5279 A(004056) r fc6
+5280 dsp:X f1b01a
+5281 dsp:W14':00f1c0d8 B
+5282 dsp:X f1b01c
+5282 dsp:W00':000000d8 B
+5283 dsp:X f1b01e
+5286 D=51cf
+5287 dsp:X f1b016
+5288 dsp:X f1b018
+5289 dsp:X f1b01a
+5289 A(f1a114) r fc5
+5290 dsp:W14':00f1c0d4 B
+5291 dsp:X f1b01c
+5291 dsp:W00':000000d4 B
+5292 dsp:X f1b01e
+5297 dsp:X f1b016
+5298 dsp:X f1b018
+5299 dsp:X f1b01a
+5300 dsp:W14':00f1c0d0 B
+5300 D=2038
+5301 dsp:X f1b01c
+5301 dsp:W00':000000d0 B
+5302 dsp:X f1b01e
+5303 A(f1a116) r fc5
+5306 dsp:X f1b016
+5307 dsp:X f1b018
+5308 dsp:X f1b01a
+5309 dsp:W14':00f1c0cc B
+5310 dsp:X f1b01c
+5310 dsp:W00':000000cc B
+5311 dsp:X f1b01e
+5314 D=2001
+5315 dsp:X f1b016
+5316 dsp:X f1b018
+5317 dsp:X f1b01a
+5317 A(004058) r fc6
+5318 dsp:W14':00f1c0c8 B
+5319 dsp:X f1b01c
+5319 dsp:W00':000000c8 B
+5320 dsp:X f1b01e
+5324 dsp:X f1b016
+5324 D=ffe0
+5325 dsp:X f1b018
+5326 dsp:X f1b01a
+5327 dsp:W14':00f1c0c4 B
+5328 dsp:X f1b01c
+5328 dsp:W00':000000c4 B
+5329 dsp:X f1b01e
+5331 A(004038) r fc6
+5333 dsp:X f1b016
+5334 dsp:X f1b018
+5335 dsp:X f1b01a
+5336 dsp:W14':00f1c0c0 B
+5337 dsp:X f1b01c
+5337 dsp:W00':000000c0 B
+5338 dsp:X f1b01e
+5338 D=1039
+5341 A(00403a) r fc6
+5342 dsp:X f1b016
+5343 dsp:X f1b018
+5344 dsp:X f1b01a
+5345 dsp:W14':00f1c0bc B
+5346 dsp:X f1b01c
+5346 dsp:W00':000000bc B
+5347 dsp:X f1b01e
+5348 D=00f1
+5351 dsp:X f1b016
+5351 A(00403c) r fc6
+5352 dsp:X f1b018
+5353 dsp:X f1b01a
+5354 dsp:W14':00f1c0b8 B
+5355 dsp:X f1b01c
+5355 dsp:W00':000000b8 B
+5356 dsp:X f1b01e
+5358 D=c0f0
+5360 dsp:X f1b016
+5361 dsp:X f1b018
+5361 A(00403e) r fc6
+5362 dsp:X f1b01a
+5363 dsp:W14':00f1c0b4 B
+5364 dsp:X f1b01c
+5364 dsp:W00':000000b4 B
+5365 dsp:X f1b01e
+5368 D=3207
+5369 dsp:X f1b016
+5370 dsp:X f1b018
+5371 dsp:X f1b01a
+5371 A(f1c0f0) r fc5
+5372 dsp:W14':00f1c0b0 B
+5373 dsp:X f1b01c
+5373 dsp:W00':000000b0 B
+5374 dsp:X f1b01e
+5379 dsp:X f1b016
+5380 dsp:X f1b018
+5381 dsp:X f1b01a
+5382 dsp:W14':00f1c0ac B
+5382 D=00--
+5383 dsp:X f1b01c
+5383 dsp:W00':000000ac B
+5384 dsp:X f1b01e
+5385 A(004040) r fc6
+5388 dsp:X f1b016
+5389 dsp:X f1b018
+5390 dsp:X f1b01a
+5391 dsp:W14':00f1c0a8 B
+5392 dsp:X f1b01c
+5392 dsp:W00':000000a8 B
+5392 D=51c9
+5393 dsp:X f1b01e
+5395 A(004042) r fc6
+5397 dsp:X f1b016
+5398 dsp:X f1b018
+5399 dsp:X f1b01a
+5400 dsp:W14':00f1c0a4 B
+5401 dsp:X f1b01c
+5401 dsp:W00':000000a4 B
+5402 dsp:X f1b01e
+5402 D=fffe
+5406 dsp:X f1b016
+5407 dsp:X f1b018
+5408 dsp:X f1b01a
+5409 dsp:W14':00f1c0a0 B
+5409 A(004040) r fc6
+5410 dsp:X f1b01c
+5410 dsp:W00':000000a0 B
+5411 dsp:X f1b01e
+5415 dsp:X f1b016
+5416 dsp:X f1b018
+5416 D=51c9
+5417 dsp:X f1b01a
+5418 dsp:W14':00f1c09c B
+5419 dsp:X f1b01c
+5419 dsp:W00':0000009c B
+5419 A(004042) r fc6
+5420 dsp:X f1b01e
+5424 dsp:X f1b016
+5425 dsp:X f1b018
+5426 dsp:X f1b01a
+5426 D=fffe
+5427 dsp:W14':00f1c098 B
+5428 dsp:X f1b01c
+5428 dsp:W00':00000098 B
+5429 dsp:X f1b01e
+5433 dsp:X f1b016
+5433 A(004040) r fc6
+5434 dsp:X f1b018
+5435 dsp:X f1b01a
+5436 dsp:W14':00f1c094 B
+5437 dsp:X f1b01c
+5437 dsp:W00':00000094 B
+5438 dsp:X f1b01e
+5440 D=51c9
+5442 dsp:X f1b016
+5443 dsp:X f1b018
+5443 A(004042) r fc6
+5444 dsp:X f1b01a
+5445 dsp:W14':00f1c090 B
+5446 dsp:X f1b01c
+5446 dsp:W00':00000090 B
+5447 dsp:X f1b01e
+5450 D=fffe
+5451 dsp:X f1b016
+5452 dsp:X f1b018
+5453 dsp:X f1b01a
+5454 dsp:W14':00f1c08c B
+5455 dsp:X f1b01c
+5455 dsp:W00':0000008c B
+5456 dsp:X f1b01e
+5457 A(004040) r fc6
+5460 dsp:X f1b016
+5461 dsp:X f1b018
+5462 dsp:X f1b01a
+5463 dsp:W14':00f1c088 B
+5464 dsp:X f1b01c
+5464 dsp:W00':00000088 B
+5464 D=51c9
+5465 dsp:X f1b01e
+5467 A(004042) r fc6
+5469 dsp:X f1b016
+5470 dsp:X f1b018
+5471 dsp:X f1b01a
+5472 dsp:W14':00f1c084 B
+5473 dsp:X f1b01c
+5473 dsp:W00':00000084 B
+5474 dsp:X f1b01e
+5474 D=fffe
+5478 dsp:X f1b016
+5479 dsp:X f1b018
+5480 dsp:X f1b01a
+5481 dsp:W14':00f1c080 B
+5481 A(004040) r fc6
+5482 dsp:X f1b01c
+5482 dsp:W00':00000080 B
+5483 dsp:X f1b01e
+5487 dsp:X f1b016
+5488 dsp:X f1b018
+5488 D=51c9
+5489 dsp:X f1b01a
+5490 dsp:W14':00f1c07c B
+5491 dsp:X f1b01c
+5491 dsp:W00':0000007c B
+5491 A(004042) r fc6
+5492 dsp:X f1b01e
+5496 dsp:X f1b016
+5497 dsp:X f1b018
+5498 dsp:X f1b01a
+5498 D=fffe
+5499 dsp:W14':00f1c078 B
+5500 dsp:X f1b01c
+5500 dsp:W00':00000078 B
+5501 dsp:X f1b01e
+5505 dsp:X f1b016
+5505 A(004040) r fc6
+5506 dsp:X f1b018
+5507 dsp:X f1b01a
+5508 dsp:W14':00f1c074 B
+5509 dsp:X f1b01c
+5509 dsp:W00':00000074 B
+5510 dsp:X f1b01e
+5512 D=51c9
+5514 dsp:X f1b016
+5515 dsp:X f1b018
+5515 A(004042) r fc6
+5516 dsp:X f1b01a
+5517 dsp:W14':00f1c070 B
+5518 dsp:X f1b01c
+5518 dsp:W00':00000070 B
+5519 dsp:X f1b01e
+5522 D=fffe
+5523 dsp:X f1b016
+5524 dsp:X f1b018
+5525 dsp:X f1b01a
+5526 dsp:W14':00f1c06c B
+5527 dsp:X f1b01c
+5527 dsp:W00':0000006c B
+5528 dsp:X f1b01e
+5529 A(004040) r fc6
+5532 dsp:X f1b016
+5533 dsp:X f1b018
+5534 dsp:X f1b01a
+5535 dsp:W14':00f1c068 B
+5536 dsp:X f1b01c
+5536 dsp:W00':00000068 B
+5536 D=51c9
+5537 dsp:X f1b01e
+5539 A(004042) r fc6
+5541 dsp:X f1b016
+5542 dsp:X f1b018
+5543 dsp:X f1b01a
+5544 dsp:W14':00f1c064 B
+5545 dsp:X f1b01c
+5545 dsp:W00':00000064 B
+5546 dsp:X f1b01e
+5546 D=fffe
+5550 dsp:X f1b016
+5551 dsp:X f1b018
+5552 dsp:X f1b01a
+5553 dsp:W14':00f1c060 B
+5553 A(004040) r fc6
+5554 dsp:X f1b01c
+5554 dsp:W00':00000060 B
+5555 dsp:X f1b01e
+5559 dsp:X f1b016
+5560 dsp:X f1b018
+5560 D=51c9
+5561 dsp:X f1b01a
+5562 dsp:W14':00f1c05c B
+5563 dsp:X f1b01c
+5563 dsp:W00':0000005c B
+5563 A(004044) r fc6
+5564 dsp:X f1b01e
+5568 dsp:X f1b016
+5569 dsp:X f1b018
+5570 dsp:X f1b01a
+5570 D=3039
+5571 dsp:W14':00f1c058 B
+5572 dsp:X f1b01c
+5572 dsp:W00':00000058 B
+5573 dsp:X f1b01e
+5573 A(004046) r fc6
+5577 dsp:X f1b016
+5578 dsp:X f1b018
+5579 dsp:X f1b01a
+5580 dsp:W14':00f1c054 B
+5580 D=00f1
+5581 dsp:X f1b01c
+5581 dsp:W00':00000054 B
+5582 dsp:X f1b01e
+5583 A(004048) r fc6
+5586 dsp:X f1b016
+5587 dsp:X f1b018
+5588 dsp:X f1b01a
+5589 dsp:W14':00f1c050 B
+5590 dsp:X f1b01c
+5590 dsp:W00':00000050 B
+5590 D=c0f4
+5591 dsp:X f1b01e
+5593 A(00404a) r fc6
+5595 dsp:X f1b016
+5596 dsp:X f1b018
+5597 dsp:X f1b01a
+5598 dsp:W14':00f1c04c B
+5599 dsp:X f1b01c
+5599 dsp:W00':0000004c B
+5600 dsp:X f1b01e
+5600 D=2039
+5603 A(f1c0f4) r fc5
+5604 dsp:X f1b016
+5605 dsp:X f1b018
+5606 dsp:X f1b01a
+5607 dsp:W14':00f1c048 B
+5608 dsp:X f1b01c
+5608 dsp:W00':00000048 B
+5609 dsp:X f1b01e
+5613 dsp:X f1b016
+5614 dsp:X f1b018
+5614 D=0000
+5615 dsp:X f1b01a
+5616 dsp:W14':00f1c044 B
+5617 dsp:X f1b01c
+5617 dsp:W00':00000044 B
+5617 A(00404c) r fc6
+5618 dsp:X f1b01e
+5622 dsp:X f1b016
+5623 dsp:X f1b018
+5624 dsp:X f1b01a
+5624 D=00f1
+5625 dsp:W14':00f1c040 B
+5626 dsp:X f1b01c
+5626 dsp:W00':00000040 B
+5627 dsp:X f1b01e
+5627 A(00404e) r fc6
+5631 dsp:X f1b016
+5632 dsp:X f1b018
+5633 dsp:X f1b01a
+5634 dsp:W14':00f1c03c B
+5634 D=c0f8
+5635 dsp:X f1b01c
+5635 dsp:W00':0000003c B
+5636 dsp:X f1b01e
+5637 A(004050) r fc6
+5640 dsp:X f1b016
+5641 dsp:X f1b018
+5642 dsp:X f1b01a
+5643 dsp:W14':00f1c038 B
+5644 dsp:X f1b01c
+5644 dsp:W00':00000038 B
+5644 D=2039
+5645 dsp:X f1b01e
+5647 A(f1c0f8) r fc5
+5649 dsp:X f1b016
+5650 dsp:X f1b018
+5651 dsp:X f1b01a
+5652 dsp:W14':00f1c034 B
+5653 dsp:X f1b01c
+5653 dsp:W00':00000034 B
+5654 dsp:X f1b01e
+5658 dsp:X f1b016
+5658 D=0000
+5659 dsp:X f1b018
+5660 dsp:X f1b01a
+5661 dsp:W14':00f1c030 B
+5661 A(f1c0fa) r fc5
+5662 dsp:X f1b01c
+5662 dsp:W00':00000030 B
+5663 dsp:X f1b01e
+5667 dsp:X f1b016
+5668 dsp:X f1b018
+5669 dsp:X f1b01a
+5670 dsp:W14':00f1c02c B
+5671 dsp:X f1b01c
+5671 dsp:W00':0000002c B
+5672 dsp:X f1b01e
+5672 D=0000
+5675 A(004052) r fc6
+5676 dsp:X f1b016
+5677 dsp:X f1b018
+5678 dsp:X f1b01a
+5679 dsp:W14':00f1c028 B
+5680 dsp:X f1b01c
+5680 dsp:W00':00000028 B
+5681 dsp:X f1b01e
+5682 D=00f1
+5685 dsp:X f1b016
+5685 A(004054) r fc6
+5686 dsp:X f1b018
+5687 dsp:X f1b01a
+5688 dsp:W14':00f1c024 B
+5689 dsp:X f1b01c
+5689 dsp:W00':00000024 B
+5690 dsp:X f1b01e
+5692 D=a114
+5694 dsp:X f1b016
+5695 dsp:X f1b018
+5695 A(004056) r fc6
+5696 dsp:X f1b01a
+5697 dsp:W14':00f1c020 B
+5698 dsp:X f1b01c
+5698 dsp:W00':00000020 B
+5699 dsp:X f1b01e
+5702 D=51cf
+5703 dsp:X f1b016
+5704 dsp:X f1b018
+5705 dsp:X f1b01a
+5705 A(f1a114) r fc5
+5706 dsp:W14':00f1c01c B
+5707 dsp:X f1b01c
+5707 dsp:W00':0000001c B
+5708 dsp:X f1b01e
+5713 dsp:X f1b016
+5714 dsp:X f1b018
+5715 dsp:X f1b01a
+5716 dsp:W14':00f1c018 B
+5716 D=2038
+5717 dsp:X f1b01c
+5717 dsp:W00':00000018 B
+5718 dsp:X f1b01e
+5719 A(f1a116) r fc5
+5722 dsp:X f1b016
+5723 dsp:X f1b018
+5724 dsp:X f1b01a
+5725 dsp:W14':00f1c014 B
+5726 dsp:X f1b01c
+5726 dsp:W00':00000014 B
+5727 dsp:X f1b01e
+5730 D=2001
+5731 dsp:X f1b016
+5732 dsp:X f1b018
+5733 dsp:X f1b01a
+5733 A(004058) r fc6
+5734 dsp:W14':00f1c010 B
+5735 dsp:X f1b01c
+5735 dsp:W00':00000010 B
+5736 dsp:X f1b01e
+5740 dsp:X f1b016
+5740 D=ffe0
+5741 dsp:X f1b018
+5742 dsp:X f1b01a
+5743 dsp:W14':00f1c00c B
+5744 dsp:X f1b01c
+5744 dsp:W00':0000000c B
+5745 dsp:X f1b01e
+5747 A(004038) r fc6
+5749 dsp:X f1b016
+5750 dsp:X f1b018
+5751 dsp:X f1b01a
+5752 dsp:W14':00f1c008 B
+5753 dsp:X f1b01c
+5753 dsp:W00':00000008 B
+5754 dsp:X f1b01e
+5754 D=1039
+5757 A(00403a) r fc6
+5758 dsp:X f1b016
+5759 dsp:X f1b018
+5760 dsp:X f1b01a
+5761 dsp:W14':00f1c004 B
+5762 dsp:X f1b01c
+5762 dsp:W00':00000004 B
+5763 dsp:X f1b01e
+5764 D=00f1
+5767 dsp:X f1b016
+5767 A(00403c) r fc6
+5768 dsp:X f1b018
+5769 dsp:X f1b01a
+5770 dsp:W14':00f1c000 B
+5771 dsp:F --Z
+5771 dsp:X f1b01c
+5771 dsp:W00':00000000 B
+5772 dsp:X f1b01e
+5773 dsp:X f1b020
+5774 dsp:X f1b022
+5774 D=c0f0
+5775 dsp:F ---
+5775 dsp:W03':00000005 B
+5776 dsp:W02':00f1c200 B
+5777 dsp:X f1b028
+5777 A(00403e) r fc6
+5779 dsp:X f1b02a
+5779 dsp:W04':00000000 B
+5781 dsp:F --Z
+5781 dsp:X f1b02c
+5782 dsp:X f1b008
+5784 D=3207
+5785 dsp:X f1b00a
+5787 dsp:W14':00f1c100 B
+5787 A(f1c0f0) r fc5
+5788 dsp:X f1b010
+5790 dsp:W00':00000100 B
+5791 dsp:X f1b016
+5792 dsp:X f1b018
+5793 dsp:X f1b01a
+5794 dsp:F ---
+5794 dsp:W14':00f1c0fc B
+5795 dsp:X f1b01c
+5795 dsp:W00':000000fc B
+5796 dsp:X f1b01e
+5798 D=00--
+5800 dsp:X f1b016
+5801 dsp:X f1b018
+5801 A(004040) r fc6
+5802 dsp:X f1b01a
+5803 dsp:W14':00f1c0f8 B
+5804 dsp:X f1b01c
+5804 dsp:W00':000000f8 B
+5805 dsp:X f1b01e
+5808 D=51c9
+5809 dsp:X f1b016
+5810 dsp:X f1b018
+5811 dsp:X f1b01a
+5811 A(004042) r fc6
+5812 dsp:W14':00f1c0f4 B
+5813 dsp:X f1b01c
+5813 dsp:W00':000000f4 B
+5814 dsp:X f1b01e
+5818 dsp:X f1b016
+5818 D=fffe
+5819 dsp:X f1b018
+5820 dsp:X f1b01a
+5821 dsp:W14':00f1c0f0 B
+5822 dsp:X f1b01c
+5822 dsp:W00':000000f0 B
+5823 dsp:X f1b01e
+5825 A(004040) r fc6
+5827 dsp:X f1b016
+5828 dsp:X f1b018
+5829 dsp:X f1b01a
+5830 dsp:W14':00f1c0ec B
+5831 dsp:X f1b01c
+5831 dsp:W00':000000ec B
+5832 dsp:X f1b01e
+5832 D=51c9
+5835 A(004042) r fc6
+5836 dsp:X f1b016
+5837 dsp:X f1b018
+5838 dsp:X f1b01a
+5839 dsp:W14':00f1c0e8 B
+5840 dsp:X f1b01c
+5840 dsp:W00':000000e8 B
+5841 dsp:X f1b01e
+5842 D=fffe
+5845 dsp:X f1b016
+5846 dsp:X f1b018
+5847 dsp:X f1b01a
+5848 dsp:W14':00f1c0e4 B
+5849 dsp:X f1b01c
+5849 dsp:W00':000000e4 B
+5849 A(004040) r fc6
+5850 dsp:X f1b01e
+5854 dsp:X f1b016
+5855 dsp:X f1b018
+5856 dsp:X f1b01a
+5856 D=51c9
+5857 dsp:W14':00f1c0e0 B
+5858 dsp:X f1b01c
+5858 dsp:W00':000000e0 B
+5859 dsp:X f1b01e
+5859 A(004042) r fc6
+5863 dsp:X f1b016
+5864 dsp:X f1b018
+5865 dsp:X f1b01a
+5866 dsp:W14':00f1c0dc B
+5866 D=fffe
+5867 dsp:X f1b01c
+5867 dsp:W00':000000dc B
+5868 dsp:X f1b01e
+5872 dsp:X f1b016
+5873 dsp:X f1b018
+5873 A(004040) r fc6
+5874 dsp:X f1b01a
+5875 dsp:W14':00f1c0d8 B
+5876 dsp:X f1b01c
+5876 dsp:W00':000000d8 B
+5877 dsp:X f1b01e
+5880 D=51c9
+5881 dsp:X f1b016
+5882 dsp:X f1b018
+5883 dsp:X f1b01a
+5883 A(004042) r fc6
+5884 dsp:W14':00f1c0d4 B
+5885 dsp:X f1b01c
+5885 dsp:W00':000000d4 B
+5886 dsp:X f1b01e
+5890 dsp:X f1b016
+5890 D=fffe
+5891 dsp:X f1b018
+5892 dsp:X f1b01a
+5893 dsp:W14':00f1c0d0 B
+5894 dsp:X f1b01c
+5894 dsp:W00':000000d0 B
+5895 dsp:X f1b01e
+5897 A(004040) r fc6
+5899 dsp:X f1b016
+5900 dsp:X f1b018
+5901 dsp:X f1b01a
+5902 dsp:W14':00f1c0cc B
+5903 dsp:X f1b01c
+5903 dsp:W00':000000cc B
+5904 dsp:X f1b01e
+5904 D=51c9
+5907 A(004042) r fc6
+5908 dsp:X f1b016
+5909 dsp:X f1b018
+5910 dsp:X f1b01a
+5911 dsp:W14':00f1c0c8 B
+5912 dsp:X f1b01c
+5912 dsp:W00':000000c8 B
+5913 dsp:X f1b01e
+5914 D=fffe
+5917 dsp:X f1b016
+5918 dsp:X f1b018
+5919 dsp:X f1b01a
+5920 dsp:W14':00f1c0c4 B
+5921 dsp:X f1b01c
+5921 dsp:W00':000000c4 B
+5921 A(004040) r fc6
+5922 dsp:X f1b01e
+5926 dsp:X f1b016
+5927 dsp:X f1b018
+5928 dsp:X f1b01a
+5928 D=51c9
+5929 dsp:W14':00f1c0c0 B
+5930 dsp:X f1b01c
+5930 dsp:W00':000000c0 B
+5931 dsp:X f1b01e
+5931 A(004042) r fc6
+5935 dsp:X f1b016
+5936 dsp:X f1b018
+5937 dsp:X f1b01a
+5938 dsp:W14':00f1c0bc B
+5938 D=fffe
+5939 dsp:X f1b01c
+5939 dsp:W00':000000bc B
+5940 dsp:X f1b01e
+5944 dsp:X f1b016
+5945 dsp:X f1b018
+5945 A(004040) r fc6
+5946 dsp:X f1b01a
+5947 dsp:W14':00f1c0b8 B
+5948 dsp:X f1b01c
+5948 dsp:W00':000000b8 B
+5949 dsp:X f1b01e
+5952 D=51c9
+5953 dsp:X f1b016
+5954 dsp:X f1b018
+5955 dsp:X f1b01a
+5955 A(004044) r fc6
+5956 dsp:W14':00f1c0b4 B
+5957 dsp:X f1b01c
+5957 dsp:W00':000000b4 B
+5958 dsp:X f1b01e
+5962 dsp:X f1b016
+5962 D=3039
+5963 dsp:X f1b018
+5964 dsp:X f1b01a
+5965 dsp:W14':00f1c0b0 B
+5965 A(004046) r fc6
+5966 dsp:X f1b01c
+5966 dsp:W00':000000b0 B
+5967 dsp:X f1b01e
+5971 dsp:X f1b016
+5972 dsp:X f1b018
+5972 D=00f1
+5973 dsp:X f1b01a
+5974 dsp:W14':00f1c0ac B
+5975 dsp:X f1b01c
+5975 dsp:W00':000000ac B
+5975 A(004048) r fc6
+5976 dsp:X f1b01e
+5980 dsp:X f1b016
+5981 dsp:X f1b018
+5982 dsp:X f1b01a
+5982 D=c0f4
+5983 dsp:W14':00f1c0a8 B
+5984 dsp:X f1b01c
+5984 dsp:W00':000000a8 B
+5985 dsp:X f1b01e
+5985 A(00404a) r fc6
+5989 dsp:X f1b016
+5990 dsp:X f1b018
+5991 dsp:X f1b01a
+5992 dsp:W14':00f1c0a4 B
+5992 D=2039
+5993 dsp:X f1b01c
+5993 dsp:W00':000000a4 B
+5994 dsp:X f1b01e
+5995 A(f1c0f4) r fc5
+5998 dsp:X f1b016
+5999 dsp:X f1b018
+6000 dsp:X f1b01a
+6001 dsp:W14':00f1c0a0 B
+6002 dsp:X f1b01c
+6002 dsp:W00':000000a0 B
+6003 dsp:X f1b01e
+6006 D=0000
+6007 dsp:X f1b016
+6008 dsp:X f1b018
+6009 dsp:X f1b01a
+6009 A(00404c) r fc6
+6010 dsp:W14':00f1c09c B
+6011 dsp:X f1b01c
+6011 dsp:W00':0000009c B
+6012 dsp:X f1b01e
+6016 dsp:X f1b016
+6016 D=00f1
+6017 dsp:X f1b018
+6018 dsp:X f1b01a
+6019 dsp:W14':00f1c098 B
+6019 A(00404e) r fc6
+6020 dsp:X f1b01c
+6020 dsp:W00':00000098 B
+6021 dsp:X f1b01e
+6025 dsp:X f1b016
+6026 dsp:X f1b018
+6026 D=c0f8
+6027 dsp:X f1b01a
+6028 dsp:W14':00f1c094 B
+6029 dsp:X f1b01c
+6029 dsp:W00':00000094 B
+6029 A(004050) r fc6
+6030 dsp:X f1b01e
+6034 dsp:X f1b016
+6035 dsp:X f1b018
+6036 dsp:X f1b01a
+6036 D=2039
+6037 dsp:W14':00f1c090 B
+6038 dsp:X f1b01c
+6038 dsp:W00':00000090 B
+6039 dsp:X f1b01e
+6039 A(f1c0f8) r fc5
+6043 dsp:X f1b016
+6044 dsp:X f1b018
+6045 dsp:X f1b01a
+6046 dsp:W14':00f1c08c B
+6047 dsp:X f1b01c
+6047 dsp:W00':0000008c B
+6048 dsp:X f1b01e
+6050 D=0000
+6052 dsp:X f1b016
+6053 dsp:X f1b018
+6053 A(f1c0fa) r fc5
+6054 dsp:X f1b01a
+6055 dsp:W14':00f1c088 B
+6056 dsp:X f1b01c
+6056 dsp:W00':00000088 B
+6057 dsp:X f1b01e
+6061 dsp:X f1b016
+6062 dsp:X f1b018
+6063 dsp:X f1b01a
+6064 dsp:W14':00f1c084 B
+6064 D=0000
+6065 dsp:X f1b01c
+6065 dsp:W00':00000084 B
+6066 dsp:X f1b01e
+6067 A(004052) r fc6
+6070 dsp:X f1b016
+6071 dsp:X f1b018
+6072 dsp:X f1b01a
+6073 dsp:W14':00f1c080 B
+6074 dsp:X f1b01c
+6074 dsp:W00':00000080 B
+6074 D=00f1
+6075 dsp:X f1b01e
+6077 A(004054) r fc6
+6079 dsp:X f1b016
+6080 dsp:X f1b018
+6081 dsp:X f1b01a
+6082 dsp:W14':00f1c07c B
+6083 dsp:X f1b01c
+6083 dsp:W00':0000007c B
+6084 dsp:X f1b01e
+6084 D=a114
+6087 A(004056) r fc6
+6088 dsp:X f1b016
+6089 dsp:X f1b018
+6090 dsp:X f1b01a
+6091 dsp:W14':00f1c078 B
+6092 dsp:X f1b01c
+6092 dsp:W00':00000078 B
+6093 dsp:X f1b01e
+6094 D=51cf
+6097 dsp:X f1b016
+6097 A(f1a114) r fc5
+6098 dsp:X f1b018
+6099 dsp:X f1b01a
+6100 dsp:W14':00f1c074 B
+6101 dsp:X f1b01c
+6101 dsp:W00':00000074 B
+6102 dsp:X f1b01e
+6106 dsp:X f1b016
+6107 dsp:X f1b018
+6108 dsp:X f1b01a
+6108 D=20b8
+6109 dsp:W14':00f1c070 B
+6110 dsp:X f1b01c
+6110 dsp:W00':00000070 B
+6111 dsp:X f1b01e
+6111 A(f1a116) r fc5
+6115 dsp:X f1b016
+6116 dsp:X f1b018
+6117 dsp:X f1b01a
+6118 dsp:W14':00f1c06c B
+6119 dsp:X f1b01c
+6119 dsp:W00':0000006c B
+6120 dsp:X f1b01e
+6122 D=2001
+6124 dsp:X f1b016
+6125 dsp:X f1b018
+6125 A(004058) r fc6
+6126 dsp:X f1b01a
+6127 dsp:W14':00f1c068 B
+6128 dsp:X f1b01c
+6128 dsp:W00':00000068 B
+6129 dsp:X f1b01e
+6132 D=ffe0
+6133 dsp:X f1b016
+6134 dsp:X f1b018
+6135 dsp:X f1b01a
+6136 dsp:W14':00f1c064 B
+6137 dsp:X f1b01c
+6137 dsp:W00':00000064 B
+6138 dsp:X f1b01e
+6139 A(004038) r fc6
+6142 dsp:X f1b016
+6143 dsp:X f1b018
+6144 dsp:X f1b01a
+6145 dsp:W14':00f1c060 B
+6146 dsp:X f1b01c
+6146 dsp:W00':00000060 B
+6146 D=1039
+6147 dsp:X f1b01e
+6149 A(00403a) r fc6
+6151 dsp:X f1b016
+6152 dsp:X f1b018
+6153 dsp:X f1b01a
+6154 dsp:W14':00f1c05c B
+6155 dsp:X f1b01c
+6155 dsp:W00':0000005c B
+6156 dsp:X f1b01e
+6156 D=00f1
+6159 A(00403c) r fc6
+6160 dsp:X f1b016
+6161 dsp:X f1b018
+6162 dsp:X f1b01a
+6163 dsp:W14':00f1c058 B
+6164 dsp:X f1b01c
+6164 dsp:W00':00000058 B
+6165 dsp:X f1b01e
+6166 D=c0f0
+6169 dsp:X f1b016
+6169 A(00403e) r fc6
+6170 dsp:X f1b018
+6171 dsp:X f1b01a
+6172 dsp:W14':00f1c054 B
+6173 dsp:X f1b01c
+6173 dsp:W00':00000054 B
+6174 dsp:X f1b01e
+6176 D=3207
+6178 dsp:X f1b016
+6179 dsp:X f1b018
+6179 A(f1c0f0) r fc5
+6180 dsp:X f1b01a
+6181 dsp:W14':00f1c050 B
+6182 dsp:X f1b01c
+6182 dsp:W00':00000050 B
+6183 dsp:X f1b01e
+6187 dsp:X f1b016
+6188 dsp:X f1b018
+6189 dsp:X f1b01a
+6190 dsp:W14':00f1c04c B
+6190 D=00--
+6191 dsp:X f1b01c
+6191 dsp:W00':0000004c B
+6192 dsp:X f1b01e
+6193 A(004040) r fc6
+6196 dsp:X f1b016
+6197 dsp:X f1b018
+6198 dsp:X f1b01a
+6199 dsp:W14':00f1c048 B
+6200 dsp:X f1b01c
+6200 dsp:W00':00000048 B
+6200 D=51c9
+6201 dsp:X f1b01e
+6203 A(004042) r fc6
+6205 dsp:X f1b016
+6206 dsp:X f1b018
+6207 dsp:X f1b01a
+6208 dsp:W14':00f1c044 B
+6209 dsp:X f1b01c
+6209 dsp:W00':00000044 B
+6210 dsp:X f1b01e
+6210 D=fffe
+6214 dsp:X f1b016
+6215 dsp:X f1b018
+6216 dsp:X f1b01a
+6217 dsp:W14':00f1c040 B
+6218 dsp:X f1b01c
+6218 dsp:W00':00000040 B
+6219 dsp:X f1b01e
+6223 dsp:X f1b016
+6224 dsp:X f1b018
+6225 dsp:X f1b01a
+6226 dsp:W14':00f1c03c B
+6227 dsp:X f1b01c
+6227 dsp:W00':0000003c B
+6228 dsp:X f1b01e
+6232 dsp:X f1b016
+6233 dsp:X f1b018
+6234 dsp:X f1b01a
+6235 dsp:W14':00f1c038 B
+6236 dsp:X f1b01c
+6236 dsp:W00':00000038 B
+6237 dsp:X f1b01e
+6241 dsp:X f1b016
+6242 dsp:X f1b018
+6243 dsp:X f1b01a
+6244 dsp:W14':00f1c034 B
+6245 dsp:X f1b01c
+6245 dsp:W00':00000034 B
+6246 dsp:X f1b01e
+6250 dsp:X f1b016
+6251 dsp:X f1b018
+6252 dsp:X f1b01a
+6253 dsp:W14':00f1c030 B
+6254 dsp:X f1b01c
+6254 dsp:W00':00000030 B
+6255 dsp:X f1b01e
+6259 dsp:X f1b016
+6260 dsp:X f1b018
+6261 dsp:X f1b01a
+6262 dsp:W14':00f1c02c B
+6263 dsp:X f1b01c
+6263 dsp:W00':0000002c B
+6264 dsp:X f1b01e
+6265 A(004040) r fc6
+6268 dsp:X f1b016
+6269 dsp:X f1b018
+6270 dsp:X f1b01a
+6271 dsp:W14':00f1c028 B
+6272 dsp:X f1b01c
+6272 dsp:W00':00000028 B
+6273 dsp:X f1b01e
+6276 D=51c9
+6277 dsp:X f1b016
+6278 dsp:X f1b018
+6279 dsp:X f1b01a
+6279 A(004042) r fc6
+6280 dsp:W14':00f1c024 B
+6281 dsp:X f1b01c
+6281 dsp:W00':00000024 B
+6282 dsp:X f1b01e
+6286 dsp:X f1b016
+6286 D=fffe
+6287 dsp:X f1b018
+6288 dsp:X f1b01a
+6289 dsp:W14':00f1c020 B
+6290 dsp:X f1b01c
+6290 dsp:W00':00000020 B
+6291 dsp:X f1b01e
+6293 A(004040) r fc6
+6295 dsp:X f1b016
+6296 dsp:X f1b018
+6297 dsp:X f1b01a
+6298 dsp:W14':00f1c01c B
+6299 dsp:X f1b01c
+6299 dsp:W00':0000001c B
+6300 dsp:X f1b01e
+6300 D=51c9
+6303 A(004042) r fc6
+6304 dsp:X f1b016
+6305 dsp:X f1b018
+6306 dsp:X f1b01a
+6307 dsp:W14':00f1c018 B
+6308 dsp:X f1b01c
+6308 dsp:W00':00000018 B
+6309 dsp:X f1b01e
+6310 D=fffe
+6313 dsp:X f1b016
+6314 dsp:X f1b018
+6315 dsp:X f1b01a
+6316 dsp:W14':00f1c014 B
+6317 dsp:X f1b01c
+6317 dsp:W00':00000014 B
+6317 A(004040) r fc6
+6318 dsp:X f1b01e
+6322 dsp:X f1b016
+6323 dsp:X f1b018
+6324 dsp:X f1b01a
+6324 D=51c9
+6325 dsp:W14':00f1c010 B
+6326 dsp:X f1b01c
+6326 dsp:W00':00000010 B
+6327 dsp:X f1b01e
+6327 A(004042) r fc6
+6331 dsp:X f1b016
+6332 dsp:X f1b018
+6333 dsp:X f1b01a
+6334 dsp:W14':00f1c00c B
+6334 D=fffe
+6335 dsp:X f1b01c
+6335 dsp:W00':0000000c B
+6336 dsp:X f1b01e
+6340 dsp:X f1b016
+6341 dsp:X f1b018
+6341 A(004040) r fc6
+6342 dsp:X f1b01a
+6343 dsp:W14':00f1c008 B
+6344 dsp:X f1b01c
+6344 dsp:W00':00000008 B
+6345 dsp:X f1b01e
+6348 D=51c9
+6349 dsp:X f1b016
+6350 dsp:X f1b018
+6351 dsp:X f1b01a
+6351 A(004042) r fc6
+6352 dsp:W14':00f1c004 B
+6353 dsp:X f1b01c
+6353 dsp:W00':00000004 B
+6354 dsp:X f1b01e
+6358 dsp:X f1b016
+6358 D=fffe
+6359 dsp:X f1b018
+6360 dsp:X f1b01a
+6361 dsp:W14':00f1c000 B
+6362 dsp:F --Z
+6362 dsp:X f1b01c
+6362 dsp:W00':00000000 B
+6363 dsp:X f1b01e
+6364 dsp:X f1b020
+6365 dsp:X f1b022
+6365 A(004040) r fc6
+6366 dsp:F ---
+6366 dsp:W03':00000006 B
+6367 dsp:W02':00f1c200 B
+6368 dsp:X f1b028
+6370 dsp:X f1b02a
+6370 dsp:W04':00000000 B
+6372 dsp:F --Z
+6372 dsp:X f1b02c
+6372 D=51c9
+6373 dsp:X f1b008
+6375 A(004044) r fc6
+6376 dsp:X f1b00a
+6378 dsp:W14':00f1c100 B
+6379 dsp:X f1b010
+6381 dsp:W00':00000100 B
+6382 dsp:X f1b016
+6382 D=3039
+6383 dsp:X f1b018
+6384 dsp:X f1b01a
+6385 dsp:F ---
+6385 dsp:W14':00f1c0fc B
+6385 A(004046) r fc6
+6386 dsp:X f1b01c
+6386 dsp:W00':000000fc B
+6387 dsp:X f1b01e
+6391 dsp:X f1b016
+6392 dsp:X f1b018
+6392 D=00f1
+6393 dsp:X f1b01a
+6394 dsp:W14':00f1c0f8 B
+6395 dsp:X f1b01c
+6395 dsp:W00':000000f8 B
+6395 A(004048) r fc6
+6396 dsp:X f1b01e
+6400 dsp:X f1b016
+6401 dsp:X f1b018
+6402 dsp:X f1b01a
+6402 D=c0f4
+6403 dsp:W14':00f1c0f4 B
+6404 dsp:X f1b01c
+6404 dsp:W00':000000f4 B
+6405 dsp:X f1b01e
+6405 A(00404a) r fc6
+6409 dsp:X f1b016
+6410 dsp:X f1b018
+6411 dsp:X f1b01a
+6412 dsp:W14':00f1c0f0 B
+6412 D=2039
+6413 dsp:X f1b01c
+6413 dsp:W00':000000f0 B
+6414 dsp:X f1b01e
+6415 A(f1c0f4) r fc5
+6418 dsp:X f1b016
+6419 dsp:X f1b018
+6420 dsp:X f1b01a
+6421 dsp:W14':00f1c0ec B
+6422 dsp:X f1b01c
+6422 dsp:W00':000000ec B
+6423 dsp:X f1b01e
+6426 D=0000
+6427 dsp:X f1b016
+6428 dsp:X f1b018
+6429 dsp:X f1b01a
+6429 A(00404c) r fc6
+6430 dsp:W14':00f1c0e8 B
+6431 dsp:X f1b01c
+6431 dsp:W00':000000e8 B
+6432 dsp:X f1b01e
+6436 dsp:X f1b016
+6436 D=00f1
+6437 dsp:X f1b018
+6438 dsp:X f1b01a
+6439 dsp:W14':00f1c0e4 B
+6439 A(00404e) r fc6
+6440 dsp:X f1b01c
+6440 dsp:W00':000000e4 B
+6441 dsp:X f1b01e
+6445 dsp:X f1b016
+6446 dsp:X f1b018
+6446 D=c0f8
+6447 dsp:X f1b01a
+6448 dsp:W14':00f1c0e0 B
+6449 dsp:X f1b01c
+6449 dsp:W00':000000e0 B
+6449 A(004050) r fc6
+6450 dsp:X f1b01e
+6454 dsp:X f1b016
+6455 dsp:X f1b018
+6456 dsp:X f1b01a
+6456 D=2039
+6457 dsp:W14':00f1c0dc B
+6458 dsp:X f1b01c
+6458 dsp:W00':000000dc B
+6459 dsp:X f1b01e
+6459 A(f1c0f8) r fc5
+6463 dsp:X f1b016
+6464 dsp:X f1b018
+6465 dsp:X f1b01a
+6466 dsp:W14':00f1c0d8 B
+6467 dsp:X f1b01c
+6467 dsp:W00':000000d8 B
+6468 dsp:X f1b01e
+6470 D=0000
+6472 dsp:X f1b016
+6473 dsp:X f1b018
+6473 A(f1c0fa) r fc5
+6474 dsp:X f1b01a
+6475 dsp:W14':00f1c0d4 B
+6476 dsp:X f1b01c
+6476 dsp:W00':000000d4 B
+6477 dsp:X f1b01e
+6481 dsp:X f1b016
+6482 dsp:X f1b018
+6483 dsp:X f1b01a
+6484 dsp:W14':00f1c0d0 B
+6484 D=0000
+6485 dsp:X f1b01c
+6485 dsp:W00':000000d0 B
+6486 dsp:X f1b01e
+6487 A(004052) r fc6
+6490 dsp:X f1b016
+6491 dsp:X f1b018
+6492 dsp:X f1b01a
+6493 dsp:W14':00f1c0cc B
+6494 dsp:X f1b01c
+6494 dsp:W00':000000cc B
+6494 D=00f1
+6495 dsp:X f1b01e
+6497 A(004054) r fc6
+6499 dsp:X f1b016
+6500 dsp:X f1b018
+6501 dsp:X f1b01a
+6502 dsp:W14':00f1c0c8 B
+6503 dsp:X f1b01c
+6503 dsp:W00':000000c8 B
+6504 dsp:X f1b01e
+6504 D=a114
+6507 A(004056) r fc6
+6508 dsp:X f1b016
+6509 dsp:X f1b018
+6510 dsp:X f1b01a
+6511 dsp:W14':00f1c0c4 B
+6512 dsp:X f1b01c
+6512 dsp:W00':000000c4 B
+6513 dsp:X f1b01e
+6514 D=51cf
+6517 dsp:X f1b016
+6517 A(f1a114) r fc5
+6518 dsp:X f1b018
+6519 dsp:X f1b01a
+6520 dsp:W14':00f1c0c0 B
+6521 dsp:X f1b01c
+6521 dsp:W00':000000c0 B
+6522 dsp:X f1b01e
+6526 dsp:X f1b016
+6527 dsp:X f1b018
+6528 dsp:X f1b01a
+6528 D=20b8
+6529 dsp:W14':00f1c0bc B
+6530 dsp:X f1b01c
+6530 dsp:W00':000000bc B
+6531 dsp:X f1b01e
+6531 A(f1a116) r fc5
+6535 dsp:X f1b016
+6536 dsp:X f1b018
+6537 dsp:X f1b01a
+6538 dsp:W14':00f1c0b8 B
+6539 dsp:X f1b01c
+6539 dsp:W00':000000b8 B
+6540 dsp:X f1b01e
+6542 D=2001
+6544 dsp:X f1b016
+6545 dsp:X f1b018
+6545 A(004058) r fc6
+6546 dsp:X f1b01a
+6547 dsp:W14':00f1c0b4 B
+6548 dsp:X f1b01c
+6548 dsp:W00':000000b4 B
+6549 dsp:X f1b01e
+6552 D=ffe0
+6553 dsp:X f1b016
+6554 dsp:X f1b018
+6555 dsp:X f1b01a
+6556 dsp:W14':00f1c0b0 B
+6557 dsp:X f1b01c
+6557 dsp:W00':000000b0 B
+6558 dsp:X f1b01e
+6559 A(004038) r fc6
+6562 dsp:X f1b016
+6563 dsp:X f1b018
+6564 dsp:X f1b01a
+6565 dsp:W14':00f1c0ac B
+6566 dsp:X f1b01c
+6566 dsp:W00':000000ac B
+6566 D=1039
+6567 dsp:X f1b01e
+6569 A(00403a) r fc6
+6571 dsp:X f1b016
+6572 dsp:X f1b018
+6573 dsp:X f1b01a
+6574 dsp:W14':00f1c0a8 B
+6575 dsp:X f1b01c
+6575 dsp:W00':000000a8 B
+6576 dsp:X f1b01e
+6576 D=00f1
+6579 A(00403c) r fc6
+6580 dsp:X f1b016
+6581 dsp:X f1b018
+6582 dsp:X f1b01a
+6583 dsp:W14':00f1c0a4 B
+6584 dsp:X f1b01c
+6584 dsp:W00':000000a4 B
+6585 dsp:X f1b01e
+6586 D=c0f0
+6589 dsp:X f1b016
+6589 A(00403e) r fc6
+6590 dsp:X f1b018
+6591 dsp:X f1b01a
+6592 dsp:W14':00f1c0a0 B
+6593 dsp:X f1b01c
+6593 dsp:W00':000000a0 B
+6594 dsp:X f1b01e
+6596 D=3207
+6598 dsp:X f1b016
+6599 dsp:X f1b018
+6599 A(f1c0f0) r fc5
+6600 dsp:X f1b01a
+6601 dsp:W14':00f1c09c B
+6602 dsp:X f1b01c
+6602 dsp:W00':0000009c B
+6603 dsp:X f1b01e
+6607 dsp:X f1b016
+6608 dsp:X f1b018
+6609 dsp:X f1b01a
+6610 dsp:W14':00f1c098 B
+6610 D=00--
+6611 dsp:X f1b01c
+6611 dsp:W00':00000098 B
+6612 dsp:X f1b01e
+6613 A(004040) r fc6
+6616 dsp:X f1b016
+6617 dsp:X f1b018
+6618 dsp:X f1b01a
+6619 dsp:W14':00f1c094 B
+6620 dsp:X f1b01c
+6620 dsp:W00':00000094 B
+6620 D=51c9
+6621 dsp:X f1b01e
+6623 A(004042) r fc6
+6625 dsp:X f1b016
+6626 dsp:X f1b018
+6627 dsp:X f1b01a
+6628 dsp:W14':00f1c090 B
+6629 dsp:X f1b01c
+6629 dsp:W00':00000090 B
+6630 dsp:X f1b01e
+6630 D=fffe
+6634 dsp:X f1b016
+6635 dsp:X f1b018
+6636 dsp:X f1b01a
+6637 dsp:W14':00f1c08c B
+6637 A(004040) r fc6
+6638 dsp:X f1b01c
+6638 dsp:W00':0000008c B
+6639 dsp:X f1b01e
+6643 dsp:X f1b016
+6644 dsp:X f1b018
+6644 D=51c9
+6645 dsp:X f1b01a
+6646 dsp:W14':00f1c088 B
+6647 dsp:X f1b01c
+6647 dsp:W00':00000088 B
+6647 A(004042) r fc6
+6648 dsp:X f1b01e
+6652 dsp:X f1b016
+6653 dsp:X f1b018
+6654 dsp:X f1b01a
+6654 D=fffe
+6655 dsp:W14':00f1c084 B
+6656 dsp:X f1b01c
+6656 dsp:W00':00000084 B
+6657 dsp:X f1b01e
+6661 dsp:X f1b016
+6661 A(004040) r fc6
+6662 dsp:X f1b018
+6663 dsp:X f1b01a
+6664 dsp:W14':00f1c080 B
+6665 dsp:X f1b01c
+6665 dsp:W00':00000080 B
+6666 dsp:X f1b01e
+6668 D=51c9
+6670 dsp:X f1b016
+6671 dsp:X f1b018
+6671 A(004042) r fc6
+6672 dsp:X f1b01a
+6673 dsp:W14':00f1c07c B
+6674 dsp:X f1b01c
+6674 dsp:W00':0000007c B
+6675 dsp:X f1b01e
+6678 D=fffe
+6679 dsp:X f1b016
+6680 dsp:X f1b018
+6681 dsp:X f1b01a
+6682 dsp:W14':00f1c078 B
+6683 dsp:X f1b01c
+6683 dsp:W00':00000078 B
+6684 dsp:X f1b01e
+6685 A(004040) r fc6
+6688 dsp:X f1b016
+6689 dsp:X f1b018
+6690 dsp:X f1b01a
+6691 dsp:W14':00f1c074 B
+6692 dsp:X f1b01c
+6692 dsp:W00':00000074 B
+6692 D=51c9
+6693 dsp:X f1b01e
+6695 A(004042) r fc6
+6697 dsp:X f1b016
+6698 dsp:X f1b018
+6699 dsp:X f1b01a
+6700 dsp:W14':00f1c070 B
+6701 dsp:X f1b01c
+6701 dsp:W00':00000070 B
+6702 dsp:X f1b01e
+6702 D=fffe
+6706 dsp:X f1b016
+6707 dsp:X f1b018
+6708 dsp:X f1b01a
+6709 dsp:W14':00f1c06c B
+6709 A(004040) r fc6
+6710 dsp:X f1b01c
+6710 dsp:W00':0000006c B
+6711 dsp:X f1b01e
+6715 dsp:X f1b016
+6716 dsp:X f1b018
+6716 D=51c9
+6717 dsp:X f1b01a
+6718 dsp:W14':00f1c068 B
+6719 dsp:X f1b01c
+6719 dsp:W00':00000068 B
+6719 A(004044) r fc6
+6720 dsp:X f1b01e
+6724 dsp:X f1b016
+6725 dsp:X f1b018
+6726 dsp:X f1b01a
+6726 D=3039
+6727 dsp:W14':00f1c064 B
+6728 dsp:X f1b01c
+6728 dsp:W00':00000064 B
+6729 dsp:X f1b01e
+6729 A(004046) r fc6
+6733 dsp:X f1b016
+6734 dsp:X f1b018
+6735 dsp:X f1b01a
+6736 dsp:W14':00f1c060 B
+6736 D=00f1
+6737 dsp:X f1b01c
+6737 dsp:W00':00000060 B
+6738 dsp:X f1b01e
+6739 A(004048) r fc6
+6742 dsp:X f1b016
+6743 dsp:X f1b018
+6744 dsp:X f1b01a
+6745 dsp:W14':00f1c05c B
+6746 dsp:X f1b01c
+6746 dsp:W00':0000005c B
+6746 D=c0f4
+6747 dsp:X f1b01e
+6749 A(00404a) r fc6
+6751 dsp:X f1b016
+6752 dsp:X f1b018
+6753 dsp:X f1b01a
+6754 dsp:W14':00f1c058 B
+6755 dsp:X f1b01c
+6755 dsp:W00':00000058 B
+6756 dsp:X f1b01e
+6756 D=2039
+6759 A(f1c0f4) r fc5
+6760 dsp:X f1b016
+6761 dsp:X f1b018
+6762 dsp:X f1b01a
+6763 dsp:W14':00f1c054 B
+6764 dsp:X f1b01c
+6764 dsp:W00':00000054 B
+6765 dsp:X f1b01e
+6769 dsp:X f1b016
+6770 dsp:X f1b018
+6770 D=0000
+6771 dsp:X f1b01a
+6772 dsp:W14':00f1c050 B
+6773 dsp:X f1b01c
+6773 dsp:W00':00000050 B
+6773 A(00404c) r fc6
+6774 dsp:X f1b01e
+6778 dsp:X f1b016
+6779 dsp:X f1b018
+6780 dsp:X f1b01a
+6780 D=00f1
+6781 dsp:W14':00f1c04c B
+6782 dsp:X f1b01c
+6782 dsp:W00':0000004c B
+6783 dsp:X f1b01e
+6783 A(00404e) r fc6
+6787 dsp:X f1b016
+6788 dsp:X f1b018
+6789 dsp:X f1b01a
+6790 dsp:W14':00f1c048 B
+6790 D=c0f8
+6791 dsp:X f1b01c
+6791 dsp:W00':00000048 B
+6792 dsp:X f1b01e
+6793 A(004050) r fc6
+6796 dsp:X f1b016
+6797 dsp:X f1b018
+6798 dsp:X f1b01a
+6799 dsp:W14':00f1c044 B
+6800 dsp:X f1b01c
+6800 dsp:W00':00000044 B
+6800 D=2039
+6801 dsp:X f1b01e
+6803 A(f1c0f8) r fc5
+6805 dsp:X f1b016
+6806 dsp:X f1b018
+6807 dsp:X f1b01a
+6808 dsp:W14':00f1c040 B
+6809 dsp:X f1b01c
+6809 dsp:W00':00000040 B
+6810 dsp:X f1b01e
+6814 dsp:X f1b016
+6814 D=0000
+6815 dsp:X f1b018
+6816 dsp:X f1b01a
+6817 dsp:W14':00f1c03c B
+6817 A(f1c0fa) r fc5
+6818 dsp:X f1b01c
+6818 dsp:W00':0000003c B
+6819 dsp:X f1b01e
+6823 dsp:X f1b016
+6824 dsp:X f1b018
+6825 dsp:X f1b01a
+6826 dsp:W14':00f1c038 B
+6827 dsp:X f1b01c
+6827 dsp:W00':00000038 B
+6828 dsp:X f1b01e
+6828 D=0000
+6831 A(004052) r fc6
+6832 dsp:X f1b016
+6833 dsp:X f1b018
+6834 dsp:X f1b01a
+6835 dsp:W14':00f1c034 B
+6836 dsp:X f1b01c
+6836 dsp:W00':00000034 B
+6837 dsp:X f1b01e
+6838 D=00f1
+6841 dsp:X f1b016
+6841 A(004054) r fc6
+6842 dsp:X f1b018
+6843 dsp:X f1b01a
+6844 dsp:W14':00f1c030 B
+6845 dsp:X f1b01c
+6845 dsp:W00':00000030 B
+6846 dsp:X f1b01e
+6848 D=a114
+6850 dsp:X f1b016
+6851 dsp:X f1b018
+6851 A(004056) r fc6
+6852 dsp:X f1b01a
+6853 dsp:W14':00f1c02c B
+6854 dsp:X f1b01c
+6854 dsp:W00':0000002c B
+6855 dsp:X f1b01e
+6858 D=51cf
+6859 dsp:X f1b016
+6860 dsp:X f1b018
+6861 dsp:X f1b01a
+6861 A(f1a114) r fc5
+6862 dsp:W14':00f1c028 B
+6863 dsp:X f1b01c
+6863 dsp:W00':00000028 B
+6864 dsp:X f1b01e
+6869 dsp:X f1b016
+6870 dsp:X f1b018
+6871 dsp:X f1b01a
+6872 dsp:W14':00f1c024 B
+6872 D=2038
+6873 dsp:X f1b01c
+6873 dsp:W00':00000024 B
+6874 dsp:X f1b01e
+6875 A(f1a116) r fc5
+6878 dsp:X f1b016
+6879 dsp:X f1b018
+6880 dsp:X f1b01a
+6881 dsp:W14':00f1c020 B
+6882 dsp:X f1b01c
+6882 dsp:W00':00000020 B
+6883 dsp:X f1b01e
+6886 D=2001
+6887 dsp:X f1b016
+6888 dsp:X f1b018
+6889 dsp:X f1b01a
+6889 A(004058) r fc6
+6890 dsp:W14':00f1c01c B
+6891 dsp:X f1b01c
+6891 dsp:W00':0000001c B
+6892 dsp:X f1b01e
+6896 dsp:X f1b016
+6896 D=ffe0
+6897 dsp:X f1b018
+6898 dsp:X f1b01a
+6899 dsp:W14':00f1c018 B
+6900 dsp:X f1b01c
+6900 dsp:W00':00000018 B
+6901 dsp:X f1b01e
+6903 A(004038) r fc6
+6905 dsp:X f1b016
+6906 dsp:X f1b018
+6907 dsp:X f1b01a
+6908 dsp:W14':00f1c014 B
+6909 dsp:X f1b01c
+6909 dsp:W00':00000014 B
+6910 dsp:X f1b01e
+6910 D=1039
+6913 A(00403a) r fc6
+6914 dsp:X f1b016
+6915 dsp:X f1b018
+6916 dsp:X f1b01a
+6917 dsp:W14':00f1c010 B
+6918 dsp:X f1b01c
+6918 dsp:W00':00000010 B
+6919 dsp:X f1b01e
+6920 D=00f1
+6923 dsp:X f1b016
+6923 A(00403c) r fc6
+6924 dsp:X f1b018
+6925 dsp:X f1b01a
+6926 dsp:W14':00f1c00c B
+6927 dsp:X f1b01c
+6927 dsp:W00':0000000c B
+6928 dsp:X f1b01e
+6930 D=c0f0
+6932 dsp:X f1b016
+6933 dsp:X f1b018
+6933 A(00403e) r fc6
+6934 dsp:X f1b01a
+6935 dsp:W14':00f1c008 B
+6936 dsp:X f1b01c
+6936 dsp:W00':00000008 B
+6937 dsp:X f1b01e
+6940 D=3207
+6941 dsp:X f1b016
+6942 dsp:X f1b018
+6943 dsp:X f1b01a
+6943 A(f1c0f0) r fc5
+6944 dsp:W14':00f1c004 B
+6945 dsp:X f1b01c
+6945 dsp:W00':00000004 B
+6946 dsp:X f1b01e
+6951 dsp:X f1b016
+6952 dsp:X f1b018
+6953 dsp:X f1b01a
+6954 dsp:W14':00f1c000 B
+6954 D=00--
+6955 dsp:F --Z
+6955 dsp:X f1b01c
+6955 dsp:W00':00000000 B
+6956 dsp:X f1b01e
+6957 dsp:X f1b020
+6957 A(004040) r fc6
+6958 dsp:X f1b022
+6959 dsp:F ---
+6959 dsp:W03':00000007 B
+6960 dsp:W02':00f1c200 B
+6961 dsp:X f1b028
+6963 dsp:X f1b02a
+6963 dsp:W04':00000000 B
+6964 D=51c9
+6965 dsp:F --Z
+6965 dsp:X f1b02c
+6966 dsp:X f1b008
+6967 A(004042) r fc6
+6969 dsp:X f1b00a
+6971 dsp:W14':00f1c100 B
+6972 dsp:X f1b010
+6974 dsp:W00':00000100 B
+6974 D=fffe
+6975 dsp:X f1b016
+6976 dsp:X f1b018
+6977 dsp:X f1b01a
+6978 dsp:F ---
+6978 dsp:W14':00f1c0fc B
+6979 dsp:X f1b01c
+6979 dsp:W00':000000fc B
+6980 dsp:X f1b01e
+6981 A(004040) r fc6
+6984 dsp:X f1b016
+6985 dsp:X f1b018
+6986 dsp:X f1b01a
+6987 dsp:W14':00f1c0f8 B
+6988 dsp:X f1b01c
+6988 dsp:W00':000000f8 B
+6988 D=51c9
+6989 dsp:X f1b01e
+6991 A(004042) r fc6
+6993 dsp:X f1b016
+6994 dsp:X f1b018
+6995 dsp:X f1b01a
+6996 dsp:W14':00f1c0f4 B
+6997 dsp:X f1b01c
+6997 dsp:W00':000000f4 B
+6998 dsp:X f1b01e
+6998 D=fffe
+7002 dsp:X f1b016
+7003 dsp:X f1b018
+7004 dsp:X f1b01a
+7005 dsp:W14':00f1c0f0 B
+7005 A(004040) r fc6
+7006 dsp:X f1b01c
+7006 dsp:W00':000000f0 B
+7007 dsp:X f1b01e
+7011 dsp:X f1b016
+7012 dsp:X f1b018
+7012 D=51c9
+7013 dsp:X f1b01a
+7014 dsp:W14':00f1c0ec B
+7015 dsp:X f1b01c
+7015 dsp:W00':000000ec B
+7015 A(004042) r fc6
+7016 dsp:X f1b01e
+7020 dsp:X f1b016
+7021 dsp:X f1b018
+7022 dsp:X f1b01a
+7022 D=fffe
+7023 dsp:W14':00f1c0e8 B
+7024 dsp:X f1b01c
+7024 dsp:W00':000000e8 B
+7025 dsp:X f1b01e
+7029 dsp:X f1b016
+7029 A(004040) r fc6
+7030 dsp:X f1b018
+7031 dsp:X f1b01a
+7032 dsp:W14':00f1c0e4 B
+7033 dsp:X f1b01c
+7033 dsp:W00':000000e4 B
+7034 dsp:X f1b01e
+7036 D=51c9
+7038 dsp:X f1b016
+7039 dsp:X f1b018
+7039 A(004044) r fc6
+7040 dsp:X f1b01a
+7041 dsp:W14':00f1c0e0 B
+7042 dsp:X f1b01c
+7042 dsp:W00':000000e0 B
+7043 dsp:X f1b01e
+7046 D=3039
+7047 dsp:X f1b016
+7048 dsp:X f1b018
+7049 dsp:X f1b01a
+7049 A(004046) r fc6
+7050 dsp:W14':00f1c0dc B
+7051 dsp:X f1b01c
+7051 dsp:W00':000000dc B
+7052 dsp:X f1b01e
+7056 dsp:X f1b016
+7056 D=00f1
+7057 dsp:X f1b018
+7058 dsp:X f1b01a
+7059 dsp:W14':00f1c0d8 B
+7059 A(004048) r fc6
+7060 dsp:X f1b01c
+7060 dsp:W00':000000d8 B
+7061 dsp:X f1b01e
+7065 dsp:X f1b016
+7066 dsp:X f1b018
+7066 D=c0f4
+7067 dsp:X f1b01a
+7068 dsp:W14':00f1c0d4 B
+7069 dsp:X f1b01c
+7069 dsp:W00':000000d4 B
+7069 A(00404a) r fc6
+7070 dsp:X f1b01e
+7074 dsp:X f1b016
+7075 dsp:X f1b018
+7076 dsp:X f1b01a
+7076 D=2039
+7077 dsp:W14':00f1c0d0 B
+7078 dsp:X f1b01c
+7078 dsp:W00':000000d0 B
+7079 dsp:X f1b01e
+7079 A(f1c0f4) r fc5
+7083 dsp:X f1b016
+7084 dsp:X f1b018
+7085 dsp:X f1b01a
+7086 dsp:W14':00f1c0cc B
+7087 dsp:X f1b01c
+7087 dsp:W00':000000cc B
+7088 dsp:X f1b01e
+7090 D=0000
+7092 dsp:X f1b016
+7093 dsp:X f1b018
+7093 A(00404c) r fc6
+7094 dsp:X f1b01a
+7095 dsp:W14':00f1c0c8 B
+7096 dsp:X f1b01c
+7096 dsp:W00':000000c8 B
+7097 dsp:X f1b01e
+7100 D=00f1
+7101 dsp:X f1b016
+7102 dsp:X f1b018
+7103 dsp:X f1b01a
+7103 A(00404e) r fc6
+7104 dsp:W14':00f1c0c4 B
+7105 dsp:X f1b01c
+7105 dsp:W00':000000c4 B
+7106 dsp:X f1b01e
+7110 dsp:X f1b016
+7110 D=c0f8
+7111 dsp:X f1b018
+7112 dsp:X f1b01a
+7113 dsp:W14':00f1c0c0 B
+7113 A(004050) r fc6
+7114 dsp:X f1b01c
+7114 dsp:W00':000000c0 B
+7115 dsp:X f1b01e
+7119 dsp:X f1b016
+7120 dsp:X f1b018
+7120 D=2039
+7121 dsp:X f1b01a
+7122 dsp:W14':00f1c0bc B
+7123 dsp:X f1b01c
+7123 dsp:W00':000000bc B
+7123 A(f1c0f8) r fc5
+7124 dsp:X f1b01e
+7128 dsp:X f1b016
+7129 dsp:X f1b018
+7130 dsp:X f1b01a
+7131 dsp:W14':00f1c0b8 B
+7132 dsp:W00':000000b8 B
+7133 dsp:X f1b01c
+7134 dsp:X f1b01e
+7134 D=0000
+7137 A(f1c0fa) r fc5
+7138 dsp:X f1b016
+7139 dsp:X f1b018
+7140 dsp:X f1b01a
+7141 dsp:W14':00f1c0b4 B
+7142 dsp:X f1b01c
+7142 dsp:W00':000000b4 B
+7143 dsp:X f1b01e
+7147 dsp:X f1b016
+7148 dsp:X f1b018
+7148 D=0000
+7149 dsp:X f1b01a
+7150 dsp:W14':00f1c0b0 B
+7151 dsp:X f1b01c
+7151 dsp:W00':000000b0 B
+7151 A(004052) r fc6
+7152 dsp:X f1b01e
+7156 dsp:X f1b016
+7157 dsp:X f1b018
+7158 dsp:X f1b01a
+7158 D=00f1
+7159 dsp:W14':00f1c0ac B
+7160 dsp:X f1b01c
+7160 dsp:W00':000000ac B
+7161 dsp:X f1b01e
+7161 A(004054) r fc6
+7165 dsp:X f1b016
+7166 dsp:X f1b018
+7167 dsp:X f1b01a
+7168 dsp:W14':00f1c0a8 B
+7168 D=a114
+7169 dsp:X f1b01c
+7169 dsp:W00':000000a8 B
+7170 dsp:X f1b01e
+7171 A(004056) r fc6
+7174 dsp:X f1b016
+7175 dsp:X f1b018
+7176 dsp:X f1b01a
+7177 dsp:W14':00f1c0a4 B
+7178 dsp:X f1b01c
+7178 dsp:W00':000000a4 B
+7178 D=51cf
+7179 dsp:X f1b01e
+7181 A(f1a114) r fc5
+7183 dsp:X f1b016
+7184 dsp:X f1b018
+7185 dsp:X f1b01a
+7186 dsp:W14':00f1c0a0 B
+7187 dsp:X f1b01c
+7187 dsp:W00':000000a0 B
+7188 dsp:X f1b01e
+7192 dsp:X f1b016
+7192 D=22f4
+7193 dsp:X f1b018
+7194 dsp:X f1b01a
+7195 dsp:W14':00f1c09c B
+7195 A(f1a116) r fc5
+7196 dsp:X f1b01c
+7196 dsp:W00':0000009c B
+7197 dsp:X f1b01e
+7201 dsp:X f1b016
+7202 dsp:X f1b018
+7203 dsp:X f1b01a
+7204 dsp:W14':00f1c098 B
+7205 dsp:X f1b01c
+7205 dsp:W00':00000098 B
+7206 dsp:X f1b01e
+7206 D=2001
+7209 A(004058) r fc6
+7210 dsp:X f1b016
+7211 dsp:X f1b018
+7212 dsp:X f1b01a
+7213 dsp:W14':00f1c094 B
+7214 dsp:X f1b01c
+7214 dsp:W00':00000094 B
+7215 dsp:X f1b01e
+7216 D=ffe0
+7219 dsp:X f1b016
+7220 dsp:X f1b018
+7221 dsp:X f1b01a
+7222 dsp:W14':00f1c090 B
+7223 dsp:X f1b01c
+7223 dsp:W00':00000090 B
+7223 A(004038) r fc6
+7224 dsp:X f1b01e
+7228 dsp:X f1b016
+7229 dsp:X f1b018
+7230 dsp:X f1b01a
+7230 D=1039
+7231 dsp:W14':00f1c08c B
+7232 dsp:X f1b01c
+7232 dsp:W00':0000008c B
+7233 dsp:X f1b01e
+7233 A(00403a) r fc6
+7237 dsp:X f1b016
+7238 dsp:X f1b018
+7239 dsp:X f1b01a
+7240 dsp:W14':00f1c088 B
+7240 D=00f1
+7241 dsp:X f1b01c
+7241 dsp:W00':00000088 B
+7242 dsp:X f1b01e
+7243 A(00403c) r fc6
+7246 dsp:X f1b016
+7247 dsp:X f1b018
+7248 dsp:X f1b01a
+7249 dsp:W14':00f1c084 B
+7250 dsp:X f1b01c
+7250 dsp:W00':00000084 B
+7250 D=c0f0
+7251 dsp:X f1b01e
+7253 A(00403e) r fc6
+7255 dsp:X f1b016
+7256 dsp:X f1b018
+7257 dsp:X f1b01a
+7258 dsp:W14':00f1c080 B
+7259 dsp:X f1b01c
+7259 dsp:W00':00000080 B
+7260 dsp:X f1b01e
+7260 D=3207
+7263 A(f1c0f0) r fc5
+7264 dsp:X f1b016
+7265 dsp:X f1b018
+7266 dsp:X f1b01a
+7267 dsp:W14':00f1c07c B
+7268 dsp:X f1b01c
+7268 dsp:W00':0000007c B
+7269 dsp:X f1b01e
+7273 dsp:X f1b016
+7274 dsp:X f1b018
+7274 D=00--
+7275 dsp:X f1b01a
+7276 dsp:W14':00f1c078 B
+7277 dsp:X f1b01c
+7277 dsp:W00':00000078 B
+7277 A(004040) r fc6
+7278 dsp:X f1b01e
+7282 dsp:X f1b016
+7283 dsp:X f1b018
+7284 dsp:X f1b01a
+7284 D=51c9
+7285 dsp:W14':00f1c074 B
+7286 dsp:X f1b01c
+7286 dsp:W00':00000074 B
+7287 dsp:X f1b01e
+7287 A(004042) r fc6
+7291 dsp:X f1b016
+7292 dsp:X f1b018
+7293 dsp:X f1b01a
+7294 dsp:W14':00f1c070 B
+7294 D=fffe
+7295 dsp:X f1b01c
+7295 dsp:W00':00000070 B
+7296 dsp:X f1b01e
+7300 dsp:X f1b016
+7301 dsp:X f1b018
+7301 A(004040) r fc6
+7302 dsp:X f1b01a
+7303 dsp:W14':00f1c06c B
+7304 dsp:X f1b01c
+7304 dsp:W00':0000006c B
+7305 dsp:X f1b01e
+7308 D=51c9
+7309 dsp:X f1b016
+7310 dsp:X f1b018
+7311 dsp:X f1b01a
+7311 A(004042) r fc6
+7312 dsp:W14':00f1c068 B
+7313 dsp:X f1b01c
+7313 dsp:W00':00000068 B
+7314 dsp:X f1b01e
+7318 dsp:X f1b016
+7318 D=fffe
+7319 dsp:X f1b018
+7320 dsp:X f1b01a
+7321 dsp:W14':00f1c064 B
+7322 dsp:X f1b01c
+7322 dsp:W00':00000064 B
+7323 dsp:X f1b01e
+7325 A(004040) r fc6
+7327 dsp:X f1b016
+7328 dsp:X f1b018
+7329 dsp:X f1b01a
+7330 dsp:W14':00f1c060 B
+7331 dsp:X f1b01c
+7331 dsp:W00':00000060 B
+7332 dsp:X f1b01e
+7332 D=51c9
+7335 A(004044) r fc6
+7336 dsp:X f1b016
+7337 dsp:X f1b018
+7338 dsp:X f1b01a
+7339 dsp:W14':00f1c05c B
+7340 dsp:X f1b01c
+7340 dsp:W00':0000005c B
+7341 dsp:X f1b01e
+7342 D=3039
+7345 dsp:X f1b016
+7345 A(004046) r fc6
+7346 dsp:X f1b018
+7347 dsp:X f1b01a
+7348 dsp:W14':00f1c058 B
+7349 dsp:X f1b01c
+7349 dsp:W00':00000058 B
+7350 dsp:X f1b01e
+7352 D=00f1
+7354 dsp:X f1b016
+7355 dsp:X f1b018
+7355 A(004048) r fc6
+7356 dsp:X f1b01a
+7357 dsp:W14':00f1c054 B
+7358 dsp:X f1b01c
+7358 dsp:W00':00000054 B
+7359 dsp:X f1b01e
+7362 D=c0f4
+7363 dsp:X f1b016
+7364 dsp:X f1b018
+7365 dsp:X f1b01a
+7365 A(00404a) r fc6
+7366 dsp:W14':00f1c050 B
+7367 dsp:X f1b01c
+7367 dsp:W00':00000050 B
+7368 dsp:X f1b01e
+7372 dsp:X f1b016
+7372 D=2039
+7373 dsp:X f1b018
+7374 dsp:X f1b01a
+7375 dsp:W14':00f1c04c B
+7375 A(f1c0f4) r fc5
+7376 dsp:X f1b01c
+7376 dsp:W00':0000004c B
+7377 dsp:X f1b01e
+7381 dsp:X f1b016
+7384 dsp:X f1b018
+7385 dsp:X f1b01a
+7386 dsp:W14':00f1c048 B
+7386 D=0000
+7387 dsp:X f1b01c
+7387 dsp:W00':00000048 B
+7388 dsp:X f1b01e
+7389 A(00404c) r fc6
+7392 dsp:X f1b016
+7393 dsp:X f1b018
+7394 dsp:X f1b01a
+7395 dsp:W14':00f1c044 B
+7396 dsp:X f1b01c
+7396 dsp:W00':00000044 B
+7396 D=00f1
+7397 dsp:X f1b01e
+7399 A(00404e) r fc6
+7401 dsp:X f1b016
+7402 dsp:X f1b018
+7403 dsp:X f1b01a
+7404 dsp:W14':00f1c040 B
+7405 dsp:X f1b01c
+7405 dsp:W00':00000040 B
+7406 dsp:X f1b01e
+7406 D=c0f8
+7409 A(004050) r fc6
+7410 dsp:X f1b016
+7411 dsp:X f1b018
+7412 dsp:X f1b01a
+7413 dsp:W14':00f1c03c B
+7414 dsp:X f1b01c
+7414 dsp:W00':0000003c B
+7415 dsp:X f1b01e
+7416 D=2039
+7419 dsp:X f1b016
+7419 A(f1c0f8) r fc5
+7420 dsp:X f1b018
+7421 dsp:X f1b01a
+7422 dsp:W14':00f1c038 B
+7423 dsp:X f1b01c
+7423 dsp:W00':00000038 B
+7424 dsp:X f1b01e
+7428 dsp:X f1b016
+7429 dsp:X f1b018
+7430 dsp:X f1b01a
+7430 D=0000
+7431 dsp:W14':00f1c034 B
+7432 dsp:X f1b01c
+7432 dsp:W00':00000034 B
+7433 dsp:X f1b01e
+7433 A(f1c0fa) r fc5
+7437 dsp:X f1b016
+7438 dsp:X f1b018
+7439 dsp:X f1b01a
+7440 dsp:W14':00f1c030 B
+7441 dsp:X f1b01c
+7441 dsp:W00':00000030 B
+7442 dsp:X f1b01e
+7444 D=0000
+7446 dsp:X f1b016
+7447 dsp:X f1b018
+7447 A(004052) r fc6
+7448 dsp:X f1b01a
+7449 dsp:W14':00f1c02c B
+7450 dsp:X f1b01c
+7450 dsp:W00':0000002c B
+7451 dsp:X f1b01e
+7454 D=00f1
+7455 dsp:X f1b016
+7456 dsp:X f1b018
+7457 dsp:X f1b01a
+7457 A(004054) r fc6
+7458 dsp:W14':00f1c028 B
+7459 dsp:X f1b01c
+7459 dsp:W00':00000028 B
+7460 dsp:X f1b01e
+7464 dsp:X f1b016
+7464 D=a114
+7465 dsp:X f1b018
+7466 dsp:X f1b01a
+7467 dsp:W14':00f1c024 B
+7467 A(004056) r fc6
+7468 dsp:X f1b01c
+7468 dsp:W00':00000024 B
+7469 dsp:X f1b01e
+7473 dsp:X f1b016
+7474 dsp:X f1b018
+7474 D=51cf
+7475 dsp:X f1b01a
+7476 dsp:W14':00f1c020 B
+7477 dsp:X f1b01c
+7477 dsp:W00':00000020 B
+7477 A(f1a114) r fc5
+7478 dsp:X f1b01e
+7482 dsp:X f1b016
+7483 dsp:X f1b018
+7484 dsp:X f1b01a
+7485 dsp:W14':00f1c01c B
+7486 dsp:W00':0000001c B
+7487 dsp:X f1b01c
+7488 dsp:X f1b01e
+7488 D=20ac
+7491 A(f1a116) r fc5
+7492 dsp:X f1b016
+7493 dsp:X f1b018
+7494 dsp:X f1b01a
+7495 dsp:W14':00f1c018 B
+7496 dsp:X f1b01c
+7496 dsp:W00':00000018 B
+7497 dsp:X f1b01e
+7501 dsp:X f1b016
+7502 dsp:X f1b018
+7502 D=2001
+7503 dsp:X f1b01a
+7504 dsp:W14':00f1c014 B
+7505 dsp:X f1b01c
+7505 dsp:W00':00000014 B
+7505 A(004058) r fc6
+7506 dsp:X f1b01e
+7510 dsp:X f1b016
+7511 dsp:X f1b018
+7512 dsp:X f1b01a
+7512 D=ffe0
+7513 dsp:W14':00f1c010 B
+7514 dsp:X f1b01c
+7514 dsp:W00':00000010 B
+7515 dsp:X f1b01e
+7519 dsp:X f1b016
+7519 A(004038) r fc6
+7520 dsp:X f1b018
+7521 dsp:X f1b01a
+7522 dsp:W14':00f1c00c B
+7523 dsp:X f1b01c
+7523 dsp:W00':0000000c B
+7524 dsp:X f1b01e
+7526 D=1039
+7528 dsp:X f1b016
+7529 dsp:X f1b018
+7529 A(00403a) r fc6
+7530 dsp:X f1b01a
+7531 dsp:W14':00f1c008 B
+7532 dsp:X f1b01c
+7532 dsp:W00':00000008 B
+7533 dsp:X f1b01e
+7536 D=00f1
+7537 dsp:X f1b016
+7538 dsp:X f1b018
+7539 dsp:X f1b01a
+7539 A(00403c) r fc6
+7540 dsp:W14':00f1c004 B
+7541 dsp:X f1b01c
+7541 dsp:W00':00000004 B
+7542 dsp:X f1b01e
+7546 dsp:X f1b016
+7546 D=c0f0
+7547 dsp:X f1b018
+7548 dsp:X f1b01a
+7549 dsp:W14':00f1c000 B
+7549 A(00403e) r fc6
+7550 dsp:F --Z
+7550 dsp:X f1b01c
+7550 dsp:W00':00000000 B
+7551 dsp:X f1b01e
+7552 dsp:X f1b020
+7553 dsp:X f1b022
+7554 dsp:F ---
+7554 dsp:W03':00000008 B
+7555 dsp:W02':00f1c200 B
+7556 dsp:X f1b028
+7556 D=3207
+7558 dsp:X f1b02a
+7558 dsp:W04':00000000 B
+7559 A(f1c0f0) r fc5
+7560 dsp:F --Z
+7560 dsp:X f1b02c
+7561 dsp:X f1b008
+7564 dsp:X f1b00a
+7566 dsp:W14':00f1c100 B
+7567 dsp:X f1b010
+7569 dsp:W00':00000100 B
+7570 dsp:X f1b016
+7570 D=00--
+7571 dsp:X f1b018
+7572 dsp:X f1b01a
+7573 dsp:F ---
+7573 dsp:W14':00f1c0fc B
+7573 A(004040) r fc6
+7574 dsp:X f1b01c
+7574 dsp:W00':000000fc B
+7575 dsp:X f1b01e
+7579 dsp:X f1b016
+7580 dsp:X f1b018
+7580 D=51c9
+7581 dsp:X f1b01a
+7582 dsp:W14':00f1c0f8 B
+7583 dsp:X f1b01c
+7583 dsp:W00':000000f8 B
+7583 A(004042) r fc6
+7584 dsp:X f1b01e
+7588 dsp:X f1b016
+7589 dsp:X f1b018
+7590 dsp:X f1b01a
+7590 D=fffe
+7591 dsp:W14':00f1c0f4 B
+7592 dsp:X f1b01c
+7592 dsp:W00':000000f4 B
+7593 dsp:X f1b01e
+7597 dsp:X f1b016
+7597 A(004040) r fc6
+7598 dsp:X f1b018
+7599 dsp:X f1b01a
+7600 dsp:W14':00f1c0f0 B
+7601 dsp:X f1b01c
+7601 dsp:W00':000000f0 B
+7602 dsp:X f1b01e
+7604 D=51c9
+7606 dsp:X f1b016
+7607 dsp:X f1b018
+7607 A(004044) r fc6
+7608 dsp:X f1b01a
+7609 dsp:W14':00f1c0ec B
+7610 dsp:X f1b01c
+7610 dsp:W00':000000ec B
+7611 dsp:X f1b01e
+7614 D=3039
+7615 dsp:X f1b016
+7616 dsp:X f1b018
+7617 dsp:X f1b01a
+7617 A(004046) r fc6
+7618 dsp:W14':00f1c0e8 B
+7619 dsp:X f1b01c
+7619 dsp:W00':000000e8 B
+7620 dsp:X f1b01e
+7624 dsp:X f1b016
+7624 D=00f1
+7625 dsp:X f1b018
+7626 dsp:X f1b01a
+7627 dsp:W14':00f1c0e4 B
+7627 A(004048) r fc6
+7628 dsp:X f1b01c
+7628 dsp:W00':000000e4 B
+7629 dsp:X f1b01e
+7633 dsp:X f1b016
+7634 dsp:X f1b018
+7634 D=c0f4
+7635 dsp:X f1b01a
+7636 dsp:W14':00f1c0e0 B
+7637 dsp:X f1b01c
+7637 dsp:W00':000000e0 B
+7637 A(00404a) r fc6
+7638 dsp:X f1b01e
+7642 dsp:X f1b016
+7643 dsp:X f1b018
+7644 dsp:X f1b01a
+7644 D=2039
+7645 dsp:W14':00f1c0dc B
+7646 dsp:X f1b01c
+7646 dsp:W00':000000dc B
+7647 dsp:X f1b01e
+7647 A(f1c0f4) r fc5
+7651 dsp:X f1b016
+7652 dsp:X f1b018
+7653 dsp:X f1b01a
+7654 dsp:W14':00f1c0d8 B
+7655 dsp:X f1b01c
+7655 dsp:W00':000000d8 B
+7656 dsp:X f1b01e
+7658 D=0000
+7660 dsp:X f1b016
+7661 dsp:X f1b018
+7661 A(00404c) r fc6
+7662 dsp:X f1b01a
+7663 dsp:W14':00f1c0d4 B
+7664 dsp:X f1b01c
+7664 dsp:W00':000000d4 B
+7665 dsp:X f1b01e
+7668 D=00f1
+7669 dsp:X f1b016
+7670 dsp:X f1b018
+7671 dsp:X f1b01a
+7671 A(00404e) r fc6
+7672 dsp:W14':00f1c0d0 B
+7673 dsp:X f1b01c
+7673 dsp:W00':000000d0 B
+7674 dsp:X f1b01e
+7678 dsp:X f1b016
+7678 D=c0f8
+7679 dsp:X f1b018
+7680 dsp:X f1b01a
+7681 dsp:W14':00f1c0cc B
+7681 A(004050) r fc6
+7682 dsp:X f1b01c
+7682 dsp:W00':000000cc B
+7683 dsp:X f1b01e
+7687 dsp:X f1b016
+7688 dsp:X f1b018
+7688 D=2039
+7689 dsp:X f1b01a
+7690 dsp:W14':00f1c0c8 B
+7691 dsp:X f1b01c
+7691 dsp:W00':000000c8 B
+7691 A(f1c0f8) r fc5
+7692 dsp:X f1b01e
+7696 dsp:X f1b016
+7697 dsp:X f1b018
+7698 dsp:X f1b01a
+7699 dsp:W14':00f1c0c4 B
+7700 dsp:W00':000000c4 B
+7701 dsp:X f1b01c
+7702 dsp:X f1b01e
+7702 D=0000
+7705 A(f1c0fa) r fc5
+7706 dsp:X f1b016
+7707 dsp:X f1b018
+7708 dsp:X f1b01a
+7709 dsp:W14':00f1c0c0 B
+7710 dsp:X f1b01c
+7710 dsp:W00':000000c0 B
+7711 dsp:X f1b01e
+7715 dsp:X f1b016
+7716 dsp:X f1b018
+7716 D=0000
+7717 dsp:X f1b01a
+7718 dsp:W14':00f1c0bc B
+7719 dsp:X f1b01c
+7719 dsp:W00':000000bc B
+7719 A(004052) r fc6
+7720 dsp:X f1b01e
+7724 dsp:X f1b016
+7725 dsp:X f1b018
+7726 dsp:X f1b01a
+7726 D=00f1
+7727 dsp:W14':00f1c0b8 B
+7728 dsp:X f1b01c
+7728 dsp:W00':000000b8 B
+7729 dsp:X f1b01e
+7729 A(004054) r fc6
+7733 dsp:X f1b016
+7734 dsp:X f1b018
+7735 dsp:X f1b01a
+7736 dsp:W14':00f1c0b4 B
+7736 D=a114
+7737 dsp:X f1b01c
+7737 dsp:W00':000000b4 B
+7738 dsp:X f1b01e
+7739 A(004056) r fc6
+7742 dsp:X f1b016
+7743 dsp:X f1b018
+7744 dsp:X f1b01a
+7745 dsp:W14':00f1c0b0 B
+7746 dsp:X f1b01c
+7746 dsp:W00':000000b0 B
+7746 D=51cf
+7747 dsp:X f1b01e
+7749 A(f1a114) r fc5
+7751 dsp:X f1b016
+7752 dsp:X f1b018
+7753 dsp:X f1b01a
+7754 dsp:W14':00f1c0ac B
+7755 dsp:X f1b01c
+7755 dsp:W00':000000ac B
+7756 dsp:X f1b01e
+7760 dsp:X f1b016
+7760 D=22f4
+7761 dsp:X f1b018
+7762 dsp:X f1b01a
+7763 dsp:W14':00f1c0a8 B
+7763 A(f1a116) r fc5
+7764 dsp:X f1b01c
+7764 dsp:W00':000000a8 B
+7765 dsp:X f1b01e
+7769 dsp:X f1b016
+7770 dsp:X f1b018
+7771 dsp:X f1b01a
+7772 dsp:W14':00f1c0a4 B
+7773 dsp:X f1b01c
+7773 dsp:W00':000000a4 B
+7774 dsp:X f1b01e
+7774 D=2001
+7777 A(004058) r fc6
+7778 dsp:X f1b016
+7779 dsp:X f1b018
+7780 dsp:X f1b01a
+7781 dsp:W14':00f1c0a0 B
+7782 dsp:X f1b01c
+7782 dsp:W00':000000a0 B
+7783 dsp:X f1b01e
+7784 D=ffe0
+7787 dsp:X f1b016
+7788 dsp:X f1b018
+7789 dsp:X f1b01a
+7790 dsp:W14':00f1c09c B
+7791 dsp:X f1b01c
+7791 dsp:W00':0000009c B
+7791 A(004038) r fc6
+7792 dsp:X f1b01e
+7796 dsp:X f1b016
+7797 dsp:X f1b018
+7798 dsp:X f1b01a
+7798 D=1039
+7799 dsp:W14':00f1c098 B
+7800 dsp:X f1b01c
+7800 dsp:W00':00000098 B
+7801 dsp:X f1b01e
+7801 A(00405a) r fc6
+7805 dsp:X f1b016
+7806 dsp:X f1b018
+7807 dsp:X f1b01a
+7808 dsp:W14':00f1c094 B
+7808 D=23fc
+7809 dsp:X f1b01c
+7809 dsp:W00':00000094 B
+7810 dsp:X f1b01e
+7811 A(00405c) r fc6
+7814 dsp:X f1b016
+7815 dsp:X f1b018
+7816 dsp:X f1b01a
+7817 dsp:W14':00f1c090 B
+7818 dsp:X f1b01c
+7818 dsp:W00':00000090 B
+7818 D=0000
+7819 dsp:X f1b01e
+7821 A(00405e) r fc6
+7823 dsp:X f1b016
+7824 dsp:X f1b018
+7825 dsp:X f1b01a
+7826 dsp:W14':00f1c08c B
+7827 dsp:X f1b01c
+7827 dsp:W00':0000008c B
+7828 dsp:X f1b01e
+7828 D=0001
+7831 A(004060) r fc6
+7832 dsp:X f1b016
+7833 dsp:X f1b018
+7834 dsp:X f1b01a
+7835 dsp:W14':00f1c088 B
+7836 dsp:X f1b01c
+7836 dsp:W00':00000088 B
+7837 dsp:X f1b01e
+7838 D=00f1
+7841 dsp:X f1b016
+7841 A(004062) r fc6
+7842 dsp:X f1b018
+7843 dsp:X f1b01a
+7844 dsp:W14':00f1c084 B
+7845 dsp:X f1b01c
+7845 dsp:W00':00000084 B
+7846 dsp:X f1b01e
+7848 D=c200
+7850 dsp:X f1b016
+7851 dsp:X f1b018
+7851 A(004064) r fc6
+7852 dsp:X f1b01a
+7853 dsp:W14':00f1c080 B
+7854 dsp:X f1b01c
+7854 dsp:W00':00000080 B
+7855 dsp:X f1b01e
+7858 D=4ab9
+7859 dsp:X f1b016
+7860 dsp:X f1b018
+7861 dsp:X f1b01a
+7861 A(f1c200) w fc5
+7862 dsp:W14':00f1c07c B
+7863 dsp:X f1b01c
+7863 dsp:W00':0000007c B
+7864 dsp:X f1b01e
+7868 dsp:X f1b016
+7869 dsp:X f1b018
+7870 dsp:X f1b01a
+7871 dsp:W14':00f1c078 B
+7872 dsp:X f1b01c
+7872 dsp:W00':00000078 B
+7873 dsp:X f1b01e
+7874 D=0000
+7877 dsp:X f1b016
+7877 A(f1c202) w fc5
+7878 dsp:X f1b018
+7879 dsp:X f1b01a
+7880 dsp:W14':00f1c074 B
+7881 dsp:X f1b01c
+7881 dsp:W00':00000074 B
+7882 dsp:X f1b01e
+7887 dsp:X f1b016
+7888 dsp:X f1b018
+7889 dsp:X f1b01a
+7890 dsp:W14':00f1c070 B
+7890 D=0001
+7891 dsp:X f1b01c
+7891 dsp:W00':00000070 B
+7892 dsp:X f1b01e
+7893 A(004066) r fc6
+7896 dsp:X f1b016
+7897 dsp:X f1b018
+7898 dsp:X f1b01a
+7899 dsp:W14':00f1c06c B
+7900 dsp:X f1b01c
+7900 dsp:W00':0000006c B
+7900 D=0003
+7901 dsp:X f1b01e
+7903 A(004068) r fc6
+7905 dsp:X f1b016
+7906 dsp:X f1b018
+7907 dsp:X f1b01a
+7908 dsp:W14':00f1c068 B
+7909 dsp:X f1b01c
+7909 dsp:W00':00000068 B
+7910 dsp:X f1b01e
+7910 D=0000
+7913 A(00406a) r fc6
+7914 dsp:X f1b016
+7915 dsp:X f1b018
+7916 dsp:X f1b01a
+7917 dsp:W14':00f1c064 B
+7918 dsp:X f1b01c
+7918 dsp:W00':00000064 B
+7919 dsp:X f1b01e
+7920 D=67f8
+7923 dsp:X f1b016
+7923 A(030000) r fc5
+7924 dsp:X f1b018
+7925 dsp:X f1b01a
+7926 dsp:W14':00f1c060 B
+7927 dsp:X f1b01c
+7927 dsp:W00':00000060 B
+7928 dsp:X f1b01e
+7932 dsp:X f1b016
+7933 dsp:X f1b018
+7934 dsp:X f1b01a
+7934 D=0000
+7935 dsp:W14':00f1c05c B
+7936 dsp:X f1b01c
+7936 dsp:W00':0000005c B
+7937 dsp:X f1b01e
+7937 A(030002) r fc5
+7941 dsp:X f1b016
+7942 dsp:X f1b018
+7943 dsp:X f1b01a
+7944 dsp:W14':00f1c058 B
+7944 D=0000
+7945 dsp:X f1b01c
+7945 dsp:W00':00000058 B
+7946 dsp:X f1b01e
+7947 A(00406c) r fc6
+7950 dsp:X f1b016
+7951 dsp:X f1b018
+7952 dsp:X f1b01a
+7953 dsp:W14':00f1c054 B
+7954 dsp:X f1b01c
+7954 dsp:W00':00000054 B
+7955 dsp:X f1b01e
+7958 D=4e72
+7959 dsp:X f1b016
+7960 dsp:X f1b018
+7961 dsp:X f1b01a
+7962 dsp:W14':00f1c050 B
+7963 dsp:X f1b01c
+7963 dsp:W00':00000050 B
+7964 dsp:X f1b01e
+7965 A(004064) r fc6
+7968 dsp:X f1b016
+7969 dsp:X f1b018
+7970 dsp:X f1b01a
+7971 dsp:W14':00f1c04c B
+7972 dsp:X f1b01c
+7972 dsp:W00':0000004c B
+7972 D=4ab9
+7973 dsp:X f1b01e
+7975 A(004066) r fc6
+7977 dsp:X f1b016
+7978 dsp:X f1b018
+7979 dsp:X f1b01a
+7980 dsp:W14':00f1c048 B
+7981 dsp:X f1b01c
+7981 dsp:W00':00000048 B
+7982 dsp:X f1b01e
+7982 D=0003
+7985 A(004068) r fc6
+7986 dsp:X f1b016
+7987 dsp:X f1b018
+7988 dsp:X f1b01a
+7989 dsp:W14':00f1c044 B
+7990 dsp:X f1b01c
+7990 dsp:W00':00000044 B
+7991 dsp:X f1b01e
+7992 D=0000
+7995 dsp:X f1b016
+7995 A(00406a) r fc6
+7996 dsp:X f1b018
+7997 dsp:X f1b01a
+7998 dsp:W14':00f1c040 B
+7999 dsp:X f1b01c
+7999 dsp:W00':00000040 B
+8000 dsp:X f1b01e
+8002 D=67f8
+8004 dsp:X f1b016
+8005 dsp:X f1b018
+8005 A(030000) r fc5
+8006 dsp:X f1b01a
+8007 dsp:W14':00f1c03c B
+8008 dsp:X f1b01c
+8008 dsp:W00':0000003c B
+8009 dsp:X f1b01e
+8013 dsp:X f1b016
+8014 dsp:X f1b018
+8015 dsp:X f1b01a
+8016 dsp:W14':00f1c038 B
+8016 D=0000
+8017 dsp:X f1b01c
+8017 dsp:W00':00000038 B
+8018 dsp:X f1b01e
+8019 A(030002) r fc5
+8022 dsp:X f1b016
+8023 dsp:X f1b018
+8024 dsp:X f1b01a
+8025 dsp:W14':00f1c034 B
+8026 dsp:X f1b01c
+8026 dsp:W00':00000034 B
+8026 D=0000
+8027 dsp:X f1b01e
+8029 A(00406c) r fc6
+8031 dsp:X f1b016
+8032 dsp:X f1b018
+8033 dsp:X f1b01a
+8034 dsp:W14':00f1c030 B
+8035 dsp:X f1b01c
+8035 dsp:W00':00000030 B
+8036 dsp:X f1b01e
+8040 dsp:X f1b016
+8040 D=4e72
+8041 dsp:X f1b018
+8042 dsp:X f1b01a
+8043 dsp:W14':00f1c02c B
+8044 dsp:X f1b01c
+8044 dsp:W00':0000002c B
+8045 dsp:X f1b01e
+8047 A(004064) r fc6
+8049 dsp:X f1b016
+8050 dsp:X f1b018
+8051 dsp:X f1b01a
+8052 dsp:W14':00f1c028 B
+8053 dsp:X f1b01c
+8053 dsp:W00':00000028 B
+8054 dsp:X f1b01e
+8054 D=4ab9
+8057 A(004066) r fc6
+8058 dsp:X f1b016
+8059 dsp:X f1b018
+8060 dsp:X f1b01a
+8061 dsp:W14':00f1c024 B
+8062 dsp:X f1b01c
+8062 dsp:W00':00000024 B
+8063 dsp:X f1b01e
+8064 D=0003
+8067 dsp:X f1b016
+8067 A(004068) r fc6
+8068 dsp:X f1b018
+8069 dsp:X f1b01a
+8070 dsp:W14':00f1c020 B
+8071 dsp:X f1b01c
+8071 dsp:W00':00000020 B
+8072 dsp:X f1b01e
+8074 D=0000
+8076 dsp:X f1b016
+8077 dsp:X f1b018
+8077 A(00406a) r fc6
+8078 dsp:X f1b01a
+8079 dsp:W14':00f1c01c B
+8080 dsp:X f1b01c
+8080 dsp:W00':0000001c B
+8081 dsp:X f1b01e
+8084 D=67f8
+8085 dsp:X f1b016
+8086 dsp:X f1b018
+8087 dsp:X f1b01a
+8087 A(030000) r fc5
+8088 dsp:W14':00f1c018 B
+8089 dsp:X f1b01c
+8089 dsp:W00':00000018 B
+8090 dsp:X f1b01e
+8094 dsp:X f1b016
+8095 dsp:X f1b018
+8096 dsp:X f1b01a
+8097 dsp:W14':00f1c014 B
+8098 dsp:X f1b01c
+8098 dsp:W00':00000014 B
+8098 D=0000
+8099 dsp:X f1b01e
+8101 A(030002) r fc5
+8103 dsp:X f1b016
+8104 dsp:X f1b018
+8105 dsp:X f1b01a
+8106 dsp:W14':00f1c010 B
+8107 dsp:X f1b01c
+8107 dsp:W00':00000010 B
+8108 dsp:X f1b01e
+8108 D=0000
+8111 A(00406c) r fc6
+8112 dsp:X f1b016
+8113 dsp:X f1b018
+8114 dsp:X f1b01a
+8115 dsp:W14':00f1c00c B
+8116 dsp:X f1b01c
+8116 dsp:W00':0000000c B
+8117 dsp:X f1b01e
+8121 dsp:X f1b016
+8122 dsp:X f1b018
+8122 D=4e72
+8123 dsp:X f1b01a
+8124 dsp:W14':00f1c008 B
+8125 dsp:X f1b01c
+8125 dsp:W00':00000008 B
+8126 dsp:X f1b01e
+8129 A(004064) r fc6
+8130 dsp:X f1b016
+8131 dsp:X f1b018
+8132 dsp:X f1b01a
+8133 dsp:W14':00f1c004 B
+8134 dsp:X f1b01c
+8134 dsp:W00':00000004 B
+8135 dsp:X f1b01e
+8136 D=4ab9
+8139 dsp:X f1b016
+8139 A(004066) r fc6
+8140 dsp:X f1b018
+8141 dsp:X f1b01a
+8142 dsp:W14':00f1c000 B
+8143 dsp:F --Z
+8143 dsp:X f1b01c
+8143 dsp:W00':00000000 B
+8144 dsp:X f1b01e
+8145 dsp:X f1b020
+8146 dsp:X f1b022
+8146 D=0003
+8147 dsp:F ---
+8147 dsp:W03':00000009 B
+8148 dsp:W02':00f1c200 B
+8149 dsp:X f1b028
+8149 A(004068) r fc6
+8151 dsp:X f1b02a
+8151 dsp:W04':00000001 B
+8153 dsp:X f1b02c
+8154 dsp:X f1b02e
+8155 dsp:X f1b030
+8156 D=0000
+8157 dsp:W04':00030000 B
+8158 dsp:X f1b036
+8159 dsp:X f1b038
+8159 A(00406a) r fc6
+8160 dsp:S(030000)=00000009 w4
+8161 dsp:W04':00f1a114 B
+8162 dsp:X f1b03e
+8163 dsp:W05':00000000 B
+8166 D=67f8
+8171 dsp:X f1b040
+8172 dsp:X f1b042
+8173 dsp:X f1b044
+8195 A(030000) r fc5
+8202 D=0000
+8205 A(030002) r fc5
+8212 D=0009
+8215 A(00406c) r fc6
+8226 D=4e72
+8237 A(00406e) r fc6
+8244 D=2700

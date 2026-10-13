@@ -1,0 +1,7 @@
+; TomJerryJulia, a 256 byte intro of JaguarDemos (256/tj_julia, read at 1954a05): the GPU copies
+; half of itself into the DSP's RAM over the bus and starts it, then both draw a Julia set into main
+; RAM, the GPU one pixel in two, the DSP the others. Assembled by lyxass with -D MODEL_M -D _PAL,
+; tests/asm's jaghard.inc and help.mac in place of BJL's includes. There is no BIOS: the object list
+; entry the intro waits on at $37020 is set for its first frame.
+; PROGRAM: tj_julia/julia.o
+; RUN: --gpu --poke $37020=$10000000 --mem $180000:$80000 --cycles 50000

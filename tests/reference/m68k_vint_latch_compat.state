@@ -1,0 +1,24 @@
+finished: 0
+cycles: 20000
+dsp_cycles: 40000
+sys_cycles: 160000
+log_lines: 2552
+mem[4000:200]: 3e618aba
+frame[0]: e504e4eb 85x7
+frame[1]: e504e4eb 85x7
+frame[2]: e504e4eb 85x7
+frame[3]: e504e4eb 85x7
+frame[4]: e504e4eb 85x7
+frame[5]: e504e4eb 85x7
+frame[6]: e504e4eb 85x7
+frame[7]: e504e4eb 85x7
+frame[8]: e504e4eb 85x7
+frame[9]: e504e4eb 85x7
+frame[10]: e504e4eb 85x7
+frame[11]: e504e4eb 85x7
+frame[12]: e504e4eb 85x7
+frame[13]: e504e4eb 85x7
+frame[14]: e504e4eb 85x7
+frame[15]: e504e4eb 85x7
+frame[16]: e504e4eb 85x7
+frame[17]: e504e4eb 85x7
