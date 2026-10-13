@@ -14,8 +14,9 @@ byte.
 ## Decision
 
 - `.github/workflows/ci.yml` builds and tests on every push and pull request:
-  - macOS arm64 (Apple clang, macOS 13 or later), Linux x64 (GCC 14, Ubuntu 24.04) and Windows x64
-    (MSVC, its runtime linked in);
+  - macOS arm64 (Apple clang, macOS 13.3 or later), Linux x64 (GCC 14, Ubuntu 24.04) and Windows
+    x64 (MSVC, its runtime linked in). macOS 13.3 is the first whose C++ library has `std::format`
+    for floating-point numbers;
   - with warnings as errors (`JAG_WERROR`), so that what one compiler warns of is fixed before it
     is merged;
   - `scripts/format.sh --check` with clang-format 23, the version the code is formatted with.

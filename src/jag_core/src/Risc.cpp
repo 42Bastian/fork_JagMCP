@@ -1174,7 +1174,8 @@ Risc::Executed Risc::execute( Decoded const& in, std::uint32_t pc )
 
 // Simple nodes replayed as a chain, until a node without the variant for the I2S line's next rise
 // (`current`, for `advance` to record), a node that is not simple, or the end; the next node is
-// reached by a tail call so that each opcode's function has a jump site of its own.
+// reached by a tail call so that each opcode's function has a jump site of its own. Where the
+// compiler cannot promise the tail call, the node is returned and the caller calls it.
 template <std::uint8_t OP, bool GPU>
 Risc::Node const* Risc::chain( Risc& core, Node const* node )
 {
@@ -1217,7 +1218,12 @@ Risc::Node const* Risc::chain( Risc& core, Node const* node )
     core.mAuto->current = const_cast<Node*>( next );
     return nullptr;
   }
+#if __has_cpp_attribute( clang::musttail )
   [[clang::musttail]] return next->chain( core, next );
+#else
+  // no tail call is promised here (GCC 14, MSVC): the caller's loop calls the next node
+  return next;
+#endif
 }
 
 std::array<std::array<Risc::Chain, 64>, 2> const Risc::CHAIN = { chainTable<false>( std::make_index_sequence<64>{} ),
@@ -1310,12 +1316,12 @@ void Risc::divideCatchUp( std::uint64_t cycle )
     std::uint32_t const dend1 = mDividendHi << 1 | mDividendLo >> 31;
     std::uint64_t const sum1 =
         static_cast<std::uint64_t>( dend1 ) + ( mDivisor ^ ( mLastNegN ? 0xffffffffu : 0u ) ) + ( mLastNegN ? 1u : 0u );
-    bool const thisNeg = ( ( mDividendHi >> 31 ) != 0 ) != ( ( sum1 >> 32 ) != 0 ) != mLastNegN;
+    bool const thisNeg = ( ( ( mDividendHi >> 31 ) != 0 ) != ( ( sum1 >> 32 ) != 0 ) ) != mLastNegN;
     std::uint32_t const addq1 = static_cast<std::uint32_t>( sum1 );
     std::uint32_t const dend2 = addq1 << 1 | ( ( mDividendLo >> 30 ) & 1 );
     std::uint64_t const sum2 =
         static_cast<std::uint64_t>( dend2 ) + ( mDivisor ^ ( thisNeg ? 0u : 0xffffffffu ) ) + ( thisNeg ? 0u : 1u );
-    bool const nextNeg = ( ( addq1 >> 31 ) != 0 ) != ( ( sum2 >> 32 ) != 0 ) != !thisNeg;
+    bool const nextNeg = ( ( ( addq1 >> 31 ) != 0 ) != ( ( sum2 >> 32 ) != 0 ) ) != !thisNeg;
     mDividendHi = static_cast<std::uint32_t>( sum2 );
     mDividendLo <<= 2;
     mQuotient = mQuotient << 2 | ( thisNeg ? 0u : 2u ) | ( nextNeg ? 0u : 1u );

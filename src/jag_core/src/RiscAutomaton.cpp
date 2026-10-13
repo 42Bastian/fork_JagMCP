@@ -702,7 +702,9 @@ bool Risc::runUntil( std::uint64_t pause )
         // on another node the loop judges that one, where the node has no variant it is recorded
         if ( node->simple )
         {
-          node->chain( *this, node );
+          Node const* next = node->chain( *this, node );
+          while ( next )
+            next = next->chain( *this, next );
           if ( mAuto->current != node )
             continue;
         }

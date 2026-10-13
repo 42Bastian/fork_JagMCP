@@ -21,7 +21,7 @@ if( JAG_BUILD_APP )
     endif( )
     set( JAG_BUNDLE_MINIMUM_SYSTEM "${CMAKE_OSX_DEPLOYMENT_TARGET}" )
     if( NOT JAG_BUNDLE_MINIMUM_SYSTEM )
-      set( JAG_BUNDLE_MINIMUM_SYSTEM "13.0" )
+      set( JAG_BUNDLE_MINIMUM_SYSTEM "13.3" )
     endif( )
     configure_file( "${CMAKE_CURRENT_LIST_DIR}/Info.plist.in" "${CMAKE_BINARY_DIR}/Info.plist" @ONLY )
 

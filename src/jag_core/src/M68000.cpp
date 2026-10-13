@@ -72,9 +72,9 @@ void M68000::runUntil( std::uint64_t cycle )
     {
       // the core's view of the instruction, which the comparison leaves out
       char text[128];
-      char dasm[96];
-      disassemble( dasm, reg.pc );
-      std::snprintf( text, sizeof text, "I %06x %s", reg.pc, dasm );
+      char line[96];
+      disassemble( line, reg.pc );
+      std::snprintf( text, sizeof text, "I %06x %s", reg.pc, line );
       mTrace->event( now(), text );
     }
     if ( mProbe && ( flags & moira::State::STOPPED ) == 0 )

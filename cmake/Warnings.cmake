@@ -52,6 +52,11 @@ else( )
     # would make this build refuse code CI never questions — the same
     # divergence again, pointing the other way.
     target_compile_options( jag_warnings INTERFACE -Wshadow-uncaptured-local -Wshadow-field )
+  else( )
+    # GCC warns when a designated initialiser leaves out a member, even one with a default.
+    # Leaving out such members is why the code uses designated initialisers. clang and MSVC
+    # do not warn here.
+    target_compile_options( jag_warnings INTERFACE -Wno-missing-field-initializers )
   endif( )
 
   if( JAG_WERROR )
