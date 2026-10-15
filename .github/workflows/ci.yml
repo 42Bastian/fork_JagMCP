@@ -1,19 +1,17 @@
 name: CI
 
-# Every push and pull request builds the emulator on the three platforms, runs
-# the suite and packages what a release would hold; a tag v* publishes those
-# packages as a GitHub release. The BIOS and the games are checked outside the
+# A pushed tag v*, or a run started by hand, builds the emulator on the three
+# platforms, runs the suite and packages what a release would hold; the tag
+# publishes those packages as a GitHub release. A push to a branch runs nothing
+# (docs/decisions/0029). The BIOS and the games are checked outside the
 # repository (docs/decisions/0015); the suite here is the recorded references
 # and the control protocol's transcripts, which need neither.
 # docs/decisions/0025-ci-and-releases.md says why it is laid out this way.
 
 on:
   push:
-    branches:
-      - "**"
     tags:
       - "v*"
-  pull_request:
   workflow_dispatch:
 
 permissions:
