@@ -72,7 +72,7 @@ std::vector<std::uint8_t> bootRom( std::uint32_t pc, bool biosVideo )
   l( 0xf14000 );
   if ( biosVideo )
   {
-    for ( auto const [address, value] : BIOS_VIDEO )
+    for ( auto const& [address, value] : BIOS_VIDEO )
     {
       w( 0x33fc ); // move.w #value,address
       w( value );
