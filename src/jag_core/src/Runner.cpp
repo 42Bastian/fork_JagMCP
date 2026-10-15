@@ -1,6 +1,7 @@
 #include "jag/Runner.hpp"
 
 #include "jag/Machine.hpp"
+#include "jag/ProgramFile.hpp"
 #include "jag/Risc.hpp"
 
 #include <algorithm>
@@ -31,6 +32,17 @@ std::pair<std::string, std::string> split( std::string const& s, char sep )
   return { s.substr( 0, pos ), s.substr( pos + 1 ) };
 }
 
+// The first bytes of `path`, as many as tell a program file's format; fewer when it is shorter or
+// cannot be read.
+std::vector<std::uint8_t> fileStart( std::string const& path )
+{
+  std::ifstream f( path, std::ios::binary );
+  std::vector<std::uint8_t> start( 20 );
+  f.read( reinterpret_cast<char*>( start.data() ), static_cast<std::streamsize>( start.size() ) );
+  start.resize( static_cast<std::size_t>( f.gcount() ) );
+  return start;
+}
+
 class Collector : public TraceSink
 {
 public:
@@ -56,7 +68,8 @@ std::string_view runOptionsHelp()
          "  --poke ADDR=VALUE   Write VALUE at ADDR before the run. Can be repeated.\n"
          "  --mem ADDR:LENGTH   Print a hash of LENGTH bytes at ADDR. Can be repeated.\n"
          "  --gpu               Run the program on the GPU.\n"
-         "  --m68k              Run the program on the 68000, from reset.\n"
+         "  --m68k              Run the program on the 68000, from reset. A COFF program\n"
+         "                      runs there without this flag, unless --gpu is given.\n"
          "  --bios FILE         Use FILE as the boot ROM. Needs --m68k.\n"
          "  --cart FILE         Load a cartridge image at $800000.\n"
          "  --compat            Enable the MiSTer core's compatibility fixes. On with --bios.\n"
@@ -136,6 +149,12 @@ RunOptions parseRunOptions( std::span<std::string const> args )
     else
       throw std::runtime_error( "unknown argument " + arg );
   }
+  // Atari's linkers make 68000 programs: a COFF one runs on the 68000 unless it is said otherwise
+  bool const coff = !o.input.empty() && isCoff( fileStart( o.input ) );
+  if ( coff && !o.gpu )
+    o.m68k = true;
+  if ( coff && !o.bios.empty() )
+    throw std::runtime_error( "--bios with a COFF program: the BIOS does not start it; leave --bios out" );
   if ( !o.bios.empty() && !o.m68k )
     throw std::runtime_error( "--bios needs --m68k" );
   if ( ( !o.input.empty() && !o.raw.empty() ) || ( o.input.empty() && o.raw.empty() && o.bios.empty() ) )
@@ -171,12 +190,10 @@ RunOptions readRunFile( std::string const& path )
   if ( program.empty() )
     throw std::runtime_error( path + " names no PROGRAM" );
   std::string const file = ( dir / program ).generic_string();
-  std::ifstream binary( file, std::ios::binary );
-  char magic[4] = {};
-  binary.read( magic, sizeof magic );
-  bool const bs94 = binary && std::string_view( magic, sizeof magic ) == "BS94";
+  std::vector<std::uint8_t> const start = fileStart( file );
+  bool const bs94 = start.size() >= 4 && std::string_view( reinterpret_cast<char const*>( start.data() ), 4 ) == "BS94";
   args.insert( args.begin(), file );
-  if ( !bs94 )
+  if ( !bs94 && !isCoff( start ) )
     args.insert( args.begin(), "--raw" );
   return parseRunOptions( args );
 }

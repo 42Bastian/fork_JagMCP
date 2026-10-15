@@ -99,6 +99,12 @@ std::string EmulationThread::program()
   return mProgram;
 }
 
+std::string EmulationThread::bios()
+{
+  std::scoped_lock const lock{ mPictureMutex };
+  return mBios;
+}
+
 void EmulationThread::setPaused( bool paused )
 {
   post( [this, paused] { mSession.setPaused( paused ); } );
@@ -178,14 +184,55 @@ void EmulationThread::publishState()
                    at->pc );
     stop = text;
   }
+  // a 68000 bus cycle waiting a second or more: the console is likely locked
+  else if ( auto const wait = machine ? machine->busWait() : std::nullopt;
+            wait && machine->now() - wait->since >= static_cast<std::uint64_t>( CYCLES_PER_SECOND ) )
+  {
+    char text[160];
+    std::snprintf( text,
+                   sizeof text,
+                   "The 68000 at $%06x waits for the bus since %.3f s, held by the %s",
+                   wait->pc,
+                   static_cast<double>( wait->since ) / CYCLES_PER_SECOND,
+                   wait->holder.c_str() );
+    stop = text;
+  }
+  std::vector<std::string> undriven;
+  if ( machine )
+    for ( UndrivenRead const& r : machine->undrivenReads() )
+    {
+      char const* name = Tom::registerName( r.address );
+      char text[128];
+      std::snprintf( text,
+                     sizeof text,
+                     "%s at $%06x reads $%06x%s%s%s: $%04x, %llu times",
+                     r.cpu == "m68k"  ? "68000"
+                     : r.cpu == "gpu" ? "GPU"
+                                      : "DSP",
+                     r.pc,
+                     r.address,
+                     name ? " (" : "",
+                     name ? name : "",
+                     name ? ")" : "",
+                     r.value,
+                     static_cast<unsigned long long>( r.count ) );
+      undriven.emplace_back( text );
+    }
   std::scoped_lock const lock{ mPictureMutex };
   mStopText = std::move( stop );
+  mUndrivenText = std::move( undriven );
 }
 
 std::string EmulationThread::stop()
 {
   std::scoped_lock const lock{ mPictureMutex };
   return mStopText;
+}
+
+std::vector<std::string> EmulationThread::undrivenReads()
+{
+  std::scoped_lock const lock{ mPictureMutex };
+  return mUndrivenText;
 }
 
 void EmulationThread::serveJobs()
@@ -209,9 +256,12 @@ void EmulationThread::serveJobs()
   // the sound of a run on request is not the console's time: it is not played
   mSamples.clear();
   publishState();
-  std::string program = mSession.options() ? mSession.program() : std::string{};
+  RunOptions const* options = mSession.options();
+  std::string program = options != nullptr ? mSession.program() : std::string{};
+  std::string bios = options != nullptr ? options->bios : std::string{};
   std::scoped_lock const lock{ mPictureMutex };
   mProgram = std::move( program );
+  mBios = std::move( bios );
 }
 
 void EmulationThread::loop()

@@ -62,6 +62,9 @@ places they knowingly do not follow the netlist, each with what the FPGA simulat
 - **The sync and equalisation registers** (HS, HVS, HEQ, VS, VEB, VEE) are written and have no
   effect, the video output collected outside the sync. The light pen registers, the test
   registers, OB0 to OB3 and LBRA read as 0 (the simulation drives what those registers hold).
+- **A read that no register decodes** gives MEMCON1, as the chip's undriven read bus holds it. The
+  simulation gives 0. Such reads are reported
+  ([0026](../decisions/0026-undriven-tom-reads-give-memcon1.md)).
 - **A long word two past a long word boundary**, the GPU's, is two 16 bit cycles from its address
   on within its phrase, the second wrapping to the phrase's start from its last word (`memwidth.v`
   adds the width on three bits). A store's long word is on both halves of the bus, so the word at

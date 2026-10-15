@@ -75,6 +75,10 @@ Useful options:
 writes (BS94). `--gpu` runs it on the GPU. `--m68k` runs a 68000 program, or boots a cartridge
 with `--bios` and `--cart`.
 
+A COFF file from Atari's linkers (`program.cof`, as `rln -a 4000` makes it) runs on the 68000
+without a BIOS. It is started as a loader such as the Skunkboard starts it, after the BIOS has set
+the video ([0028](docs/decisions/0028-a-coff-program-runs-as-a-loader-starts-it.md)).
+
 ## Remote control
 
 Other programs can control a running emulator, with or without the window. They can load a

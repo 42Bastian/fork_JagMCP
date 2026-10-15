@@ -55,8 +55,8 @@ public:
     return mOptions ? &*mOptions : nullptr;
   }
 
-  // The file the program loaded is: its BS94 or raw binary, or the cartridge or the OS ROM it boots
-  // from; empty before one is loaded.
+  // The file the program loaded is: its BS94, COFF or raw binary, or the cartridge or the OS ROM it
+  // boots from; empty before one is loaded.
   std::string program() const;
 
   // The program's processor has not stopped.

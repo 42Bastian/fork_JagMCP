@@ -5,6 +5,7 @@
 #include "jag/RiscDisassembler.hpp"
 
 #include <string>
+#include <vector>
 
 namespace jag::control
 {
@@ -87,7 +88,8 @@ void addCpuMethods( Dispatcher& dispatcher, Session& session )
       } );
 
   dispatcher.add( "cpu.disassemble",
-                  info( "Disassembles `count` instructions from `address`, read from memory without a bus cycle.",
+                  info( "Disassembles `count` instructions from `address`, read from memory without a bus cycle. "
+                        "Each comes with its bytes, as memory.read gives them.",
                         { { "address", "integer", "Where to start (an integer, or a string \"0x...\")." },
                           { "count", "integer", "Instructions, at most 1000." },
                           { "cpu", "string", "m68k, gpu or dsp; the program's own when left out.", false } } ),
@@ -127,7 +129,13 @@ void addCpuMethods( Dispatcher& dispatcher, Session& session )
                         text = instruction.text;
                         length = 2 * instruction.words;
                       }
-                      lines.push_back( Json{ { "address", at }, { "length", length }, { "text", text } } );
+                      std::vector<std::uint8_t> bytes( length );
+                      for ( std::uint32_t k = 0; k < length; ++k )
+                        bytes[k] = ( *machine )->peek( ( at + k ) & 0xffffffu ).value_or( 0 );
+                      lines.push_back( Json{ { "address", at },
+                                             { "length", length },
+                                             { "opcode_hex", toHex( bytes.data(), bytes.size() ) },
+                                             { "text", text } } );
                       at = ( at + length ) & 0xffffffu;
                     }
                     return lines;

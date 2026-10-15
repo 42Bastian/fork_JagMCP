@@ -66,6 +66,9 @@ Documentation is updated in the **same commit** as the change that invalidated i
 - [0023: Through a 68000 bus cycle to memory the RISCs run on to where its next could start](decisions/0023-the-riscs-run-through-the-68000s-memory-cycles.md)
 - [0024: A stopped 68000 lets the RISCs run on to where it could next make a bus cycle](decisions/0024-a-stopped-68000-waits-in-long-turns.md)
 - [0025: CI builds three platforms, and a tag makes a release](decisions/0025-ci-and-releases.md)
+- [0026: A read no Tom register answers gives MEMCON1, and is reported](decisions/0026-undriven-tom-reads-give-memcon1.md)
+- [0027: A run ends where it was asked to, whatever the program does](decisions/0027-a-run-ends-where-asked.md)
+- [0028: A COFF program runs on the 68000, started as a loader starts it](decisions/0028-a-coff-program-runs-as-a-loader-starts-it.md)
 
 ### Hardware
 - [The main bus](hardware/main-bus.md): what the port of Tom's and Jerry's bus logic leaves out

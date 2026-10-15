@@ -31,6 +31,7 @@ struct GatewayRequest
   std::uint32_t size = 0; // msize: 0 a byte, 1 a word, 2 a long word, 3 a phrase
   std::uint32_t data = 0; // a store's
   bool program = false;   // a fetch of the program (progserv), a long word
+  std::uint32_t pc = 0;   // a load's or store's instruction, for UndrivenRead
 };
 
 // The masters with a port on the bus: the DSP's gateway (through Jerry) and the GPU's (Tom's own).
@@ -117,6 +118,21 @@ public:
   void setOthers( std::function<void( std::uint64_t )> others )
   {
     mOthers = std::move( others );
+  }
+
+  // What takes a read of Tom's space that no register answers (UndrivenRead): its cpu, the
+  // instruction's pc (a RISC's; the 68000's is the taker's to find), the address, the value read and
+  // the cycle.
+  using UndrivenReadSink = std::function<void(
+      char const* cpu, std::uint32_t pc, std::uint32_t address, std::uint16_t value, std::uint64_t cycle )>;
+
+  // The master the bus is granted to (arb.v ack_): the 68000, the blitter, the GPU, the DSP, the
+  // object processor or the DRAM's refresh.
+  char const* busHolder() const;
+
+  void setUndrivenRead( UndrivenReadSink sink )
+  {
+    mUndrivenRead = std::move( sink );
   }
 
   // The control replayed from the transitions recorded of it, the bus's timing automaton
@@ -529,7 +545,8 @@ public:
   }
 
 private:
-  std::uint16_t tomRead( std::uint64_t cycle, std::uint32_t address );
+  // A read of Tom's registers by `cpu` (m68k, gpu or dsp), its instruction at `pc`.
+  std::uint16_t tomRead( std::uint64_t cycle, std::uint32_t address, char const* cpu, std::uint32_t pc );
   // what the 68000 reads of a memory under its strobes: the DRAM, the OS ROM, the cartridge
   std::uint16_t m68kReadWord( std::uint32_t address, bool uds = true, bool lds = true );
   // the OS ROM or the cartridge (Boot::Reset) is where `address` decodes to
@@ -778,6 +795,7 @@ private:
   Node* mNode = nullptr;               // the node of the state, null where it is to be looked up
   bool mFlushWanted = false;
   std::function<void( std::uint64_t )> mOthers;
+  UndrivenReadSink mUndrivenRead;
   bool mHold = false; // the RISCs run ahead: the bus steps nothing
   // Tom's interrupt handler as it holds before mIhandlerUntil (Tom::ihandlerSteady); 0 once a write
   // or an interrupt may have changed it
@@ -793,6 +811,7 @@ private:
   {
     bool dmaen = false;
     std::uint32_t datAddr = 0;
+    std::uint32_t datPc = 0; // the instruction of the access at datAddr
     std::uint32_t loadData = 0;
     bool maskbN = false;
     bool maskwN = false;
@@ -810,6 +829,7 @@ private:
     std::uint32_t loadHalves = 0;  // a load of Tom's registers: the halves still to latch, its
     std::uint32_t loadAddress = 0; // address and size (the gateway may hold the next request's)
     std::uint32_t loadSize = 0;
+    std::uint32_t loadPc = 0;
     std::uint32_t cpuAddr = 0; // a fetch's address (cpu_addr), apart from a load's or store's
     std::uint32_t progData = 0;
   } mGw[2];
@@ -819,6 +839,7 @@ private:
   struct Jerry
   {
     std::uint32_t ad = 0;
+    std::uint32_t adPc = 0; // the DSP's instruction of the access at ad
     std::uint32_t storeAddress = 0;
     std::uint32_t storeData = 0;
     std::uint16_t openLow = 1; // (the 68000's DSPGO)

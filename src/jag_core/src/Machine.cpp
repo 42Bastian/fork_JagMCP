@@ -1,9 +1,9 @@
 #include "jag/Machine.hpp"
 
 #include "M68000.hpp"
-#include "jag/Bs94.hpp"
 #include "jag/I2s.hpp"
 #include "jag/MainBus.hpp"
+#include "jag/ProgramFile.hpp"
 #include "jag/Risc.hpp"
 #include "jag/Tom.hpp"
 
@@ -13,6 +13,8 @@
 #include <fstream>
 #include <iterator>
 #include <stdexcept>
+#include <string_view>
+#include <utility>
 
 namespace jag
 {
@@ -23,9 +25,21 @@ namespace
 constexpr std::uint32_t DRAM_SIZE = 2 * 1024 * 1024;
 constexpr std::uint32_t ROM_SIZE = 128 * 1024;
 
+// The video registers the BIOS (model M) sets on a PAL console before it starts a cartridge, in
+// its order: BG and BORD1, then the timing: HP, HBB, HBE, HS, HVS, HEQ, HDE, HDB1, HDB2, VP, VEE,
+// VBE, VDB, VDE, VBB, VEB, VS, VI.
+constexpr std::array<std::pair<std::uint32_t, std::uint16_t>, 20> BIOS_VIDEO = { {
+    { 0xf00058, 0x0000 }, { 0xf0002a, 0x0000 }, { 0xf0002e, 0x0352 }, { 0xf00030, 0x06af }, { 0xf00032, 0x009e },
+    { 0xf00034, 0x06d5 }, { 0xf00036, 0x0259 }, { 0xf00054, 0x0313 }, { 0xf0003c, 0x06a0 }, { 0xf00038, 0x00a6 },
+    { 0xf0003a, 0x00a6 }, { 0xf0003e, 0x026f }, { 0xf0004c, 0x0006 }, { 0xf00042, 0x0022 }, { 0xf00046, 0x002e },
+    { 0xf00048, 0xffff }, { 0xf00040, 0x0258 }, { 0xf0004a, 0x0265 }, { 0xf00044, 0x026a }, { 0xf0004e, 0x0261 },
+} };
+
 // The OS ROM of the simulation's --m68k (sim/sim_main.cpp): its vectors, then MEMCON1, MEMCON2,
-// G_END and D_END as the BIOS sets them, JOYSTICK, and a jump to the program.
-std::vector<std::uint8_t> bootRom( std::uint32_t pc )
+// G_END and D_END as the BIOS sets them, JOYSTICK, and a jump to the program. With `biosVideo`, the
+// video as the BIOS leaves it too, before the jump: a COFF program is uploaded by a loader after
+// the BIOS has booted, and sets only part of the video itself (decision 0028).
+std::vector<std::uint8_t> bootRom( std::uint32_t pc, bool biosVideo )
 {
   std::vector<std::uint8_t> rom( ROM_SIZE, 0xff );
   std::size_t at = 0;
@@ -56,6 +70,26 @@ std::vector<std::uint8_t> bootRom( std::uint32_t pc )
   w( 0x33fc ); // move.w #$0100,JOYSTICK
   w( 0x0100 );
   l( 0xf14000 );
+  if ( biosVideo )
+  {
+    for ( auto const [address, value] : BIOS_VIDEO )
+    {
+      w( 0x33fc ); // move.w #value,address
+      w( value );
+      l( address );
+    }
+    // the two line buffers cleared, as the BIOS clears them: a long of each in turn
+    w( 0x41f9 ); // lea $f00800,A0
+    l( 0xf00800 );
+    w( 0x43f9 ); // lea $f01000,A1
+    l( 0xf01000 );
+    w( 0x303c ); // move.w #359,D0
+    w( 359 );
+    w( 0x4298 ); // clr.l (A0)+
+    w( 0x4299 ); // clr.l (A1)+
+    w( 0x51c8 ); // dbra D0,clr.l (A0)+
+    w( 0xfffa );
+  }
   w( 0x4ef9 ); // jmp program
   l( pc );
   return rom;
@@ -240,15 +274,18 @@ Machine::Machine( RunOptions const& options, TraceSink* trace )
   if ( options.m68k )
   {
     // the program in main RAM (optional with the BIOS), the OS ROM, the cartridge
-    Bs94 program{};
+    ProgramFile program{};
     if ( !options.input.empty() )
     {
-      program = parseBs94( readFile( options.input ) );
-      if ( program.address + program.data.size() > DRAM_SIZE )
-        throw std::runtime_error( options.input + " does not fit in RAM" );
-      std::ranges::copy( program.data, mRam->bytes.begin() + program.address );
+      program = parseProgramFile( readFile( options.input ) );
+      for ( auto const& [address, data] : program.sections )
+      {
+        if ( address + data.size() > DRAM_SIZE )
+          throw std::runtime_error( options.input + " does not fit in RAM" );
+        std::ranges::copy( data, mRam->bytes.begin() + address );
+      }
     }
-    std::vector<std::uint8_t> rom = bootRom( options.pc.value_or( program.address ) );
+    std::vector<std::uint8_t> rom = bootRom( options.pc.value_or( program.entry ), program.coff );
     if ( !options.bios.empty() )
     {
       rom = readFile( options.bios );
@@ -269,6 +306,7 @@ Machine::Machine( RunOptions const& options, TraceSink* trace )
       cart.resize( size, 0xff );
     }
     mBus = std::make_unique<MainBus>( *mRam, Boot::Reset, std::move( rom ), std::move( cart ) );
+    noteUndrivenReads();
     mBus->setAutomaton( !options.step );
     mBus->tom().setVintFix( options.compatible() );
     mRam->bus = mBus.get();
@@ -310,6 +348,7 @@ Machine::Machine( RunOptions const& options, TraceSink* trace )
   }
 
   mBus = std::make_unique<MainBus>( *mRam, options.gpu ? Boot::Gpu : Boot::Dsp );
+  noteUndrivenReads();
   mBus->setAutomaton( !options.step );
   mBus->tom().setVintFix( options.compatible() );
   if ( !options.framesDir.empty() )
@@ -331,30 +370,37 @@ Machine::Machine( RunOptions const& options, TraceSink* trace )
   if ( !options.wav.empty() )
     i2s().setSampleSink( &Outputs::sample, mOutputs.get() );
 
-  Bs94 program;
+  ProgramFile program;
   if ( options.raw.empty() )
-    program = parseBs94( readFile( options.input ) );
+  {
+    program = parseProgramFile( readFile( options.input ) );
+  }
   else
   {
-    program.address = mProgram->ramBase();
-    program.data = readFile( options.raw );
+    program.entry = mProgram->ramBase();
+    program.sections.push_back( { .address = program.entry, .data = readFile( options.raw ) } );
   }
   mProgram->setAutomaton( !options.step );
   if ( trace )
     mProgram->setTrace( trace );
-  // a program outside the local RAM goes into main RAM, as the simulation loads it
-  bool const local = program.address >= mProgram->ramBase() &&
-                     program.address + program.data.size() <= mProgram->ramBase() + mProgram->ramSize();
-  if ( local )
-    mProgram->loadLocal( program.address, program.data );
-  else
+  // a section outside the local RAM goes into main RAM, as the simulation loads it
+  for ( auto const& [address, data] : program.sections )
   {
-    if ( program.address + program.data.size() > DRAM_SIZE )
-      throw std::runtime_error( options.input + " does not fit in RAM" );
-    std::ranges::copy( program.data, mRam->bytes.begin() + program.address );
+    bool const local =
+        address >= mProgram->ramBase() && address + data.size() <= mProgram->ramBase() + mProgram->ramSize();
+    if ( local )
+    {
+      mProgram->loadLocal( address, data );
+    }
+    else
+    {
+      if ( address + data.size() > DRAM_SIZE )
+        throw std::runtime_error( options.input + " does not fit in RAM" );
+      std::ranges::copy( data, mRam->bytes.begin() + address );
+    }
   }
   mProgram->setFlags( options.flags );
-  mProgram->setPc( options.pc.value_or( program.address ) );
+  mProgram->setPc( options.pc.value_or( program.entry ) );
   mProgram->go();
 }
 
@@ -386,8 +432,8 @@ bool Machine::runTo( std::uint64_t cycle )
     std::uint64_t const to = std::min( cycle, mLimit );
     mM68k->runUntil( to );
     // the RISCs no further than the 68000, which a debugger's stop may have ended short
-    runRiscs( std::min( to, mM68k->now() ) );
-    return mM68k->now() < mLimit;
+    runRiscs( std::min( to, mM68k->reached() ) );
+    return mM68k->reached() < mLimit;
   }
   if ( !mDsp )
   {
@@ -478,7 +524,7 @@ void Machine::runRiscs( std::uint64_t cycle )
 
 std::uint64_t Machine::now() const
 {
-  return mM68k ? mM68k->now() : mProgram->now();
+  return mM68k ? mM68k->reached() : mProgram->now();
 }
 
 void Machine::finish()
@@ -551,6 +597,7 @@ RunResult Machine::result() const
     result.memHashes.emplace_back( key, hash );
   }
   result.frames = mBus->tom().frames();
+  result.undriven = mUndriven;
   return result;
 }
 
@@ -593,6 +640,32 @@ bool Machine::poke( std::uint32_t address, std::uint8_t value )
       return true;
     }
   return false;
+}
+
+std::optional<BusWait> Machine::busWait() const
+{
+  if ( !mM68k )
+    return std::nullopt;
+  return mM68k->waiting();
+}
+
+void Machine::noteUndrivenReads()
+{
+  mBus->setUndrivenRead(
+      [this]( char const* cpu, std::uint32_t pc, std::uint32_t address, std::uint16_t value, std::uint64_t cycle )
+      {
+        // the 68000 is in the middle of the instruction that makes the read
+        if ( mM68k && std::string_view{ cpu } == "m68k" )
+          pc = mM68k->getPC0();
+        for ( UndrivenRead& r : mUndriven )
+          if ( r.pc == pc && r.address == address && r.cpu == cpu )
+          {
+            ++r.count;
+            return;
+          }
+        if ( mUndriven.size() < UNDRIVEN_READS )
+          mUndriven.push_back( UndrivenRead{ cpu, pc, address, value, cycle, 1 } );
+      } );
 }
 
 Debugger& Machine::debugger()

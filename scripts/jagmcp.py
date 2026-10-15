@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Sends one request to a running emulator and prints the answer.
 
-    scripts/jagmcp.py [--port 7710] METHOD [PARAMS...]
+    scripts/jagmcp.py [--port 7710] [--json] METHOD [PARAMS...]
     scripts/jagmcp.py [--port 7710] emu.load PROGRAM [OPTIONS...]
 
 PARAMS is a JSON object, or key=value pairs. A value is read as JSON when it
@@ -17,6 +17,11 @@ as jagmcp-cli takes them:
 The emulator is `jagmcp-cli --server tcp:PORT`; it keeps its state between
 requests. The methods are docs/spec/control-protocol.md. The answer's `result`
 is printed as JSON; an error is printed to stderr, and the exit status is 1.
+
+cpu.disassemble is printed as a listing instead, one instruction a line: the
+address, the bytes and the text. --json prints its JSON.
+
+    0xe00008  41f9 00f0 0000  lea     $f00000.l, A0
 """
 
 import argparse
@@ -51,9 +56,20 @@ def parse_params(method, items):
     return params
 
 
+def print_listing(lines):
+    def words(line):
+        hex_bytes = line["opcode_hex"]
+        return " ".join(hex_bytes[i:i + 4] for i in range(0, len(hex_bytes), 4))
+
+    width = max((len(words(line)) for line in lines), default=0)
+    for line in lines:
+        print(f"0x{line['address']:06x}  {words(line):<{width}}  {line['text']}")
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--port", type=int, default=7710)
+    parser.add_argument("--json", action="store_true", help="print cpu.disassemble's answer as JSON")
     parser.add_argument("method")
     parser.add_argument("params", nargs=argparse.REMAINDER)
     args = parser.parse_args()
@@ -72,7 +88,10 @@ def main():
         error = response.get("error", {})
         print(f"{error.get('code')}: {error.get('message')}", file=sys.stderr)
         return 1
-    print(json.dumps(response["result"], indent=2))
+    if args.method == "cpu.disassemble" and not args.json:
+        print_listing(response["result"])
+    else:
+        print(json.dumps(response["result"], indent=2))
     return 0
 
 

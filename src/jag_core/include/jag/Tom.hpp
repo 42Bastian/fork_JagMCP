@@ -49,6 +49,14 @@ public:
     return ( address & 0xffffffu ) - 0xf00000u < 0x2000u;
   }
 
+  // Whether a read of `address`, one of decodes', is one a register answers (iodec.v: memc1r to
+  // lpvr, ob0r to ob3r, test2r, test3r, pit0r, pit1r, intr, lbrar, the CLUT's and the line buffers').
+  // No other drives Tom's read bus, which then holds MEMCON1 (hardware/tom.md).
+  static bool readDecodes( std::uint32_t address );
+
+  // The name the Software Reference gives the register at `address`, or null.
+  static char const* registerName( std::uint32_t address );
+
   // The object processor, and what the time base gives it in `cycle` (the output brought there).
   ObjectProcessor& op()
   {

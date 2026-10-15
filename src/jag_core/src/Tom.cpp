@@ -1,6 +1,7 @@
 #include "jag/Tom.hpp"
 
 #include <algorithm>
+#include <array>
 #include <condition_variable>
 #include <cstdio>
 #include <deque>
@@ -828,6 +829,61 @@ std::uint32_t* Tom::lineBufferWord( std::uint32_t address, LineBufferView const&
   bool const a = offset < 0x1000u || ( offset >= 0x1800u && !view.lbufa );
   shown = view.vactive && a == view.lbufa;
   return &( a ? mBuffers.a : mBuffers.b )[shown ? view.lbra & 0x1ffu : ( offset >> 2 ) & 0x1ffu];
+}
+
+bool Tom::readDecodes( std::uint32_t address )
+{
+  std::uint32_t const a = address & 0x1ffeu;
+  if ( a >= 0x400u ) // the CLUT and the line buffers
+    return true;
+  switch ( a )
+  {
+  case 0x00: // MEMCON1, MEMCON2, HC, VC, LPH, LPV
+  case 0x02:
+  case 0x04:
+  case 0x06:
+  case 0x08:
+  case 0x0a:
+  case 0x10: // OB0 to OB3
+  case 0x12:
+  case 0x14:
+  case 0x16:
+  case 0x20: // TEST2, TEST3
+  case 0x22:
+  case 0x50: // PIT0, PIT1
+  case 0x52:
+  case 0xe0:  // INT1
+  case 0x200: // LBRA
+    return true;
+  default:
+    return false;
+  }
+}
+
+char const* Tom::registerName( std::uint32_t address )
+{
+  static constexpr std::array<char const*, 0x2a> NAMES{ "MEMCON1", "MEMCON2", "HC",  "VC",  "LPH",   "LPV",   nullptr,
+                                                        nullptr,   "OB0",     "OB1", "OB2", "OB3",   nullptr, nullptr,
+                                                        nullptr,   nullptr,   "OLP", "OLP", nullptr, "OBF",   "VMODE",
+                                                        "BORD1",   "BORD2",   "HP",  "HBB", "HBE",   "HS",    "HVS",
+                                                        "HDB1",    "HDB2",    "HDE", "VP",  "VBB",   "VBE",   "VS",
+                                                        "VDB",     "VDE",     "VEB", "VEE", "VI",    "PIT0",  "PIT1" };
+  std::uint32_t const a = address & 0xfffffeu;
+  if ( a - 0xf00000u < 2 * NAMES.size() )
+    return NAMES[( a - 0xf00000u ) / 2];
+  switch ( a )
+  {
+  case 0xf00054:
+    return "HEQ";
+  case 0xf00058:
+    return "BG";
+  case 0xf000e0:
+    return "INT1";
+  case 0xf000e2:
+    return "INT2";
+  default:
+    return nullptr;
+  }
 }
 
 void Tom::write( std::uint64_t cycle, std::uint32_t address, std::uint16_t value )

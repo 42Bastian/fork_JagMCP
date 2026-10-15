@@ -315,7 +315,7 @@ void Application::keepSetting( std::string const& key, control::Json value )
 void Application::openFile()
 {
   static constexpr SDL_DialogFileFilter FILTERS[] = { { .name = "Jaguar cartridges", .pattern = "j64;jag" },
-                                                      { .name = "Programs", .pattern = "run;o" } };
+                                                      { .name = "Programs", .pattern = "run;o;cof" } };
   SDL_ShowOpenFileDialog(
       []( void* self, char const* const* files, int /*filter*/ )
       {
@@ -577,9 +577,26 @@ void Application::drawStatusWindow()
       ImGui::Text( "Speed: %.0f%%", mEmulation->speed() * 100.0 );
       if ( mScreen )
         ImGui::Text( "Frame: %u x %u", mScreen->width(), mScreen->height() );
+      if ( std::vector<std::string> const undriven = mEmulation->undrivenReads(); !undriven.empty() )
+      {
+        ImGui::Separator();
+        ImGui::PushTextWrapPos( 0.0F );
+        ImGui::TextColored( ImVec4{ 1.0F, 0.8F, 0.3F, 1.0F },
+                            "Reads no register answers: they get what the bus held, which works by chance" );
+        for ( std::string const& line : undriven )
+          ImGui::BulletText( "%s", line.c_str() );
+        ImGui::PopTextWrapPos();
+      }
     }
-    ImGui::Text( "BIOS: %s",
-                 mBios.empty() ? "none chosen" : std::filesystem::path{ mBios }.filename().string().c_str() );
+    // the BIOS the program boots with, which a request may have given; and the one a cartridge
+    // opened in the window boots with, where it is another
+    std::string const running = mEmulation->loaded() ? mEmulation->bios() : std::string{};
+    if ( mEmulation->loaded() )
+      ImGui::Text( "BIOS: %s",
+                   running.empty() ? "none" : std::filesystem::path{ running }.filename().string().c_str() );
+    if ( !mEmulation->loaded() || mBios != running )
+      ImGui::Text( "BIOS for cartridges: %s",
+                   mBios.empty() ? "none chosen" : std::filesystem::path{ mBios }.filename().string().c_str() );
     if ( mAudio )
       ImGui::Text( "Sound: %d Hz, %.0f ms queued", mAudio->rate(), mAudio->queuedSeconds() * 1000.0 );
     else

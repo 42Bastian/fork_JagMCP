@@ -42,6 +42,8 @@ Reconnect it (`/mcp`) after a rebuild.
   frames).
 - A reference's program with its arguments: `reference/op_bitmap.o --gpu` (paths are the server's,
   relative to where it was started).
+- A COFF program (`GAME.cof`, homebrew linked at $4000): alone, without `--m68k` or a BIOS; it
+  starts as a Skunkboard starts it (decision 0028). `--bios` with it is refused.
 - A cartridge through the BIOS: `--m68k --bios BIOS --cart GAME.j64`, with the MiSTer core's
   compatibility fixes on (`--no-compat` for the bare netlist; decision 0022). The BIOS and games are never
   in the repository ([0015](../../../docs/decisions/0015-bios-and-games-checked-outside-the-repository.md));
@@ -73,6 +75,7 @@ stderr with exit status 1. Numbers in answers are decimal: `"pc": 15740928` is 0
 | Stop at code | `debug.breakpoint.add/remove {address, cpu}`, `debug.breakpoint.list`: a run stops before that instruction |
 | Stop at data | `debug.watchpoint.add {address, size, access: read/write/access, cpu}`, `remove`, `list`: a run stops once the access is made, and says what and from where |
 | See what ran | `debug.trace {cpu, count}`: the last instructions (up to 1024), disassembled |
+| Bugs that work by chance | `debug.diagnostics`: reads of Tom addresses no register answers (a write-only register such as INT2), each with the instruction; `emu.status` counts them |
 | Pads | `input.set {buttons, port}` (held until changed), `input.press {buttons, port, frames}` (held, released, run), `input.clear`, `input.get_state`; with `--m68k` |
 | Window | `emu.pause`, `emu.resume`: the program on screen stops running by itself (a stop pauses it too) |
 
@@ -90,7 +93,8 @@ registers as they were at the breakpoint.
 
 Run some frames and read `debug.trace` for the processor (`cpu=gpu`, `cpu=dsp`, `cpu=m68k`) to see
 the code that is running, then `cpu.disassemble` around it. The GPU's code runs from its RAM at
-0xf03000, the DSP's from 0xf1b000.
+0xf03000, the DSP's from 0xf1b000. `scripts/jagmcp.py` prints a disassembly as a listing (address,
+bytes, text); `--json` before the method gives the JSON.
 
 ## Things that trip people up
 
@@ -100,5 +104,10 @@ the code that is running, then `cpu.disassemble` around it. The GPU's code runs 
 - A RISC's `pc` is the instruction issuing or about to; MOVEI takes 6 bytes.
 - The emulator is slower than real time on some programs (a 68000 game with the bus busy): a
   long `emu.run_frames` holds the other requests back, so run in steps of a few hundred frames.
+- A 68000 program whose picture runs but whose 68000 does nothing may have locked the bus: see
+  `bus_wait` in `emu.status`, which says which master keeps it (an object list that never ends
+  keeps it for the object processor).
+- A program that hangs or misbehaves only here may read a write-only register. Check
+  `debug.diagnostics`: the console gives MEMCON1 there, and other emulators may not.
 - Writing a RISC's local RAM while it runs drops what the timing automaton knew of the code there;
   it is correct, only slower for a while.

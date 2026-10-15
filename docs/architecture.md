@@ -303,6 +303,11 @@ Where the netlist's 68000 orders or addresses its cycles differently from Moira,
 corrects them in Moira's times. Tom's interrupt line is given to Moira at each instruction
 boundary, where the netlist's 68000 decides to take an interrupt.
 
+Moira runs on a thread of its own, by turns with the caller of the run. A bus cycle that still
+waits for the bus where a part of the run ends hands the turn back, and goes on with the next part
+([0027](decisions/0027-a-run-ends-where-asked.md)). So a part ends where it was asked to, even
+while another master keeps the bus.
+
 The rest of the board:
 
 - MEMCON1 and MEMCON2 are registers.
@@ -417,8 +422,8 @@ computes, and replays it.
   and the values of the planned writes. The node itself holds the control. If they are equal, and
   nothing in between changed memory, touched an I/O register or used the main bus, the loop
   repeats exactly until an event. Whole iterations are then skipped, up to the I2S line's next
-  rise, a timer's next request or the end of the run. Every time in the core is moved on by the
-  skipped iterations.
+  rise, a timer's next request or the end of the part of the run. Every time in the core is moved
+  on by the skipped iterations.
 
   The trace is held back from its sink, so that an iteration's events can be repeated for the
   skipped iterations. A flags event is a change from the cycle before, so it is counted from the
@@ -454,7 +459,8 @@ reads and writes them.
 - A GPU program runs next to the DSP, which the program may start. The run ends where the GPU's
   run ends.
 - A 68000 program (`--m68k`) runs from reset, with the simulation's OS ROM. The DSP is not
-  started. The run ends at its limit.
+  started. The run ends at its limit. For a COFF program, the OS ROM also sets the video as the
+  BIOS leaves it ([0028](decisions/0028-a-coff-program-runs-as-a-loader-starts-it.md)).
 
 The machine runs up to a cycle, and can go on from there later. A run in parts gives the same
 result as a run in one piece.
@@ -485,6 +491,10 @@ games do in PGMEmu. The BIOS is chosen in this order:
 4. one chosen with File > Choose BIOS. It is remembered.
 
 Without a BIOS the start fails, and the status window says so.
+
+The status window shows the BIOS that the program on screen boots with. A client's `emu.load` can
+give another one with `--bios`. That one is used for that load only. When the remembered BIOS is a
+different one, the status window shows it on a second line, as the BIOS for cartridges.
 
 **The keyboard** is the pad in port 1:
 

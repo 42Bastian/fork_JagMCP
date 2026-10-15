@@ -52,6 +52,29 @@ struct DebugStop
   std::optional<std::array<std::uint32_t, 64>> registers;
 };
 
+// A program's read of an address no register answers: what it reads is what the bus held, which
+// may differ between consoles (hardware/tom.md). One per processor, instruction and address.
+struct UndrivenRead
+{
+  std::string cpu;           // m68k, gpu or dsp
+  std::uint32_t pc = 0;      // the instruction's
+  std::uint32_t address = 0; // the word's
+  std::uint16_t value = 0;   // what it read, the first time
+  std::uint64_t cycle = 0;   // the first time
+  std::uint64_t count = 0;   // how many times
+};
+
+// A bus cycle of the 68000 still waiting for the bus where a run ended: another master keeps it.
+// The cycle goes on with the next run. One that never gets the bus is a locked console.
+struct BusWait
+{
+  std::uint32_t pc = 0;      // the 68000's instruction
+  std::uint32_t address = 0; // its bus cycle's
+  bool read = true;
+  std::uint64_t since = 0; // the cycle's start (AS falling)
+  std::string holder;      // the master the bus is granted to
+};
+
 // What a debugger has set on one processor, and what it executed lately.
 class Probe
 {

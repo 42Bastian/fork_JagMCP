@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Fiber.hpp"
 #include "Moira.h"
 #include "jag/Debug.hpp"
 #include "jag/MainBus.hpp"
@@ -7,6 +8,7 @@
 #include <algorithm>
 #include <cstdint>
 #include <functional>
+#include <optional>
 #include <vector>
 
 namespace jag
@@ -61,8 +63,22 @@ public:
     mLimit = cycle;
   }
 
-  // Runs instructions until it reaches `cycle`: a STOP waits there for an interrupt.
+  // Runs instructions until it reaches `cycle`: a STOP waits there for an interrupt. A bus cycle
+  // still waiting for the bus there is left waiting, and goes on with the next run (waiting()).
+  // The instructions run on a thread of their own, by turns with the caller (Fiber).
   void runUntil( std::uint64_t cycle );
+
+  // The bus cycle left waiting for the bus where the last run ended, if any.
+  std::optional<BusWait> const& waiting() const
+  {
+    return mWaiting;
+  }
+
+  // The cycle the run has reached: the bus's while a bus cycle is left waiting, else now().
+  std::uint64_t reached() const
+  {
+    return mWaiting ? std::max( now(), mBus->now() ) : now();
+  }
 
   // The cycle of the bus its clock has reached.
   std::uint64_t now() const
@@ -141,6 +157,8 @@ private:
   // `reach`.
   void stepBusThrough( std::uint64_t cycle, std::uint64_t reach = 0 ) const;
   std::uint64_t mLimit = UINT64_MAX;
+  std::uint64_t mTarget = 0; // where runUntil runs to
+  std::optional<BusWait> mWaiting;
   M68000* mSelf; // what the const callbacks of Moira's interface change
   int mResetReads = 0;
   bool mStopFetch = false; // STOP's fetch of the word after it, which the 68000 does not make
@@ -172,6 +190,11 @@ private:
   };
 
   std::vector<Deferred> mDeferred;
+
+  // runUntil's instructions, on the fiber's thread
+  void runToTarget();
+  // last, so that its thread ends before the rest goes
+  Fiber mFiber{ [this] { runToTarget(); } };
 };
 
 } // namespace jag

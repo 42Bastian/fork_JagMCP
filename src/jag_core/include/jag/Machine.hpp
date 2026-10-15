@@ -77,6 +77,19 @@ public:
   // there. A run without them checks nothing.
   Debugger& debugger();
 
+  // The reads of addresses no register answers, by processor, instruction and address, in the order
+  // first made; the first UNDRIVEN_READS of them. Kept whether a debugger is installed or not.
+  std::vector<UndrivenRead> const& undrivenReads() const
+  {
+    return mUndriven;
+  }
+
+  static constexpr std::size_t UNDRIVEN_READS = 64;
+
+  // The 68000's bus cycle left waiting for the bus where the last run ended (another master keeps
+  // it), if any. It goes on with the next run.
+  std::optional<BusWait> busWait() const;
+
   // The buttons held on the pad in Jerry's port 0 or 1 (MainBus::setPad), with --m68k.
   void setPad( std::size_t port, std::uint32_t buttons );
   std::uint32_t pad( std::size_t port ) const;
@@ -116,11 +129,15 @@ private:
   std::unique_ptr<M68000> mM68k;  // or the 68000, beside the GPU and the DSP it may start
   std::unique_ptr<Risc> mGpu;
   std::unique_ptr<Debugger> mDebugger; // null until a debugger asks for it
+  std::vector<UndrivenRead> mUndriven;
   std::uint64_t mLimit = UINT64_MAX;
   bool mPoweredOn = false;
   bool mRuns = true;
   bool mDspRuns = true;
   bool mGpuRuns = true;
+
+  // Takes the bus's undriven reads into mUndriven.
+  void noteUndrivenReads();
 
   // The RISCs the 68000 has started, by turns, up to `cycle` or until each waits for the 68000.
   void runRiscs( std::uint64_t cycle );

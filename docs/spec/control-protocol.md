@@ -30,11 +30,19 @@ printf '%s\n' '{"id":1,"method":"emu.run_frames","params":{"count":250}}' \
 These answers come from a cartridge booted with the BIOS. Other programs give other numbers.
 
 `scripts/jagmcp.py` sends one request per call. It prints the `result` as indented JSON. On an
-error, it prints the error on stderr and exits with status 1.
+error, it prints the error on stderr and exits with status 1. It prints `cpu.disassemble` as a
+listing, one instruction per line: the address and the bytes in hex, then the text. `--json`,
+before the method, prints the JSON instead.
 
 ```sh
 scripts/jagmcp.py --port 7710 emu.run_frames count=250
 scripts/jagmcp.py --port 7710 memory.read address=0x4000 size=16
+scripts/jagmcp.py --port 7710 cpu.disassemble cpu=m68k address=0xe00008 count=2
+```
+
+```
+0xe00008  41f9 00f0 0000  lea     $f00000.l, A0
+0xe0000e  30bc 1861       move.w  #$1861, (A0)
 ```
 
 For an AI agent, use MCP. On stdio, the client starts the server itself. The window serves MCP on
@@ -232,6 +240,7 @@ video are one second.
 | [`debug.breakpoint.add`, `.remove`, `.list`](#debugbreakpointadd-debugbreakpointremove) | Stop a run before an instruction. |
 | [`debug.watchpoint.add`, `.remove`, `.list`](#debugwatchpointadd-debugwatchpointremove) | Stop a run at an access to memory. |
 | [`debug.trace`](#debugtrace) | The last instructions executed. |
+| [`debug.diagnostics`](#debugdiagnostics) | What the program did that works only by chance. |
 | [`input.set`, `input.clear`, `input.get_state`](#inputset-inputclear-inputget_state) | Hold and release the pads' buttons. |
 | [`input.press`](#inputpress) | Press buttons for some frames, and run. |
 | [`memory.read`, `memory.write`](#memoryread) | Read and write memory without a bus cycle. |
@@ -246,18 +255,28 @@ No parameters.
 
 ```json
 {"id":1,"ok":true,"result":{"version":"devel","program":"reference/op_bitmap.o","cpu":"gpu",
-  "cycles":20000,"seconds":0.00075,"frame":7,"running":true,"paused":false}}
+  "cycles":20000,"seconds":0.00075,"frame":7,"running":true,"paused":false,"diagnostics":0}}
+```
+
+```json
+{"id":4,"ok":true,"result":{"version":"devel","program":"reference/m68k_op_hog.o","cpu":"m68k",
+  "cycles":120199,"seconds":0.0045,"frame":58,"running":true,"paused":false,"diagnostics":0,
+  "bus_wait":{"cpu":"m68k","pc":16572,"address":16574,"access":"read","since":2487,
+  "holder":"object processor"}}}
 ```
 
 | Field | Meaning |
 |---|---|
 | `version` | The emulator's version. For a release, it is the tag without its `v` (`1.2.0`). For a build after a tag, it is `git describe`'s answer (`1.2.0-3-gabc1234`), with `-dirty` if there are uncommitted changes. Without a tag, it is `devel`. |
-| `program` | The program loaded: its BS94 or raw binary, or the cartridge or OS ROM that it boots from. It is `null` before a program is loaded. Then the other fields are absent. |
+| `program` | The program loaded: its BS94, COFF or raw binary, or the cartridge or OS ROM that it boots from. It is `null` before a program is loaded. Then the other fields are absent. |
+| `bios` | The BIOS file the program boots with, as `--bios` gave it. Only when there is one. |
 | `cpu` | The processor that the program runs on: `m68k`, `gpu` or `dsp`. |
 | `cycles`, `seconds` | How far the program's processor has run since the load. |
 | `frame` | The number of video frames completed since the load. |
 | `running` | True while the program's processor has not stopped. A RISC program ends when its processor clears GO. A 68000 program does not end. |
 | `paused` | True when `emu.pause`, or a debugger stop, has paused the window's own run. |
+| `diagnostics` | The number of entries that `debug.diagnostics` gives. |
+| `bus_wait` | Only when a 68000 bus cycle still waits for the bus where the last run ended. The run ended on time, and the cycle goes on with the next run. `pc`: the instruction. `address`, `access`: the bus cycle's address, `read` or `write`. `since`: the cycle in which it started. `holder`: the master the bus is granted to, `68000`, `blitter`, `GPU`, `DSP`, `object processor` or `DRAM refresh`. A wait that never ends is a locked console, for example an object list that never ends ([0027](../decisions/0027-a-run-ends-where-asked.md)). |
 | `stop` | Where the last run was stopped by a breakpoint or a watchpoint, in the same form as `emu.run_cycles` gives it. This covers runs on request and the window's own run. It is absent once a run continues. |
 
 ### `emu.load`
@@ -274,7 +293,7 @@ Loads the program in place of the current one, from reset, and powers the machin
 
 ```json
 {"id":2,"method":"emu.load","params":{"args":["--m68k","--bios","bios.rom","--cart","game.j64"]}}
-{"id":2,"ok":true,"result":{"program":"game.j64","cpu":"m68k"}}
+{"id":2,"ok":true,"result":{"program":"game.j64","bios":"bios.rom","cpu":"m68k"}}
 ```
 
 If the load fails, the current program keeps running.
@@ -423,6 +442,41 @@ Gives the last instructions that the processor executed since the load, oldest f
 
 Errors: `not_loaded`, `no_cpu`, `bad_request`.
 
+### `debug.diagnostics`
+
+No parameters.
+
+```json
+{"id":1,"ok":true,"result":[{"kind":"undriven_read","cpu":"m68k","pc":278,
+  "text":"move.w  ($2,A0), D0","address":15728866,"register":"INT2","value":6245,
+  "cycle":14315818,"count":1}]}
+```
+
+Gives what the program did since the load that works only by chance, in the order it was first
+done. There is one kind:
+
+- `undriven_read`: a read of an address in Tom's space ($F00000 to $F01FFF) that no register
+  answers, such as a write-only register. The value is what the bus held: MEMCON1 on the console
+  ([0026](../decisions/0026-undriven-tom-reads-give-memcon1.md)). Other consoles or emulators may
+  give another value.
+
+Each entry is one processor, one instruction and one address:
+
+| Field | Meaning |
+|---|---|
+| `kind` | `undriven_read`. |
+| `cpu` | `m68k`, `gpu` or `dsp`. |
+| `pc`, `text` | The instruction that read, disassembled from memory as it is now. |
+| `address` | The word read. |
+| `register` | The register's name in the Software Reference, or `null`. |
+| `value` | The value read, the first time. |
+| `cycle` | The cycle of the first read. |
+| `count` | How many times the instruction read there. |
+
+At most 64 entries are kept.
+
+Errors: `not_loaded`.
+
 ### `input.set`, `input.clear`, `input.get_state`
 
 | Param | Meaning |
@@ -547,7 +601,9 @@ Errors: `not_loaded`, `no_cpu`, `bad_request`.
 | `count` | The number of instructions, at most 1000. |
 | `cpu` | `m68k`, `gpu` or `dsp`. Default: the program's own processor. The GPU and the DSP differ in a few opcodes. |
 
-Answers an array of `{"address", "length", "text"}`, one per instruction.
+Answers an array of `{"address", "length", "opcode_hex", "text"}`, one per instruction.
+`opcode_hex` is the instruction's `length` bytes, in the same form as `data_hex` of
+`memory.read`.
 
 - Memory is read as `memory.read` reads it. A byte where there is no memory reads as 0.
 - A RISC's MOVEI is 6 bytes long.

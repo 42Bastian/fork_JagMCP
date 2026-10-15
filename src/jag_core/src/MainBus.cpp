@@ -962,15 +962,39 @@ void MainBus::tomWrite( std::uint64_t cycle, std::uint32_t address, std::uint16_
   }
 }
 
-std::uint16_t MainBus::tomRead( std::uint64_t cycle, std::uint32_t address )
+char const* MainBus::busHolder() const
+{
+  static constexpr std::array<char const*, 10> NAMES{ "68000", "blitter",          "GPU",     "68000",
+                                                      "DSP",   "object processor", "blitter", "GPU",
+                                                      "DSP",   "DRAM refresh" };
+  for ( std::size_t i = 0; i < NAMES.size(); ++i )
+    if ( bit( mCtl->arbAck, static_cast<std::uint32_t>( i ) ) )
+      return NAMES[i];
+  return "none";
+}
+
+std::uint16_t MainBus::tomRead( std::uint64_t cycle, std::uint32_t address, char const* cpu, std::uint32_t pc )
 {
   mIhandlerUntil = 0;
   MemCon const& c = mCon;
-  switch ( address & 0xfffffeu )
+  // dr_a0: CPU32 and NOCPU clear
+  auto const memcon1 = [&c]
   {
-  case 0xf00000: // dr_a0: CPU32 and NOCPU clear
     return static_cast<std::uint16_t>( c.iospd << 11 | ( c.fastrom ? 0x80u : 0u ) | c.dspd << 5 | c.romspd << 3 |
                                        c.romwid << 1 | ( c.romhi ? 1u : 0u ) );
+  };
+  if ( !Tom::readDecodes( address ) )
+  {
+    // no register drives Tom's read bus: it holds MEMCON1, which drives it between reads
+    std::uint16_t const v = memcon1();
+    if ( mUndrivenRead )
+      mUndrivenRead( cpu, pc, address & 0xfffffeu, v, cycle );
+    return v;
+  }
+  switch ( address & 0xfffffeu )
+  {
+  case 0xf00000:
+    return memcon1();
   case 0xf00002: // dr_a1
     return static_cast<std::uint16_t>( ( c.hilo ? 0x2000u : 0u ) | ( c.bigend ? 0x1000u : 0u ) | c.refrate << 8 |
                                        c.dwid1 << 6 | c.cols1 << 4 | c.dwid0 << 2 | c.cols0 );
@@ -2322,7 +2346,7 @@ void MainBus::data( std::uint64_t cycle, Gathered& g, Signals const& s, Control 
   {
     std::uint32_t const addr = gg.loadAddress;
     std::uint32_t const half = gg.loadSize == 2 ? longHalf( addr, 2u - gg.loadHalves ) : addr & ~1u;
-    std::uint16_t const v = tomRead( cycle, half );
+    std::uint16_t const v = tomRead( cycle, half, "gpu", gg.loadPc );
     // the data bus's lanes of the word take it (dbus.v dr, dinlatch at q7b)
     std::uint32_t const shift = 48 - 8 * ( half & 6u );
     mDataBus = ( mDataBus & ~( std::uint64_t{ 0xffff } << shift ) ) | static_cast<std::uint64_t>( v ) << shift;
@@ -2412,6 +2436,7 @@ void MainBus::data( std::uint64_t cycle, Gathered& g, Signals const& s, Control 
       // Tom's registers, 16 bits wide: latched a half at a time in its I/O cycles, below
       gg.loadHalves = Tom::decodes( addr ) ? ( msized == 2 ? 2u : 1u ) : 0u;
       gg.loadAddress = addr;
+      gg.loadPc = gg.datPc;
       gg.loadSize = msized;
       if ( gg.loadHalves != 0 )
         gg.pendData = 0;
@@ -2544,7 +2569,7 @@ void MainBus::data( std::uint64_t cycle, Gathered& g, Signals const& s, Control 
           mc.readData = mGpuPort.latrdata;
       }
       else if ( m.q7b )
-        mc.readData = tomRead( cycle, addr );
+        mc.readData = tomRead( cycle, addr, "m68k", 0 );
       else if ( m.q8b && waitdone )
       {
         // the timers, the joystick ports, the DSP's space through Jerry's slave (as the GPU's: the
@@ -2871,7 +2896,7 @@ void MainBus::data( std::uint64_t cycle, Gathered& g, Signals const& s, Control 
       tomWrite( cycle, ain & ~1u, static_cast<std::uint16_t>( storeHalf ) );
     if ( m.q7b && m.readsi && dbg && Tom::decodes( ain ) )
     {
-      std::uint32_t const v = tomRead( cycle, ain & ~1u );
+      std::uint32_t const v = tomRead( cycle, ain & ~1u, "dsp", j.adPc );
       if ( !bit( jc.ws, 2 ) )
         dg.pendData = jc.ws == 1 ? ( ( ain & 1u ) ? v & 0xffu : v >> 8 ) : v;
       else if ( jc.q3 )
@@ -2914,7 +2939,10 @@ void MainBus::data( std::uint64_t cycle, Gathered& g, Signals const& s, Control 
 
   // --- the clock edge ------------------------------------------------------------------------------
   if ( s.jack )
+  {
     j.ad = dg.datAddr;
+    j.adPc = dg.datPc;
+  }
   // the gateways: cpu_addr for a fetch (cald), dat_addr for a load or store (dald); the masks
   // (maskld); the data
   for ( std::size_t i : { DSP, GPU } )
@@ -2929,7 +2957,10 @@ void MainBus::data( std::uint64_t cycle, Gathered& g, Signals const& s, Control 
       if ( request.program )
         gw.cpuAddr = request.address & 0xffffff;
       else
+      {
         gw.datAddr = request.address & 0xffffff;
+        gw.datPc = request.pc;
+      }
     }
     if ( c.gw[i].active && f.gpuAck )
     {

@@ -1,6 +1,7 @@
 #include "Methods.hpp"
 
 #include "jag/Machine.hpp"
+#include "jag/Tom.hpp"
 
 #include <algorithm>
 #include <string>
@@ -199,6 +200,34 @@ void addDebugMethods( Dispatcher& dispatcher, Session& session )
                                              { "cycle", e.cycle },
                                              { "text", instructionAt( *p->machine, *cpu, e.pc ).first } } );
                     return lines;
+                  } );
+
+  dispatcher.add( "debug.diagnostics",
+                  info( "What the program did that works only by chance: reads of addresses no register "
+                        "answers (undriven_read), whose value is what the bus held. One entry per processor, "
+                        "instruction and address, in the order first made, with the value first read and "
+                        "how many times." ),
+                  [&session]( Json const& ) -> Outcome
+                  {
+                    auto const machine = loadedMachine( session );
+                    if ( !machine )
+                      return std::unexpected( machine.error() );
+                    Json list = Json::array();
+                    for ( UndrivenRead const& r : ( *machine )->undrivenReads() )
+                    {
+                      auto const cpu = cpuParam( Json{ { "cpu", r.cpu } }, session );
+                      char const* name = Tom::registerName( r.address );
+                      list.push_back( Json{ { "kind", "undriven_read" },
+                                            { "cpu", r.cpu },
+                                            { "pc", r.pc },
+                                            { "text", instructionAt( **machine, *cpu, r.pc ).first },
+                                            { "address", r.address },
+                                            { "register", name ? Json( name ) : Json( nullptr ) },
+                                            { "value", r.value },
+                                            { "cycle", r.cycle },
+                                            { "count", r.count } } );
+                    }
+                    return list;
                   } );
 }
 

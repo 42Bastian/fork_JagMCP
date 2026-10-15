@@ -325,9 +325,9 @@ bool Risc::skipLoop( Node& node )
       horizon = std::min( horizon, mTimers.nextRequest( mCycle ) );
       if ( mGpu && ( mIntEna & 8u ) ) // up to the first cycle of the object processor's interrupt
         horizon = std::min( horizon, mObjectQuiet );
-      // with a 68000 program not past the part: the 68000 may reach into the local space after it
-      if ( mBus.emulated68k() )
-        horizon = std::min( horizon, mPause );
+      // not past the part: the 68000 may reach into the local space after it, and a run without a
+      // limit (the control API's, the window's) would skip for ever where nothing else ends the wait
+      horizon = std::min( horizon, mPause );
       std::uint64_t const k = horizon > mCycle ? ( horizon - mCycle ) / period : 0;
       if ( k >= 2 )
       {

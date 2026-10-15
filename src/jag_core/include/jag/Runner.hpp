@@ -1,5 +1,7 @@
 #pragma once
 
+#include "jag/Debug.hpp"
+
 #include <array>
 #include <cstdint>
 #include <optional>
@@ -16,7 +18,7 @@ namespace jag
 // the same printed state, so that one is checked against the other line for line.
 struct RunOptions
 {
-  std::string input;                 // BS94 file, or empty with `raw`
+  std::string input;                 // BS94 or COFF file (ProgramFile), or empty with `raw`
   std::string raw;                   // raw DSP binary loaded at D_RAM
   std::uint64_t cycles = 10'000'000; // bus cycles; a bus cycle is two DSP cycles
   std::optional<std::uint32_t> pc;
@@ -58,8 +60,9 @@ struct RunResult
   // the other processors' the program started: "gpu" or "dsp", their registers, in that order
   std::vector<std::pair<std::string, std::array<std::uint32_t, 64>>> others;
   std::vector<std::pair<std::string, std::uint32_t>> memHashes;
-  std::vector<std::string> frames; // the video output's frames, as the simulation prints them
-  std::vector<TraceEvent> trace;   // sorted by cycle
+  std::vector<std::string> frames;    // the video output's frames, as the simulation prints them
+  std::vector<TraceEvent> trace;      // sorted by cycle
+  std::vector<UndrivenRead> undriven; // Machine::undrivenReads
 };
 
 // The options parseRunOptions takes, one to a line with what each does, for a front end's --help.
@@ -68,7 +71,7 @@ std::string_view runOptionsHelp();
 // Parses the arguments after the program name; throws std::runtime_error on a bad one.
 RunOptions parseRunOptions( std::span<std::string const> args );
 
-// A tests/programs/*.run: the program its PROGRAM line names (BS94, loaded where it says, or a raw
+// A tests/programs/*.run: the program its PROGRAM line names (BS94 or COFF, loaded where it says, or a raw
 // binary loaded at the local RAM) with the arguments of its RUN lines, paths relative to the file's
 // directory. Throws std::runtime_error when it cannot be read or names no program.
 RunOptions readRunFile( std::string const& path );

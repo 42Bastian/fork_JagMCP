@@ -34,7 +34,7 @@ std::string_view version()
 void addEmuMethods( Dispatcher& dispatcher, Session& session )
 {
   dispatcher.add( "emu.status",
-                  info( "The emulator's version, the program loaded, the cycle and the frame it has reached." ),
+                  info( "The emulator's version, the program loaded and its BIOS, the cycle and the frame reached." ),
                   [&session]( Json const& ) -> Outcome
                   {
                     Json result{ { "version", version() } };
@@ -46,12 +46,22 @@ void addEmuMethods( Dispatcher& dispatcher, Session& session )
                       return result;
                     }
                     result["program"] = session.program();
+                    if ( !options->bios.empty() )
+                      result["bios"] = options->bios;
                     result["cpu"] = programCpu( *options );
                     result["cycles"] = machine->now();
                     result["seconds"] = static_cast<double>( machine->now() ) / CYCLES_PER_SECOND;
                     result["frame"] = session.frames();
                     result["running"] = session.running();
                     result["paused"] = session.paused();
+                    result["diagnostics"] = machine->undrivenReads().size();
+                    if ( auto const wait = machine->busWait() )
+                      result["bus_wait"] = Json{ { "cpu", "m68k" },
+                                                 { "pc", wait->pc },
+                                                 { "address", wait->address },
+                                                 { "access", wait->read ? "read" : "write" },
+                                                 { "since", wait->since },
+                                                 { "holder", wait->holder } };
                     if ( session.lastStop() )
                       result["stop"] = stopJson( *session.lastStop() );
                     return result;
@@ -87,7 +97,11 @@ void addEmuMethods( Dispatcher& dispatcher, Session& session )
                     }
                     if ( auto const why = session.load( options ) )
                       return std::unexpected( Error{ .code = "load_failed", .message = *why } );
-                    return Json{ { "program", session.program() }, { "cpu", programCpu( options ) } };
+                    Json result{ { "program", session.program() } };
+                    if ( !options.bios.empty() )
+                      result["bios"] = options.bios;
+                    result["cpu"] = programCpu( options );
+                    return result;
                   } );
 
   dispatcher.add( "emu.reset",

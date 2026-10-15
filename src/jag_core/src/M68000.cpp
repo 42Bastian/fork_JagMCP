@@ -29,6 +29,13 @@ void M68000::powerOn()
 
 void M68000::runUntil( std::uint64_t cycle )
 {
+  mTarget = cycle;
+  mFiber.run();
+}
+
+void M68000::runToTarget()
+{
+  std::uint64_t const& cycle = mTarget; // a bus cycle left waiting goes on with the next run's
   while ( now() < cycle )
   {
     if ( mDebugger && breakHere() )
@@ -283,6 +290,13 @@ M68000::Done M68000::perform( M68kAccess a, std::int64_t s4 ) const
     if ( mBus->now() == before )
       stepBusThrough( before, mBus->m68kAtMemory() ? std::max( a.start, before + NEXT_START ) : a.start );
     end = mBus->m68kEnd();
+    // the run ends while the cycle waits for the bus: its caller goes on, the cycle with the next run
+    if ( !end.ended && mBus->now() >= mTarget && mBus->now() < mLimit && mFiber.inside() )
+    {
+      mSelf->mWaiting = BusWait{ reg.pc0, a.address, a.read, a.start, mBus->busHolder() };
+      mSelf->mFiber.suspend();
+      mSelf->mWaiting.reset();
+    }
   }
   if ( !end.ended ) // the run ends first; AS has fallen if the bus got there
   {

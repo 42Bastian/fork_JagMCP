@@ -81,6 +81,9 @@ public:
   // none.
   [[nodiscard]] std::string stop();
 
+  // The program's reads no register answers (Machine::undrivenReads), a line each for a person.
+  [[nodiscard]] std::vector<std::string> undrivenReads();
+
   // Copies the last complete frame into `out` if it is newer than `picturesSeen`, and updates that;
   // false if there is none newer.
   bool takePicture( std::int64_t& picturesSeen, Picture& out );
@@ -110,6 +113,9 @@ public:
 
   // The file of the program loaded, as it was given; empty before one is.
   [[nodiscard]] std::string program();
+
+  // The BIOS the program loaded boots with, as it was given; empty for none.
+  [[nodiscard]] std::string bios();
 
 private:
   void loop();
@@ -148,8 +154,10 @@ private:
   std::mutex mPictureMutex;
   Picture mPicture;
   std::int64_t mPictures{ -1 };
-  std::string mProgram;  // under mPictureMutex
-  std::string mStopText; // under mPictureMutex
+  std::string mProgram;                   // under mPictureMutex
+  std::string mBios;                      // under mPictureMutex
+  std::string mStopText;                  // under mPictureMutex
+  std::vector<std::string> mUndrivenText; // under mPictureMutex
 
   std::thread mThread;
 };

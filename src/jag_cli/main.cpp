@@ -18,6 +18,7 @@
 // given, is loaded as emu.load loads one: the program and its options, or a .run file.
 
 #include "jag/Runner.hpp"
+#include "jag/Tom.hpp"
 #include "jag/control/Dispatcher.hpp"
 #include "jag/control/Session.hpp"
 #include "jag/server/JsonLinesServer.hpp"
@@ -364,8 +365,8 @@ void printHelp()
                "  jagmcp-cli --help                          Show this help.\n"
                "  jagmcp-cli --version                       Show the version.\n"
                "\n"
-               "PROGRAM is a BS94 object file (.o) or a .run file. --check, --check-all and --batch\n"
-               "with --expect exit with 0 when everything matches.\n"
+               "PROGRAM is a BS94 object file (.o), a COFF file (.cof) or a .run file. --check,\n"
+               "--check-all and --batch with --expect exit with 0 when everything matches.\n"
                "\n"
                "Options:\n"
                "%s"
@@ -410,6 +411,23 @@ int main( int argc, char** argv )
     jag::RunOptions const options = jag::parseRunOptions( args );
     jag::RunResult const result = jag::runProgram( options, false );
     std::fputs( jag::formatState( result ).c_str(), stdout );
+    // what worked by chance, apart from the state: on stderr
+    for ( jag::UndrivenRead const& r : result.undriven )
+    {
+      char const* name = jag::Tom::registerName( r.address );
+      std::fprintf(
+          stderr,
+          "undriven read: %s at $%06x read $%06x%s%s%s, which no register answers: $%04x, %llu times from cycle %llu\n",
+          r.cpu.c_str(),
+          r.pc,
+          r.address,
+          name ? " (" : "",
+          name ? name : "",
+          name ? ")" : "",
+          r.value,
+          static_cast<unsigned long long>( r.count ),
+          static_cast<unsigned long long>( r.cycle ) );
+    }
     return 0;
   }
   catch ( std::exception const& e )

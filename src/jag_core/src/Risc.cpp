@@ -1257,6 +1257,7 @@ void Risc::access()
                     : mGpu && ( a.op == LOADP || a.op == STOREP ) ? 3u // a phrase, G_HIDATA the other half
                                                                   : 2u;
     mRequest.data = a.data;
+    mRequest.pc = a.pc;
     return;
   }
   if ( store )

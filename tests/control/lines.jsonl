@@ -69,6 +69,44 @@
 {"id":77,"method":"input.set","params":{"buttons":["select"]}}
 {"id":78,"method":"input.set","params":{"port":3,"buttons":[]}}
 {"id":79,"method":"debug.watchpoint.add","params":{"address":0,"access":"execute"}}
+# Reads no register answers, by each processor: what Tom's bus held (MEMCON1), and the diagnostics
+# that name them. The programs are patched to read INT2, write only.
+{"id":90,"method":"emu.load","params":{"args":["reference/m68k_irq.o","--m68k"]}}
+{"id":91,"method":"emu.run_cycles","params":{"count":600}}
+{"id":92,"method":"memory.write","params":{"address":"0x4042","data_hex":"00e2"}}
+{"id":93,"method":"cpu.disassemble","params":{"address":"0x403e","count":1}}
+{"id":94,"method":"emu.run_cycles","params":{"count":14000}}
+{"id":95,"method":"memory.read","params":{"address":"0x4064","size":2}}
+{"id":96,"method":"debug.diagnostics"}
+{"id":97,"method":"emu.status"}
+{"id":98,"method":"emu.load","params":{"args":["reference/op_bitmap.o","--gpu"]}}
+{"id":99,"method":"memory.write","params":{"address":"0xf03000","data_hex":"980100e200f0a022d7c0e400"}}
+{"id":100,"method":"emu.run_cycles","params":{"count":200}}
+{"id":101,"method":"cpu.get_state"}
+{"id":102,"method":"debug.diagnostics"}
+{"id":103,"method":"emu.load","params":{"args":["reference/abs.o"]}}
+{"id":104,"method":"memory.write","params":{"address":"0xf1b000","data_hex":"980100e200f0a022d7c0e400"}}
+{"id":105,"method":"emu.run_cycles","params":{"count":300}}
+{"id":106,"method":"debug.diagnostics"}
+# A GPU program waiting in a loop that nothing ends (jr to itself): the run ends where it was asked to
+{"id":110,"method":"emu.load","params":{"args":["reference/op_bitmap.o","--gpu"]}}
+{"id":111,"method":"memory.write","params":{"address":"0xf03000","data_hex":"e400d7e0e400"}}
+{"id":112,"method":"cpu.disassemble","params":{"address":"0xf03000","count":3}}
+{"id":113,"method":"emu.run_cycles","params":{"count":200}}
+{"id":114,"method":"emu.run_cycles","params":{"count":100000}}
+# A locked console: an object list that never ends keeps the bus from the 68000. Runs still end
+# where asked, the video goes on, and emu.status says what the 68000 waits for
+{"id":120,"method":"emu.load","params":{"args":["reference/m68k_op_hog.o","--m68k"]}}
+{"id":121,"method":"emu.run_cycles","params":{"count":100000}}
+{"id":122,"method":"emu.run_frames","params":{"count":5}}
+{"id":123,"method":"emu.status"}
+{"id":124,"method":"memory.read","params":{"address":"0x10018","size":4}}
+{"id":130,"method":"emu.load","params":{"args":["control/m68k_coff.cof"]}}
+{"id":131,"method":"emu.run_frames","params":{"count":2}}
+{"id":132,"method":"cpu.disassemble","params":{"address":"0x4000","count":4}}
+{"id":133,"method":"memory.read","params":{"address":"0x5000","size":4}}
+{"id":134,"method":"cpu.get_state"}
+{"id":135,"method":"emu.load","params":{"args":["control/m68k_coff.cof","--bios","bios.rom"]}}
 # Malformed requests and errors, on a DSP program
 {"id":80,"method":"emu.load","params":{"args":["reference/abs.o"]}}
 {"id":29,"method":"memory.read","params":{"address":"0xe00000","size":2}}
