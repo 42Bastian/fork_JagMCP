@@ -239,6 +239,7 @@ video are one second.
 | [`emu.run_frames`](#emurun_frames) | Run until a number of frames are complete. |
 | [`debug.breakpoint.add`, `.remove`, `.list`](#debugbreakpointadd-debugbreakpointremove) | Stop a run before an instruction. |
 | [`debug.watchpoint.add`, `.remove`, `.list`](#debugwatchpointadd-debugwatchpointremove) | Stop a run at an access to memory. |
+| [`debug.singlestep`](#debugsinglestep) | Execute one instruction of a processor, or run to the next frame. |
 | [`debug.trace`](#debugtrace) | The last instructions executed. |
 | [`debug.diagnostics`](#debugdiagnostics) | What the program did that works only by chance. |
 | [`input.set`, `input.clear`, `input.get_state`](#inputset-inputclear-inputget_state) | Hold and release the pads' buttons. |
@@ -277,7 +278,7 @@ No parameters.
 | `paused` | True when `emu.pause`, or a debugger stop, has paused the window's own run. |
 | `diagnostics` | The number of entries that `debug.diagnostics` gives. |
 | `bus_wait` | Only when a 68000 bus cycle still waits for the bus where the last run ended. The run ended on time, and the cycle goes on with the next run. `pc`: the instruction. `address`, `access`: the bus cycle's address, `read` or `write`. `since`: the cycle in which it started. `holder`: the master the bus is granted to, `68000`, `blitter`, `GPU`, `DSP`, `object processor` or `DRAM refresh`. A wait that never ends is a locked console, for example an object list that never ends ([0027](../decisions/0027-a-run-ends-where-asked.md)). |
-| `stop` | Where the last run was stopped by a breakpoint or a watchpoint, in the same form as `emu.run_cycles` gives it. This covers runs on request and the window's own run. It is absent once a run continues. |
+| `stop` | Where the last run was stopped by a breakpoint, a watchpoint or a single step, in the same form as `emu.run_cycles` gives it. This covers runs on request and the window's own run. It is absent once a run continues. |
 
 ### `emu.load`
 
@@ -313,7 +314,7 @@ Errors: `not_loaded`, `load_failed`.
 
 - Runs on request (`emu.run_cycles`, `emu.run_frames`, `input.press`) work in both states.
 - `jagmcp-cli` has no own run. It runs only on request.
-- A breakpoint or watchpoint that is hit also pauses the window's run.
+- A breakpoint or watchpoint that is hit also pauses the window's run. So does `debug.singlestep`.
 
 ### `emu.run_cycles`
 
@@ -330,11 +331,11 @@ between instructions, so it can end a few cycles later than asked.
 
 | Field | Meaning |
 |---|---|
-| `reason` | Why the run ended. `completed`: all cycles ran. `halted`: the program's processor stopped first, or had already stopped. `breakpoint` or `watchpoint`: a debugger probe stopped it (see `debug.` below). `timeout`: only from `emu.run_frames`. |
+| `reason` | Why the run ended. `completed`: all cycles ran. `halted`: the program's processor stopped first, or had already stopped. `breakpoint` or `watchpoint`: a debugger probe stopped it (see `debug.` below). `timeout`: only from `emu.run_frames` and `debug.singlestep`. `step` and `frame`: only from `debug.singlestep`. |
 | `cycles_executed` | The DSP cycles that the run took, counted by the program's processor. |
 | `frames_executed` | The frames that the run completed. |
 | `running` | The same as in `emu.status`. |
-| `stop` | Only when `reason` is `breakpoint` or `watchpoint`. Where the run stopped (below). |
+| `stop` | Only when `reason` is `breakpoint`, `watchpoint` or `step`. Where the run stopped (below). |
 
 ```json
 {"id":4,"ok":true,"result":{"reason":"watchpoint","cycles_executed":120,"frames_executed":0,"running":true,
@@ -343,8 +344,8 @@ between instructions, so it can end a few cycles later than asked.
 
 | `stop` field | Meaning |
 |---|---|
-| `cpu` | The processor that hit the probe: `m68k`, `gpu` or `dsp`. |
-| `pc` | For a breakpoint, the instruction that is about to execute. For a watchpoint, the instruction whose access hit it. |
+| `cpu` | The processor that hit the probe, or that was stepped: `m68k`, `gpu` or `dsp`. |
+| `pc` | For a breakpoint or a step, the instruction that is about to execute. For a watchpoint, the instruction whose access hit it. |
 | `cycle` | The processor's cycle at the stop. |
 | `exact` | True if the processor stopped exactly there. It is false for a RISC that the 68000 was waiting on in the middle of an instruction. That RISC ran on to the end of the instruction ([0019](../decisions/0019-breakpoints-step-the-risc.md)). |
 | `registers` | Only when `exact` is false: the RISC's 64 registers as they were at the stop. |
@@ -426,6 +427,49 @@ Errors: `not_loaded`, `no_cpu`, `bad_request`.
 Lists the watchpoints of every processor in the run, in the same form as `debug.breakpoint.list`.
 
 Errors: `not_loaded`.
+
+### `debug.singlestep`
+
+| Param | Meaning |
+|---|---|
+| `cpu` | `m68k`, `gpu` or `dsp`. Default: the program's own processor. |
+| `frame` | `true`: run to the next frame instead. It cannot be given with `cpu`. Default: `false`. |
+| `timeout_cycles` | The DSP cycles after which to give up. Default: 20 s of console time. |
+
+Without `frame`, the processor executes one instruction: the one at the `pc` that `cpu.get_state`
+gives. The run stops before the next instruction.
+
+- The other processors run the same cycles beside it, as on the console. They are not held
+  ([0030](../decisions/0030-a-step-runs-the-whole-machine.md)).
+- The step stops as a breakpoint does. A RISC runs on its stepped core. With the 68000, the
+  machine runs in steps of 32 cycles.
+- If a breakpoint or a watchpoint is hit first, the step ends there, with that `reason`.
+- A RISC that the 68000 waits on in the middle of an instruction cannot stop. The stop has `exact`
+  false, as for a breakpoint. The RISC ran on to the end of the 68000's instruction. The next
+  step starts where the RISC is now.
+- Nothing runs, and `reason` is `halted`, when the processor cannot execute an instruction: a RISC
+  whose GO is clear, a halted 68000, or a 68000 in a STOP whose mask holds back level 2. Level 2 is
+  Tom's interrupt, the only one on the console.
+
+With `frame`, the machine runs until the next frame of the video output is complete, as
+`emu.run_frames` counts frames. That is where the vertical blank starts (VBB), or where VC wraps
+in a field without one. Each processor then stops before its next instruction. The answer has no
+`stop`. The vertical blank interrupt (VI) is another event: to stop there, set a breakpoint on its
+handler.
+
+The answer has the same form as `emu.run_cycles`. `cycles_executed` is counted by the program's
+processor. For a step of another processor, it says how far the program's processor went. The
+stepped processor's own cycle is the `cycle` of `stop`.
+
+```json
+{"id":5,"method":"debug.singlestep","params":{"cpu":"gpu"}}
+{"id":5,"ok":true,"result":{"reason":"step","cycles_executed":6,"frames_executed":0,"running":true,
+  "stop":{"cpu":"gpu","pc":15740934,"cycle":6,"exact":true}}}
+{"id":6,"method":"debug.singlestep","params":{"frame":true}}
+{"id":6,"ok":true,"result":{"reason":"frame","cycles_executed":6354,"frames_executed":1,"running":true}}
+```
+
+Errors: `not_loaded`, `no_cpu`, `bad_request`.
 
 ### `debug.trace`
 

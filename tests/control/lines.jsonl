@@ -3,6 +3,7 @@
 # Before a load
 {"id":1,"method":"emu.status"}
 {"id":2,"method":"memory.read","params":{"address":0,"size":4}}
+{"id":38,"method":"debug.singlestep"}
 {"id":3,"method":"emu.load","params":{"args":["missing.o"]}}
 # A GPU program with video: frames, a screenshot, the GPU's state and code
 {"id":4,"method":"emu.load","params":{"args":["reference/op_bitmap.o","--gpu"]}}
@@ -58,6 +59,26 @@
 {"id":62,"method":"emu.run_cycles","params":{"count":10000}}
 {"id":63,"method":"emu.pause"}
 {"id":64,"method":"emu.resume"}
+# Single steps: of the program's processor, of another one, and to the next frame
+{"id":141,"method":"emu.load","params":{"args":["reference/op_bitmap.o","--gpu"]}}
+{"id":142,"method":"debug.singlestep"}
+{"id":143,"method":"debug.singlestep"}
+{"id":144,"method":"debug.trace","params":{"count":2}}
+{"id":145,"method":"debug.singlestep","params":{"cpu":"dsp"}}
+{"id":146,"method":"debug.singlestep","params":{"frame":true}}
+{"id":147,"method":"emu.status"}
+{"id":148,"method":"debug.singlestep","params":{"frame":true,"cpu":"gpu"}}
+{"id":149,"method":"debug.singlestep","params":{"frame":1}}
+{"id":150,"method":"emu.load","params":{"args":["reference/m68k_gpu_start.o","--m68k"]}}
+{"id":151,"method":"debug.singlestep"}
+{"id":152,"method":"emu.run_cycles","params":{"count":1400}}
+{"id":153,"method":"debug.singlestep","params":{"cpu":"gpu"}}
+{"id":154,"method":"emu.run_cycles","params":{"count":200}}
+{"id":155,"method":"debug.singlestep","params":{"cpu":"gpu"}}
+{"id":156,"method":"debug.singlestep","params":{"cpu":"gpu"}}
+{"id":157,"method":"debug.trace","params":{"cpu":"gpu","count":2}}
+{"id":158,"method":"emu.status"}
+{"id":159,"method":"emu.resume"}
 # The pads, read by a 68000 program through JOYSTICK and JOYBUTS
 {"id":70,"method":"emu.load","params":{"args":["reference/m68k_joypad.o","--m68k"]}}
 {"id":71,"method":"input.set","params":{"buttons":["up","a","pause","3","star"]}}

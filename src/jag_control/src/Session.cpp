@@ -18,8 +18,31 @@ namespace
 // A run of frames is made in parts, a frame's end looked for after each.
 constexpr std::uint64_t PART_CYCLES = 20'000;
 
-// The steps of a run with the 68000 while a RISC has breakpoints or watchpoints.
+// The steps of a run with the 68000 while a RISC has breakpoints or watchpoints, or the next frame
+// stops it.
 constexpr std::uint64_t DEBUG_STEP = 32;
+
+// `from` + `count`, no further than the last cycle.
+std::uint64_t after( std::uint64_t from, std::uint64_t count )
+{
+  return count > UINT64_MAX - from ? UINT64_MAX : from + count;
+}
+
+Session::Stop stopReason( DebugStop::Kind kind )
+{
+  switch ( kind )
+  {
+  case DebugStop::Kind::Breakpoint:
+    return Session::Stop::Breakpoint;
+  case DebugStop::Kind::Watchpoint:
+    return Session::Stop::Watchpoint;
+  case DebugStop::Kind::Step:
+    return Session::Stop::Step;
+  case DebugStop::Kind::Frame:
+    return Session::Stop::Frame;
+  }
+  return Session::Stop::Breakpoint;
+}
 
 } // namespace
 
@@ -100,9 +123,10 @@ bool Session::runTo( std::uint64_t cycle, Ran& ran )
 {
   Debugger& debugger = mMachine->debugger();
   debugger.stop.reset();
-  if ( mMachine->m68kState() && ( debugger.gpu.armed() || debugger.dsp.armed() ) )
+  if ( mMachine->m68kState() && ( mStopAtFrame || debugger.gpu.armed() || debugger.dsp.armed() ) )
   {
-    // the 68000 leads the turns (0014): in small steps, so that it is not far on when a RISC stops
+    // the 68000 leads the turns (0014): in small steps, so that it is not far on when a RISC stops,
+    // nor when the frame ends while a STOP it cannot leave lets it skip to the end of the run
     while ( !debugger.stop && mMachine->now() < cycle )
     {
       mRunning = mMachine->runTo( std::min( cycle, mMachine->now() + DEBUG_STEP ) );
@@ -114,9 +138,12 @@ bool Session::runTo( std::uint64_t cycle, Ran& ran )
     mRunning = mMachine->runTo( cycle );
   if ( debugger.stop )
   {
-    ran.reason = debugger.stop->kind == DebugStop::Kind::Breakpoint ? Stop::Breakpoint : Stop::Watchpoint;
-    ran.stop = debugger.stop;
-    mLastStop = debugger.stop;
+    ran.reason = stopReason( debugger.stop->kind );
+    if ( debugger.stop->kind != DebugStop::Kind::Frame ) // a processor's
+    {
+      ran.stop = debugger.stop;
+      mLastStop = debugger.stop;
+    }
     mPaused = true;
     return false;
   }
@@ -165,6 +192,46 @@ Session::Ran Session::runFrames( std::uint64_t count, std::uint64_t timeout )
   ran.frames = mFrames - frames;
   if ( goesOn && ran.frames < count )
     ran.reason = Stop::Timeout;
+  return ran;
+}
+
+Session::Ran Session::step( Probe& probe, std::uint64_t timeout )
+{
+  Ran ran;
+  if ( !mMachine || !mRunning )
+  {
+    ran.reason = Stop::Halted;
+    return ran;
+  }
+  mLastStop.reset();
+  std::uint64_t const from = mMachine->now();
+  std::uint64_t const frames = mFrames;
+  mMachine->step( probe );
+  if ( runTo( after( from, timeout ), ran ) )
+    ran.reason = Stop::Timeout;
+  probe.step = false;
+  ran.cycles = mMachine->now() - from;
+  ran.frames = mFrames - frames;
+  return ran;
+}
+
+Session::Ran Session::stepFrame( std::uint64_t timeout )
+{
+  Ran ran;
+  if ( !mMachine || !mRunning )
+  {
+    ran.reason = Stop::Halted;
+    return ran;
+  }
+  mLastStop.reset();
+  std::uint64_t const from = mMachine->now();
+  std::uint64_t const frames = mFrames;
+  mStopAtFrame = true;
+  if ( runTo( after( from, timeout ), ran ) )
+    ran.reason = Stop::Timeout;
+  mStopAtFrame = false;
+  ran.cycles = mMachine->now() - from;
+  ran.frames = mFrames - frames;
   return ran;
 }
 
@@ -237,6 +304,9 @@ void Session::frame( void* context, Lines const& lines )
   auto& self = *static_cast<Session*>( context );
   ++self.mFrames;
   self.mLastFrame = lines;
+  // the processors stop at their next instruction, as at a breakpoint
+  if ( self.mStopAtFrame && !self.mMachine->debugger().stop )
+    self.mMachine->debugger().stop = DebugStop{ .kind = DebugStop::Kind::Frame };
   if ( self.mFrameObserver )
     self.mFrameObserver( lines );
 }

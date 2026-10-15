@@ -1,6 +1,7 @@
 #include "Methods.hpp"
 
 #include "jag/Machine.hpp"
+#include "jag/Risc.hpp"
 #include "jag/Tom.hpp"
 
 #include <algorithm>
@@ -71,6 +72,19 @@ Outcome perCpu( Session& session, Of of )
     if ( hasCpu( **machine, cpu ) )
       result[probeOf( debugger, cpu ).cpu()] = of( probeOf( debugger, cpu ) );
   return result;
+}
+
+// Whether the processor can execute an instruction: the 68000 has not halted nor waits in a STOP
+// whose mask holds back Tom's interrupt (level 2, the only one), a RISC has GO set.
+bool runs( Machine& machine, Cpu cpu )
+{
+  if ( cpu == Cpu::M68k )
+  {
+    Machine::M68kState const state = *machine.m68kState();
+    return !state.halted && !( state.stopped && ( state.sr >> 8 & 7u ) >= 2 );
+  }
+  Risc const* risc = cpu == Cpu::Gpu ? machine.gpu() : machine.dsp();
+  return risc->started() && risc->now() < risc->cycles();
 }
 
 Param const CPU_PARAM{ "cpu", "string", "m68k, gpu or dsp; the program's own when left out.", false };
@@ -178,6 +192,51 @@ void addDebugMethods( Dispatcher& dispatcher, Session& session )
   dispatcher.add( "debug.watchpoint.list",
                   info( "Every processor's watchpoints." ),
                   [&session]( Json const& ) -> Outcome { return perCpu( session, watchpointsOf ); } );
+
+  dispatcher.add( "debug.singlestep",
+                  info( "Runs until the processor is about to execute its next instruction: a single step of "
+                        "it. The other processors run the same cycles beside it, as on the console. With "
+                        "`frame`, runs until the next frame of the video output is complete (where the "
+                        "vertical blank starts), each processor stopped at its next instruction. A "
+                        "breakpoint or a watchpoint met first ends the step there. Answers as "
+                        "emu.run_cycles, `reason` step or frame.",
+                        { CPU_PARAM,
+                          { "frame", "boolean", "Run to the next frame instead; not with cpu.", false },
+                          { "timeout_cycles",
+                            "integer",
+                            "DSP cycles after which to give up; 20 s of console time when left out.",
+                            false } } ),
+                  [&session]( Json const& params ) -> Outcome
+                  {
+                    bool frame = false;
+                    if ( auto const field = params.find( "frame" ); field != params.end() )
+                    {
+                      if ( !field->is_boolean() )
+                        return std::unexpected( badRequest( "Field frame must be true or false" ) );
+                      frame = field->get<bool>();
+                    }
+                    if ( frame && params.contains( "cpu" ) )
+                      return std::unexpected( badRequest( "Fields frame and cpu cannot be given together" ) );
+                    auto const timeout = optionalUnsigned( params, "timeout_cycles", DEFAULT_TIMEOUT );
+                    if ( !timeout )
+                      return std::unexpected( timeout.error() );
+                    if ( frame )
+                    {
+                      if ( !session.machine() )
+                        return std::unexpected( notLoaded() );
+                      return ranResult( session.stepFrame( *timeout ), session );
+                    }
+                    auto const p = probed( params, session );
+                    if ( !p )
+                      return std::unexpected( p.error() );
+                    if ( !runs( *p->machine, *cpuParam( params, session ) ) )
+                    {
+                      Session::Ran ran;
+                      ran.reason = Session::Stop::Halted;
+                      return ranResult( ran, session );
+                    }
+                    return ranResult( session.step( *p->probe, *timeout ), session );
+                  } );
 
   dispatcher.add( "debug.trace",
                   info( "The last instructions the processor executed, oldest first, with the cycle each issued "

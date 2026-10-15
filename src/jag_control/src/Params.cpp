@@ -163,6 +163,10 @@ std::string_view reasonName( Session::Stop reason )
     return "breakpoint";
   case Session::Stop::Watchpoint:
     return "watchpoint";
+  case Session::Stop::Step:
+    return "step";
+  case Session::Stop::Frame:
+    return "frame";
   }
   return "completed";
 }

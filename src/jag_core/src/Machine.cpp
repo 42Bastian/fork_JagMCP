@@ -683,6 +683,23 @@ Debugger& Machine::debugger()
   return *mDebugger;
 }
 
+void Machine::step( Probe& probe )
+{
+  Debugger const& debugger = this->debugger();
+  probe.step = true;
+  probe.stepPasses = false;
+  if ( &probe == &debugger.m68k )
+  {
+    // at an instruction boundary, or in the middle of the instruction a bus cycle waits in
+    probe.passAt = mM68k->now();
+    return;
+  }
+  // stopped before an instruction by a probe, it issues in this cycle; else the RISC issues it
+  // later, or is past its issue: the next to issue is the instruction the step executes
+  if ( std::uint64_t const now = ( &probe == &debugger.gpu ? gpu() : dsp() )->now(); probe.passAt != now )
+    probe.stepPasses = true;
+}
+
 void Machine::setPad( std::size_t port, std::uint32_t buttons )
 {
   mBus->setPad( port, buttons );

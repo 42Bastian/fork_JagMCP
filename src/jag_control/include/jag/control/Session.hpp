@@ -84,6 +84,8 @@ public:
     Timeout,    // the frames asked did not come in the time allowed
     Breakpoint, // a debugger's probe stopped it: `stop` says where
     Watchpoint,
+    Step,  // a single step ended: `stop` says where
+    Frame, // a frame was completed, as asked
   };
 
   struct Ran
@@ -126,6 +128,15 @@ public:
   // Runs until `count` more frames are complete, or the processor stops, or `timeout` cycles pass.
   Ran runFrames( std::uint64_t count, std::uint64_t timeout );
 
+  // A single step: runs until the processor `probe` is the probe of is about to execute its next
+  // instruction, the other processors beside it, or a probe stops the run first, or the program's
+  // processor stops, or `timeout` cycles pass.
+  Ran step( Probe& probe, std::uint64_t timeout );
+
+  // Runs until the next frame is complete, each processor stopped at its next instruction, or as
+  // step() ends.
+  Ran stepFrame( std::uint64_t timeout );
+
   // The I2S output written to `path` as a WAV from now until stopCapture, the frames' rate its
   // sample rate.
   std::optional<std::string> startCapture( std::string const& path );
@@ -160,6 +171,7 @@ private:
   std::unique_ptr<Machine> mMachine;
   bool mRunning = false;
   bool mPaused = false;
+  bool mStopAtFrame = false; // the frame completed next stops the run (stepFrame)
   std::optional<DebugStop> mLastStop;
   std::array<std::uint32_t, 2> mPads{};
   std::uint64_t mFrames = 0;

@@ -94,10 +94,15 @@ bool M68000::breakHere()
 {
   if ( mDebugger->stop )
     return true;
-  if ( ( flags & moira::State::STOPPED ) != 0 || mProbe->passAt == now() || !mProbe->breaksAt( reg.pc ) )
+  if ( ( flags & moira::State::STOPPED ) != 0 || mProbe->passAt == now() )
+    return false;
+  bool const breaks = mProbe->breaksAt( reg.pc );
+  if ( !breaks && !mProbe->step )
     return false;
   mProbe->passAt = now();
-  mDebugger->stop = DebugStop{ .kind = DebugStop::Kind::Breakpoint, .cpu = "m68k", .pc = reg.pc, .cycle = now() };
+  mDebugger->stop = DebugStop{
+    .kind = breaks ? DebugStop::Kind::Breakpoint : DebugStop::Kind::Step, .cpu = "m68k", .pc = reg.pc, .cycle = now()
+  };
   return true;
 }
 

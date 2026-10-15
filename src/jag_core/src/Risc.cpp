@@ -469,12 +469,20 @@ void Risc::debugStop( DebugStop stop )
 
 bool Risc::breakHere()
 {
-  if ( mDebugger->stop || mProbe->breakpoints.empty() || mProbe->passAt == mCycle || !issuing() )
+  if ( mDebugger->stop || ( mProbe->breakpoints.empty() && !mProbe->step ) || mProbe->passAt == mCycle || !issuing() )
     return false;
   std::uint32_t const pc = programCount();
-  if ( !mProbe->breaksAt( pc ) )
+  bool const breaks = mProbe->breaksAt( pc );
+  if ( !breaks && mProbe->stepPasses )
+  {
+    mProbe->stepPasses = false; // the instruction the step executes
+    mProbe->passAt = mCycle;
     return false;
-  debugStop( DebugStop{ .kind = DebugStop::Kind::Breakpoint, .pc = pc, .cycle = mCycle } );
+  }
+  if ( !breaks && !mProbe->step )
+    return false;
+  debugStop(
+      DebugStop{ .kind = breaks ? DebugStop::Kind::Breakpoint : DebugStop::Kind::Step, .pc = pc, .cycle = mCycle } );
   if ( !mDebugger->freezable )
     return false;
   mProbe->passAt = mCycle;

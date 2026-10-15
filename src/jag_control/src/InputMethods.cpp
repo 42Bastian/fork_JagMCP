@@ -122,15 +122,13 @@ void addInputMethods( Dispatcher& dispatcher, Session& session )
           return std::unexpected( frames.error() );
         if ( !session.machine() )
           return std::unexpected( notLoaded() );
-        // a frame of the video output, or 20 s of console time without one
-        constexpr auto TIMEOUT = static_cast<std::uint64_t>( 20 * CYCLES_PER_SECOND );
         std::uint32_t const held = session.pad( *port );
         session.setPad( *port, held | *buttons );
-        Session::Ran ran = session.runFrames( *frames, TIMEOUT );
+        Session::Ran ran = session.runFrames( *frames, DEFAULT_TIMEOUT );
         session.setPad( *port, held & ~*buttons );
         if ( ran.reason == Session::Stop::Completed )
         {
-          Session::Ran const after = session.runFrames( *frames, TIMEOUT );
+          Session::Ran const after = session.runFrames( *frames, DEFAULT_TIMEOUT );
           ran.reason = after.reason;
           ran.cycles += after.cycles;
           ran.frames += after.frames;

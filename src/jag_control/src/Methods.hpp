@@ -25,6 +25,9 @@ void addAudioMethods( Dispatcher& dispatcher, Session& session );
 void addDebugMethods( Dispatcher& dispatcher, Session& session );
 void addInputMethods( Dispatcher& dispatcher, Session& session );
 
+// What a run gives up after when no `timeout_cycles` is given: 20 s of console time.
+constexpr std::uint64_t DEFAULT_TIMEOUT = static_cast<std::uint64_t>( 20 * CYCLES_PER_SECOND );
+
 Error badRequest( std::string message );
 Error notLoaded();
 

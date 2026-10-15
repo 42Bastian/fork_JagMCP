@@ -14,9 +14,6 @@ namespace jag::control
 namespace
 {
 
-// What a run of frames gives up after when no `timeout_cycles` is given: 20 s of console time.
-constexpr std::uint64_t DEFAULT_TIMEOUT = static_cast<std::uint64_t>( 20 * CYCLES_PER_SECOND );
-
 std::string_view programCpu( RunOptions const& options )
 {
   if ( options.m68k )

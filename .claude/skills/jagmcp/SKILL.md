@@ -74,14 +74,17 @@ stderr with exit status 1. Numbers in answers are decimal: `"pc": 15740928` is 0
 | Sound | `audio.capture_start {path}` / `audio.capture_stop` (a WAV at the I2S frame rate) |
 | Stop at code | `debug.breakpoint.add/remove {address, cpu}`, `debug.breakpoint.list`: a run stops before that instruction |
 | Stop at data | `debug.watchpoint.add {address, size, access: read/write/access, cpu}`, `remove`, `list`: a run stops once the access is made, and says what and from where |
+| Step | `debug.singlestep {cpu}`: one instruction of that processor, the others running beside it; `debug.singlestep {frame: true}`: to the next frame (the vertical blank) |
 | See what ran | `debug.trace {cpu, count}`: the last instructions (up to 1024), disassembled |
 | Bugs that work by chance | `debug.diagnostics`: reads of Tom addresses no register answers (a write-only register such as INT2), each with the instruction; `emu.status` counts them |
 | Pads | `input.set {buttons, port}` (held until changed), `input.press {buttons, port, frames}` (held, released, run), `input.clear`, `input.get_state`; with `--m68k` |
 | Window | `emu.pause`, `emu.resume`: the program on screen stops running by itself (a stop pauses it too) |
 
 A run answers `reason`: `completed`, `halted` (a RISC program's processor cleared GO), `timeout`
-(`emu.run_frames` saw too few frames), or `breakpoint` / `watchpoint` with a `stop` saying which
-processor, where and at which cycle. The run that goes on executes the instruction stopped at; a
+(`emu.run_frames` saw too few frames), or `breakpoint` / `watchpoint` / `step` with a `stop` saying
+which processor, where and at which cycle; `debug.singlestep {frame: true}` answers `frame`. A step
+of a processor that cannot run (GO clear, or a 68000 STOP no interrupt ends) answers `halted` at
+once. The run that goes on executes the instruction stopped at; a
 breakpoint in a loop stops every run within it, so remove it to run on.
 
 While a GPU or DSP has breakpoints or watchpoints it runs on its stepped core: slower, the same

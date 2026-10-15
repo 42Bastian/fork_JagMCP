@@ -77,6 +77,11 @@ public:
   // there. A run without them checks nothing.
   Debugger& debugger();
 
+  // A single step of the processor `probe` is the debugger's probe of: the runs from now stop
+  // before its next instruction, once the one under way or about to issue (the RISC's pc) is
+  // executed, until the step is cleared (Probe::step).
+  void step( Probe& probe );
+
   // The reads of addresses no register answers, by processor, instruction and address, in the order
   // first made; the first UNDRIVEN_READS of them. Kept whether a debugger is installed or not.
   std::vector<UndrivenRead> const& undrivenReads() const

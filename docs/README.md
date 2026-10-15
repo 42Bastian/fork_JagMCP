@@ -70,6 +70,7 @@ Documentation is updated in the **same commit** as the change that invalidated i
 - [0027: A run ends where it was asked to, whatever the program does](decisions/0027-a-run-ends-where-asked.md)
 - [0028: A COFF program runs on the 68000, started as a loader starts it](decisions/0028-a-coff-program-runs-as-a-loader-starts-it.md)
 - [0029: CI runs on a tag or by hand, not on every push](decisions/0029-ci-runs-on-a-tag-or-by-hand.md)
+- [0030: A single step runs the whole machine; no processor is held](decisions/0030-a-step-runs-the-whole-machine.md)
 
 ### Hardware
 - [The main bus](hardware/main-bus.md): what the port of Tom's and Jerry's bus logic leaves out

@@ -177,7 +177,9 @@ void EmulationThread::publishState()
     std::snprintf( text,
                    sizeof text,
                    "%s of the %s at $%06x",
-                   at->kind == DebugStop::Kind::Breakpoint ? "Breakpoint" : "Watchpoint",
+                   at->kind == DebugStop::Kind::Breakpoint   ? "Breakpoint"
+                   : at->kind == DebugStop::Kind::Watchpoint ? "Watchpoint"
+                                                             : "Step",
                    at->cpu == "m68k"  ? "68000"
                    : at->cpu == "gpu" ? "GPU"
                                       : "DSP",

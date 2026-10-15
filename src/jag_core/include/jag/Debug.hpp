@@ -34,7 +34,9 @@ struct DebugStop
   enum class Kind
   {
     Breakpoint, // before the instruction at `pc`
-    Watchpoint  // the access of the instruction at `pc` was made
+    Watchpoint, // the access of the instruction at `pc` was made
+    Step,       // before the instruction at `pc`, the next one after a single step's start
+    Frame       // a frame of the video output was completed; no processor's, `cpu` empty
   };
 
   Kind kind = Kind::Breakpoint;
@@ -89,10 +91,16 @@ public:
   std::vector<std::uint32_t> breakpoints;
   std::vector<Watchpoint> watchpoints;
 
-  // Breakpoints or watchpoints are set: a RISC then runs on its stepped core alone.
+  // A single step (Machine::step): the run stops before the processor's next instruction. While
+  // `stepPasses`, a RISC has not issued the instruction it was about to issue, which the step
+  // executes first.
+  bool step = false;
+  bool stepPasses = false;
+
+  // Breakpoints, watchpoints or a step are set: a RISC then runs on its stepped core alone.
   bool armed() const
   {
-    return !breakpoints.empty() || !watchpoints.empty();
+    return step || !breakpoints.empty() || !watchpoints.empty();
   }
 
   bool breaksAt( std::uint32_t pc ) const

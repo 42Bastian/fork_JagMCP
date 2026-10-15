@@ -1,5 +1,6 @@
 {"id":1,"ok":true,"result":{"version":"devel","program":null}}
 {"id":2,"ok":false,"error":{"code":"not_loaded","message":"No program is loaded (emu.load)"}}
+{"id":38,"ok":false,"error":{"code":"not_loaded","message":"No program is loaded (emu.load)"}}
 {"id":3,"ok":false,"error":{"code":"load_failed","message":"cannot open missing.o"}}
 {"id":4,"ok":true,"result":{"program":"reference/op_bitmap.o","cpu":"gpu"}}
 {"id":5,"ok":true,"result":{"reason":"completed","cycles_executed":20000,"frames_executed":7,"running":true}}
@@ -51,6 +52,25 @@
 {"id":62,"ok":true,"result":{"reason":"breakpoint","cycles_executed":1684,"frames_executed":0,"running":true,"stop":{"cpu":"gpu","pc":15740938,"cycle":1876,"exact":false,"registers":[0,65536,0,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}}}
 {"id":63,"ok":true,"result":{}}
 {"id":64,"ok":true,"result":{}}
+{"id":141,"ok":true,"result":{"program":"reference/op_bitmap.o","cpu":"gpu"}}
+{"id":142,"ok":true,"result":{"reason":"step","cycles_executed":6,"frames_executed":0,"running":true,"stop":{"cpu":"gpu","pc":15740934,"cycle":6,"exact":true}}}
+{"id":143,"ok":true,"result":{"reason":"step","cycles_executed":3,"frames_executed":0,"running":true,"stop":{"cpu":"gpu","pc":15740940,"cycle":9,"exact":true}}}
+{"id":144,"ok":true,"result":[{"pc":15740928,"cycle":3,"text":"movei #$00010000,r14"},{"pc":15740934,"cycle":6,"text":"movei #$00f03078,r1"}]}
+{"id":145,"ok":true,"result":{"reason":"halted","cycles_executed":0,"frames_executed":0,"running":true}}
+{"id":146,"ok":true,"result":{"reason":"frame","cycles_executed":6354,"frames_executed":1,"running":true}}
+{"id":147,"ok":true,"result":{"version":"devel","program":"reference/op_bitmap.o","cpu":"gpu","cycles":6363,"seconds":0.00023926539544782827,"frame":1,"running":true,"paused":true,"diagnostics":0}}
+{"id":148,"ok":false,"error":{"code":"bad_request","message":"Fields frame and cpu cannot be given together"}}
+{"id":149,"ok":false,"error":{"code":"bad_request","message":"Field frame must be true or false"}}
+{"id":150,"ok":true,"result":{"program":"reference/m68k_gpu_start.o","cpu":"m68k"}}
+{"id":151,"ok":true,"result":{"reason":"step","cycles_executed":124,"frames_executed":0,"running":true,"stop":{"cpu":"m68k","pc":14680080,"cycle":323,"exact":true}}}
+{"id":152,"ok":true,"result":{"reason":"completed","cycles_executed":1406,"frames_executed":0,"running":true}}
+{"id":153,"ok":true,"result":{"reason":"halted","cycles_executed":0,"frames_executed":0,"running":true}}
+{"id":154,"ok":true,"result":{"reason":"completed","cycles_executed":202,"frames_executed":0,"running":true}}
+{"id":155,"ok":true,"result":{"reason":"step","cycles_executed":37,"frames_executed":0,"running":true,"stop":{"cpu":"gpu","pc":15740944,"cycle":1940,"exact":false,"registers":[0,65536,6,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}}}
+{"id":156,"ok":true,"result":{"reason":"step","cycles_executed":34,"frames_executed":0,"running":true,"stop":{"cpu":"gpu","pc":15740946,"cycle":1969,"exact":false,"registers":[0,65536,8,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}}}
+{"id":157,"ok":true,"result":[{"pc":15740948,"cycle":1998,"text":"movei #$00f02114,r4"},{"pc":15740954,"cycle":2001,"text":"moveq #0,r5"}]}
+{"id":158,"ok":true,"result":{"version":"devel","program":"reference/m68k_gpu_start.o","cpu":"m68k","cycles":2002,"seconds":7.528042145003177e-05,"frame":0,"running":true,"paused":true,"diagnostics":0,"bus_wait":{"cpu":"m68k","pc":16422,"address":65536,"access":"read","since":1993,"holder":"68000"},"stop":{"cpu":"gpu","pc":15740946,"cycle":1969,"exact":false,"registers":[0,65536,8,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}}}
+{"id":159,"ok":true,"result":{}}
 {"id":70,"ok":true,"result":{"program":"reference/m68k_joypad.o","cpu":"m68k"}}
 {"id":71,"ok":true,"result":{"port1":["up","a","pause","3","star"],"port2":[]}}
 {"id":72,"ok":true,"result":{"port1":["up","a","pause","3","star"],"port2":["right","c","hash"]}}
