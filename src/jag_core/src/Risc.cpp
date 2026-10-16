@@ -1522,7 +1522,9 @@ std::uint32_t Risc::cycle()
   if ( xldReady )
     mXldData = mBus.loadData( mMaster ); // xld_data
   bool const datack = mDatServ;
-  bool const delXld = datack && !isLocal( mAccess.address ) && !isStore( mAccess.op, mGpu );
+  // gpu_mem.v decodes external from dataddr, MMULT's matrix address (always local) while the matrix
+  // word is served: no external load then, whatever the last access's address was
+  bool const delXld = datack && !mDatMtx && !isLocal( mAccess.address ) && !isStore( mAccess.op, mGpu );
   bool const ldidle = !( mOneld || mTwold );
   mOneldi = ( delXld && ldidle ) || ( mOneld && !delXld && !mXlddSel ) || ( mOneld && delXld && mXlddSel ) ||
             ( mTwold && mXlddSel );
