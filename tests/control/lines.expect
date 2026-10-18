@@ -109,7 +109,7 @@
 {"id":123,"ok":true,"result":{"version":"devel","program":"reference/m68k_op_hog.o","cpu":"m68k","cycles":120199,"seconds":0.004519795893043141,"frame":58,"running":true,"paused":false,"diagnostics":0,"bus_wait":{"cpu":"m68k","pc":16572,"address":16574,"access":"read","since":2487,"holder":"object processor"}}}
 {"id":124,"ok":true,"result":{"address":65560,"data_hex":"00000002"}}
 {"id":130,"ok":true,"result":{"program":"control/m68k_coff.cof","cpu":"m68k"}}
-{"id":131,"ok":true,"result":{"reason":"completed","cycles_executed":1660048,"frames_executed":2,"running":true}}
+{"id":131,"ok":true,"result":{"reason":"completed","cycles_executed":1661118,"frames_executed":2,"running":true}}
 {"id":132,"ok":true,"result":[{"address":16384,"length":2,"opcode_hex":"4e71","text":"nop"},{"address":16386,"length":8,"opcode_hex":"33fc06c100f00028","text":"move.w  #$6c1, $f00028.l"},{"address":16394,"length":6,"opcode_hex":"203900005000","text":"move.l  $5000.l, D0"},{"address":16400,"length":2,"opcode_hex":"60fe","text":"bra     $4010"}]}
 {"id":133,"ok":true,"result":{"address":20480,"data_hex":"12345678"}}
 {"id":134,"ok":true,"result":{"pc":16400,"d":[305419896,0,0,0,0,0,0,0],"a":[15732128,15734176,0,0,0,0,0,16384],"sr":9984,"usp":0,"isp":16384,"stopped":false,"halted":false,"disasm":"bra     $4010"}}

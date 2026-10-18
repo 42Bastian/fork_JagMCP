@@ -35,10 +35,15 @@ constexpr std::array<std::pair<std::uint32_t, std::uint16_t>, 20> BIOS_VIDEO = {
     { 0xf00048, 0xffff }, { 0xf00040, 0x0258 }, { 0xf0004a, 0x0265 }, { 0xf00044, 0x026a }, { 0xf0004e, 0x0261 },
 } };
 
+// The object list the BIOS (model M) leaves when it starts a cartridge: a STOP object at $1000,
+// which OLP points to.
+constexpr std::uint32_t BIOS_OBJECT_LIST = 0x1000;
+
 // The OS ROM of the simulation's --m68k (sim/sim_main.cpp): its vectors, then MEMCON1, MEMCON2,
 // G_END and D_END as the BIOS sets them, JOYSTICK, and a jump to the program. With `biosVideo`, the
 // video as the BIOS leaves it too, before the jump: a COFF program is uploaded by a loader after
-// the BIOS has booted, and sets only part of the video itself (decision 0028).
+// the BIOS has booted, and sets only part of the video itself (decision 0028). OLP is set to the
+// BIOS's object list, which the Machine puts in RAM.
 std::vector<std::uint8_t> bootRom( std::uint32_t pc, bool biosVideo )
 {
   std::vector<std::uint8_t> rom( ROM_SIZE, 0xff );
@@ -89,6 +94,10 @@ std::vector<std::uint8_t> bootRom( std::uint32_t pc, bool biosVideo )
     w( 0x4299 ); // clr.l (A1)+
     w( 0x51c8 ); // dbra D0,clr.l (A0)+
     w( 0xfffa );
+    w( 0x23fc ); // move.l #BIOS_OBJECT_LIST,OLP: its low word first
+    w( BIOS_OBJECT_LIST & 0xffff );
+    w( BIOS_OBJECT_LIST >> 16 );
+    l( 0xf00020 );
   }
   w( 0x4ef9 ); // jmp program
   l( pc );
@@ -260,6 +269,14 @@ struct Machine::Outputs
 Machine::Machine( RunOptions const& options, TraceSink* trace )
     : mOptions( options ), mRam( std::make_unique<Ram>() ), mOutputs( std::make_unique<Outputs>() )
 {
+  // the program in main RAM (optional with the BIOS, and with the 68000 only)
+  ProgramFile m68kProgram{};
+  if ( options.m68k && !options.input.empty() )
+    m68kProgram = parseProgramFile( readFile( options.input ) );
+  // the BIOS's object list, before anything is loaded: the loader of a COFF program runs after the
+  // BIOS, and what it loads over the list replaces it (decision 0028)
+  if ( m68kProgram.coff )
+    mRam->writeLong( BIOS_OBJECT_LIST + 4, 4 ); // a STOP object
   for ( auto const& [path, address] : options.loads )
   {
     auto const data = readFile( path );
@@ -273,19 +290,14 @@ Machine::Machine( RunOptions const& options, TraceSink* trace )
   mOutputs->framesDir = options.framesDir;
   if ( options.m68k )
   {
-    // the program in main RAM (optional with the BIOS), the OS ROM, the cartridge
-    ProgramFile program{};
-    if ( !options.input.empty() )
+    // the program's sections, the OS ROM, the cartridge
+    for ( auto const& [address, data] : m68kProgram.sections )
     {
-      program = parseProgramFile( readFile( options.input ) );
-      for ( auto const& [address, data] : program.sections )
-      {
-        if ( address + data.size() > DRAM_SIZE )
-          throw std::runtime_error( options.input + " does not fit in RAM" );
-        std::ranges::copy( data, mRam->bytes.begin() + address );
-      }
+      if ( address + data.size() > DRAM_SIZE )
+        throw std::runtime_error( options.input + " does not fit in RAM" );
+      std::ranges::copy( data, mRam->bytes.begin() + address );
     }
-    std::vector<std::uint8_t> rom = bootRom( options.pc.value_or( program.entry ), program.coff );
+    std::vector<std::uint8_t> rom = bootRom( options.pc.value_or( m68kProgram.entry ), m68kProgram.coff );
     if ( !options.bios.empty() )
     {
       rom = readFile( options.bios );

@@ -29,6 +29,11 @@ frame.
   writes BG, BORD1 and the timing registers with the values that the model M BIOS writes on a PAL
   console, in the same order. Then it clears the two line buffers, as the BIOS does. The values
   were read from a run of the BIOS, with watchpoints on Tom's registers.
+- **RAM holds the object list the BIOS leaves, and OLP points to it.** Before it starts a
+  cartridge, the BIOS writes a STOP object at $1000 and sets OLP to $1000. Some programs turn the
+  video on before they set OLP. With OLP at zero, the object processor reads what is at $0 as a
+  list. That list may not stop, and the object processor keeps the bus: the 68000 waits for ever. The STOP object is put in RAM
+  before the program is loaded, so a program loaded over $1000 replaces it, as the loader would.
 - **`--bios` with a COFF program is refused.** The BIOS boots a cartridge. It does not start a
   program in RAM.
 
