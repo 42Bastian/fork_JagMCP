@@ -987,7 +987,7 @@ std::uint16_t MainBus::tomRead( std::uint64_t cycle, std::uint32_t address, char
   {
     // no register drives Tom's read bus: it holds MEMCON1, which drives it between reads
     std::uint16_t const v = memcon1();
-    if ( mUndrivenRead )
+    if ( mUndrivenRead && cpu != nullptr )
       mUndrivenRead( cpu, pc, address & 0xfffffeu, v, cycle );
     return v;
   }
@@ -1776,6 +1776,18 @@ void MainBus::gather( std::uint64_t cycle, Gathered& g )
         v = static_cast<std::uint16_t>( mGpuPort.rddata >> 16 );
         mGpuPort.latrdata = static_cast<std::uint16_t>( mGpuPort.rddata );
       }
+      std::uint32_t const shift = 48 - 8 * ( addr & 6u );
+      mDataBus = ( mDataBus & ~( std::uint64_t{ 0xffff } << shift ) ) | static_cast<std::uint64_t>( v ) << shift;
+    }
+  }
+  // and of the rest of Tom's own space, its registers, the CLUT and the line buffers, as the GPU's
+  // read of them: the word Tom's read bus carries, into its lanes (dbus.v dr, dinlatch at q7b)
+  if ( m.blitCycle && m.busRead && m.q7b )
+  {
+    std::uint32_t const addr = ( mAddr.bus & ~7u ) + ( c.width.maskai & 6u );
+    if ( Tom::decodes( addr ) )
+    {
+      std::uint16_t const v = tomRead( cycle, addr, nullptr, 0 );
       std::uint32_t const shift = 48 - 8 * ( addr & 6u );
       mDataBus = ( mDataBus & ~( std::uint64_t{ 0xffff } << shift ) ) | static_cast<std::uint64_t>( v ) << shift;
     }

@@ -545,7 +545,8 @@ public:
   }
 
 private:
-  // A read of Tom's registers by `cpu` (m68k, gpu or dsp), its instruction at `pc`.
+  // A read of Tom's registers by `cpu` (m68k, gpu or dsp), its instruction at `pc`; by the blitter
+  // with a null `cpu`, an undriven read then not reported (it has no instruction).
   std::uint16_t tomRead( std::uint64_t cycle, std::uint32_t address, char const* cpu, std::uint32_t pc );
   // what the 68000 reads of a memory under its strobes: the DRAM, the OS ROM, the cartridge
   std::uint16_t m68kReadWord( std::uint32_t address, bool uds = true, bool lds = true );
