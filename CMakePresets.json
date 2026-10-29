@@ -21,6 +21,13 @@
       "cacheVariables": { "CMAKE_BUILD_TYPE": "RelWithDebInfo", "CMAKE_INTERPROCEDURAL_OPTIMIZATION": "ON" }
     },
     {
+      "name": "release-brew",
+      "inherits": "release",
+      "displayName": "Release, with Homebrew's LLVM (macOS)",
+      "toolchainFile": "${sourceDir}/brew-llvm.cmake",
+      "condition": { "type": "equals", "lhs": "${hostSystemName}", "rhs": "Darwin" }
+    },
+    {
       "name": "asan",
       "inherits": "base",
       "displayName": "Debug + AddressSanitizer + UBSan",
@@ -66,6 +73,7 @@
   "buildPresets": [
     { "name": "debug",   "configurePreset": "debug" },
     { "name": "release", "configurePreset": "release" },
+    { "name": "release-brew", "configurePreset": "release-brew" },
     { "name": "asan",    "configurePreset": "asan" },
     { "name": "pgo-gen", "configurePreset": "pgo-gen" },
     { "name": "pgo",     "configurePreset": "pgo" },
@@ -74,6 +82,7 @@
   "testPresets": [
     { "name": "debug",   "configurePreset": "debug",   "output": { "outputOnFailure": true }, "execution": { "jobs": 8 } },
     { "name": "release", "configurePreset": "release", "output": { "outputOnFailure": true }, "execution": { "jobs": 8 } },
+    { "name": "release-brew", "configurePreset": "release-brew", "output": { "outputOnFailure": true }, "execution": { "jobs": 8 } },
     { "name": "asan",    "configurePreset": "asan",    "output": { "outputOnFailure": true }, "execution": { "jobs": 8 } },
     { "name": "pgo",     "configurePreset": "pgo",     "output": { "outputOnFailure": true }, "execution": { "jobs": 8 } },
     { "name": "windows", "configurePreset": "windows", "configuration": "Debug", "output": { "outputOnFailure": true }, "execution": { "jobs": 8 } }

@@ -15,7 +15,8 @@ build/release/src/jag_cli/jagmcp-cli --check tests/reference/abs        # one, w
 ./scripts/build-pgo.sh   # build/pgo, profile-guided (0016); extra runs to profile as arguments
 ```
 
-Presets: `debug`, `release`, `asan`, and `pgo-gen` and `pgo` for the script. Never create build
+Presets: `debug`, `release`, `asan`, and `pgo-gen` and `pgo` for the script; on macOS,
+`release-brew` builds the release with Homebrew's LLVM (`brew-llvm.cmake`). Never create build
 directories by hand; the presets own `build/<preset>`.
 
 The references are traces of the FPGA simulation (`sim/`). Recording them needs Verilator, the
