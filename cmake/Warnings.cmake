@@ -52,10 +52,18 @@ else( )
     # would make this build refuse code CI never questions — the same
     # divergence again, pointing the other way.
     target_compile_options( jag_warnings INTERFACE -Wshadow-uncaptured-local -Wshadow-field )
+
+    # clang 19 and later warn as GCC does below, under a name of their own; an older clang does
+    # not know the name, and would warn about that instead.
+    include( CheckCXXCompilerFlag )
+    check_cxx_compiler_flag( -Wmissing-designated-field-initializers JAG_HAS_WMISSING_DESIGNATED )
+    if( JAG_HAS_WMISSING_DESIGNATED )
+      target_compile_options( jag_warnings INTERFACE -Wno-missing-designated-field-initializers )
+    endif( )
   else( )
     # GCC warns when a designated initialiser leaves out a member, even one with a default.
-    # Leaving out such members is why the code uses designated initialisers. clang and MSVC
-    # do not warn here.
+    # Leaving out such members is why the code uses designated initialisers. MSVC does not warn
+    # here.
     target_compile_options( jag_warnings INTERFACE -Wno-missing-field-initializers )
   endif( )
 
