@@ -13,11 +13,12 @@ build/release/src/jag_cli/jagmcp-cli --check-all tests/reference        # every 
 build/release/src/jag_cli/jagmcp-cli --check-all tests/reference --step # the same, without the automatons
 build/release/src/jag_cli/jagmcp-cli --check tests/reference/abs        # one, with the first difference
 ./scripts/build-pgo.sh   # build/pgo, profile-guided (0016); extra runs to profile as arguments
+./scripts/build-pgo.sh --brew  # the same with Homebrew's LLVM, build/pgo-brew (macOS)
 ```
 
 Presets: `debug`, `release`, `asan`, and `pgo-gen` and `pgo` for the script; on macOS,
-`release-brew` builds the release with Homebrew's LLVM (`brew-llvm.cmake`). Never create build
-directories by hand; the presets own `build/<preset>`.
+`release-brew`, `pgo-gen-brew` and `pgo-brew` build with Homebrew's LLVM (`brew-llvm.cmake`).
+Never create build directories by hand; the presets own `build/<preset>`.
 
 The references are traces of the FPGA simulation (`sim/`). Recording them needs Verilator, the
 Jaguar_MiSTer checkout and lyxass beside this repository, and the `m68k-elf-` binutils:

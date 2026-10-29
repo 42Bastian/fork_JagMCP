@@ -64,6 +64,23 @@
       "condition": { "type": "notEquals", "lhs": "${hostSystemName}", "rhs": "Windows" }
     },
     {
+      "name": "pgo-gen-brew",
+      "inherits": "pgo-gen",
+      "displayName": "Release, instrumented to profile, with Homebrew's LLVM (scripts/build-pgo.sh --brew)",
+      "toolchainFile": "${sourceDir}/brew-llvm.cmake",
+      "condition": { "type": "equals", "lhs": "${hostSystemName}", "rhs": "Darwin" }
+    },
+    {
+      "name": "pgo-brew",
+      "inherits": "pgo",
+      "displayName": "Release, profile-guided, with Homebrew's LLVM (scripts/build-pgo.sh --brew)",
+      "toolchainFile": "${sourceDir}/brew-llvm.cmake",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-fprofile-instr-use=${sourceDir}/build/pgo-gen-brew/jagmcp.profdata -Wno-profile-instr-out-of-date -Wno-profile-instr-unprofiled -Wno-profile-instr-missing"
+      },
+      "condition": { "type": "equals", "lhs": "${hostSystemName}", "rhs": "Darwin" }
+    },
+    {
       "name": "windows",
       "displayName": "Visual Studio (whichever version is installed)",
       "binaryDir": "${sourceDir}/build/windows",
@@ -77,6 +94,8 @@
     { "name": "asan",    "configurePreset": "asan" },
     { "name": "pgo-gen", "configurePreset": "pgo-gen" },
     { "name": "pgo",     "configurePreset": "pgo" },
+    { "name": "pgo-gen-brew", "configurePreset": "pgo-gen-brew" },
+    { "name": "pgo-brew", "configurePreset": "pgo-brew" },
     { "name": "windows", "configurePreset": "windows", "configuration": "Debug" }
   ],
   "testPresets": [
@@ -85,6 +104,7 @@
     { "name": "release-brew", "configurePreset": "release-brew", "output": { "outputOnFailure": true }, "execution": { "jobs": 8 } },
     { "name": "asan",    "configurePreset": "asan",    "output": { "outputOnFailure": true }, "execution": { "jobs": 8 } },
     { "name": "pgo",     "configurePreset": "pgo",     "output": { "outputOnFailure": true }, "execution": { "jobs": 8 } },
+    { "name": "pgo-brew", "configurePreset": "pgo-brew", "output": { "outputOnFailure": true }, "execution": { "jobs": 8 } },
     { "name": "windows", "configurePreset": "windows", "configuration": "Debug", "output": { "outputOnFailure": true }, "execution": { "jobs": 8 } }
   ]
 }
