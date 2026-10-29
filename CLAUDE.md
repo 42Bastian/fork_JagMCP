@@ -2,8 +2,8 @@
 
 ## Language
 
-Discussion with the user is in Polish. **All code, comments, documentation, commit messages and
-identifiers are in English.**
+Discussion with the user is in English, as are **all code, comments, documentation, commit messages
+and identifiers.**
 
 ## Build and test
 
