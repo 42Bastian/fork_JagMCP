@@ -51,6 +51,7 @@ void addEmuMethods( Dispatcher& dispatcher, Session& session )
                     result["frame"] = session.frames();
                     result["running"] = session.running();
                     result["paused"] = session.paused();
+                    result["recording"] = session.recording();
                     result["diagnostics"] = machine->undrivenReads().size();
                     if ( auto const wait = machine->busWait() )
                       result["bus_wait"] = Json{ { "cpu", "m68k" },

@@ -31,6 +31,7 @@
 # Sound captured from a DSP program
 {"id":25,"method":"emu.load","params":{"args":["programs/tj_julia.run"]}}
 {"id":26,"method":"audio.capture_stop"}
+{"id":160,"method":"video.record_stop"}
 {"id":27,"method":"emu.run_cycles","params":{"count":2000000}}
 {"id":28,"method":"cpu.get_state","params":{"cpu":"dsp"}}
 # Breakpoints, watchpoints and the trace: the GPU alone (exact stops), then the 68000 and the GPU

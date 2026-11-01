@@ -1,4 +1,5 @@
 #include "Methods.hpp"
+#include "Recorder.hpp"
 
 #include <algorithm>
 #include <array>
@@ -138,6 +139,71 @@ void addVideoMethods( Dispatcher& dispatcher, Session& session )
         result["path"] = *path;
         return result;
       } );
+
+  dispatcher.add(
+      "video.record_start",
+      info( "Records the video output and the sound from now on into a video file, made by ffmpeg: H.264 "
+            "(lossless when asked) and AAC, in the container the path's extension names (.mp4, .mkv). Frames "
+            "and sound are placed by the cycle they were made in. The file is written by video.record_stop.",
+            { { "path", "string", "Where to write the video." },
+              { "lossless", "boolean", "Keep the RGB pixels exactly; false when left out.", false },
+              { "crisp",
+                "boolean",
+                "Make each pixel a block of 2 by 2, which the encoder keeps sharp; true when left out.",
+                false } } ),
+      [&session]( Json const& params ) -> Outcome
+      {
+        auto const path = requireString( params, "path" );
+        if ( !path )
+          return std::unexpected( path.error() );
+        auto const flag = [&params]( std::string const& name, bool fallback ) -> std::expected<bool, Error>
+        {
+          auto const field = params.find( name );
+          if ( field == params.end() )
+            return fallback;
+          if ( !field->is_boolean() )
+            return std::unexpected( badRequest( "Field " + name + " must be true or false" ) );
+          return field->get<bool>();
+        };
+        auto const lossless = flag( "lossless", false );
+        if ( !lossless )
+          return std::unexpected( lossless.error() );
+        auto const crisp = flag( "crisp", true );
+        if ( !crisp )
+          return std::unexpected( crisp.error() );
+        if ( !session.machine() )
+          return std::unexpected( notLoaded() );
+        if ( session.recording() )
+          return std::unexpected( Error{ .code = "recording_running", .message = "A record is running" } );
+        if ( auto const why = encoderMissing( *path + ".log" ) )
+          return std::unexpected( Error{ .code = "encoder_missing", .message = *why } );
+        if ( auto const why = session.startRecord( *path, *lossless, *crisp ) )
+          return std::unexpected( Error{ .code = "record_failed", .message = *why } );
+        return Json{ { "path", *path } };
+      } );
+
+  dispatcher.add( "video.record_stop",
+                  info( "Ends the record, writes the video file and answers what it holds." ),
+                  [&session]( Json const& ) -> Outcome
+                  {
+                    if ( !session.recording() )
+                      return std::unexpected(
+                          Error{ .code = "recording_not_running", .message = "No record is running" } );
+                    auto const recorded = session.stopRecord();
+                    if ( !recorded )
+                      return std::unexpected( Error{ .code = "record_failed", .message = recorded.error() } );
+                    return Json{ { "path", recorded->path },
+                                 { "crisp", recorded->crisp },
+                                 { "width", recorded->width },
+                                 { "height", recorded->height },
+                                 { "frame_rate", recorded->frameRate },
+                                 { "segments", recorded->segments },
+                                 { "frames", recorded->frames },
+                                 { "repeated", recorded->repeated },
+                                 { "dropped", recorded->dropped },
+                                 { "sample_rate", recorded->sampleRate },
+                                 { "seconds", recorded->seconds } };
+                  } );
 }
 
 } // namespace jag::control

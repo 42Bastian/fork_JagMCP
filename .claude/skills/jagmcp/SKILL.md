@@ -72,6 +72,7 @@ stderr with exit status 1. Numbers in answers are decimal: `"pc": 15740928` is 0
 | Memory | `memory.read {address, size}`, `memory.write {address, data_hex}`: main RAM, the ROMs (read only), the GPU's RAM at 0xf03000 and the DSP's at 0xf1b000; not registers |
 | Picture | `video.screenshot {path}`: the last frame, a pixel a pixel (the window stretches it to 4:3) |
 | Sound | `audio.capture_start {path}` / `audio.capture_stop` (a WAV at the I2S frame rate) |
+| Video | `video.record_start {path, lossless?, crisp?}` / `video.record_stop` (picture and sound, by ffmpeg; an absolute path) |
 | Stop at code | `debug.breakpoint.add/remove {address, cpu}`, `debug.breakpoint.list`: a run stops before that instruction |
 | Stop at data | `debug.watchpoint.add {address, size, access: read/write/access, cpu}`, `remove`, `list`: a run stops once the access is made, and says what and from where |
 | Step | `debug.singlestep {cpu}`: one instruction of that processor, the others running beside it; `debug.singlestep {frame: true}`: to the next frame (the vertical blank) |

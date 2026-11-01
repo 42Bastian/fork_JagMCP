@@ -93,7 +93,8 @@ This lets a script or an agent keep one emulator across many short commands, as
 
 There is no authentication. Anyone who can open a connection on this machine controls the
 emulator. They can also make it read and write files, by the paths they give to `emu.load`,
-`video.screenshot` and `audio.capture_start`.
+`video.screenshot`, `video.record_start` and `audio.capture_start`. `video.record_start` also runs
+ffmpeg, but a request cannot say which program that is ([0031](../decisions/0031-video-is-recorded-by-ffmpeg.md)).
 
 ### JSON lines from the window
 
@@ -222,6 +223,10 @@ digits after `0x` or `$`: `"0xf03000"`, `"$f03000"`. Answers always give integer
 | `capture_running` | `audio.capture_start` was called while a capture is running. |
 | `capture_not_running` | `audio.capture_stop` was called with no capture running. |
 | `capture_failed` | The capture's file cannot be written. |
+| `recording_running` | `video.record_start` was called while a record is running. |
+| `recording_not_running` | `video.record_stop` was called with no record running. |
+| `encoder_missing` | ffmpeg cannot be run. The message says why. |
+| `record_failed` | The record's files cannot be written, no frame was completed during it, or ffmpeg failed. The message says which, with the end of ffmpeg's log. |
 | `invalid_input` | An `input.` method got a button name it does not know. |
 
 ## 5. Methods
@@ -248,6 +253,7 @@ video are one second.
 | [`cpu.get_state`](#cpuget_state) | A processor's registers. |
 | [`cpu.disassemble`](#cpudisassemble) | Disassemble memory. |
 | [`video.screenshot`](#videoscreenshot) | The last frame, as a PNG. |
+| [`video.record_start`, `video.record_stop`](#videorecord_start) | Record the picture and the sound to a video file. |
 | [`audio.capture_start`, `audio.capture_stop`](#audiocapture_start) | Record the sound to a WAV file. |
 
 ### `emu.status`
@@ -256,12 +262,14 @@ No parameters.
 
 ```json
 {"id":1,"ok":true,"result":{"version":"devel","program":"reference/op_bitmap.o","cpu":"gpu",
-  "cycles":20000,"seconds":0.00075,"frame":7,"running":true,"paused":false,"diagnostics":0}}
+  "cycles":20000,"seconds":0.00075,"frame":7,"running":true,"paused":false,"recording":false,
+  "diagnostics":0}}
 ```
 
 ```json
 {"id":4,"ok":true,"result":{"version":"devel","program":"reference/m68k_op_hog.o","cpu":"m68k",
-  "cycles":120199,"seconds":0.0045,"frame":58,"running":true,"paused":false,"diagnostics":0,
+  "cycles":120199,"seconds":0.0045,"frame":58,"running":true,"paused":false,"recording":false,
+  "diagnostics":0,
   "bus_wait":{"cpu":"m68k","pc":16572,"address":16574,"access":"read","since":2487,
   "holder":"object processor"}}}
 ```
@@ -276,6 +284,7 @@ No parameters.
 | `frame` | The number of video frames completed since the load. |
 | `running` | True while the program's processor has not stopped. A RISC program ends when its processor clears GO. A 68000 program does not end. |
 | `paused` | True when `emu.pause`, or a debugger stop, has paused the window's own run. |
+| `recording` | True while a record (`video.record_start`) is running. |
 | `diagnostics` | The number of entries that `debug.diagnostics` gives. |
 | `bus_wait` | Only when a 68000 bus cycle still waits for the bus where the last run ended. The run ended on time, and the cycle goes on with the next run. `pc`: the instruction. `address`, `access`: the bus cycle's address, `read` or `write`. `since`: the cycle in which it started. `holder`: the master the bus is granted to, `68000`, `blitter`, `GPU`, `DSP`, `object processor` or `DRAM refresh`. A wait that never ends is a locked console, for example an object list that never ends ([0027](../decisions/0027-a-run-ends-where-asked.md)). |
 | `stop` | Where the last run was stopped by a breakpoint, a watchpoint or a single step, in the same form as `emu.run_cycles` gives it. This covers runs on request and the window's own run. It is absent once a run continues. |
@@ -675,6 +684,66 @@ image. (The window shows it at 4:3, [0017](../decisions/0017-the-picture-is-show
 - The path is relative to the server's working directory. An existing file is replaced.
 
 Errors: `not_loaded`, `screenshot_failed`, `bad_request`.
+
+### `video.record_start`
+
+Records the video output and the sound from now on into a video file. ffmpeg encodes it
+([0031](../decisions/0031-video-is-recorded-by-ffmpeg.md)). The file is written by
+`video.record_stop`.
+
+| Param | Meaning |
+|---|---|
+| `path` | Where to write the video. Its extension chooses the container: `.mp4`, `.mkv`, `.mov`. |
+| `lossless` | `true`: keep the RGB pixels exactly. Players that read H.264 4:4:4 show it (ffmpeg, VLC, mpv), QuickTime and browsers do not. `false` when left out. |
+| `crisp` | `true`: make each pixel a block of 2 by 2 pixels. `true` when left out. |
+
+Answers `{"path"}`.
+
+- The picture is H.264, the sound AAC at 48 kHz.
+- H.264 keeps colour at half the resolution in each direction, and it blurs single pixels. With
+  `crisp` a pixel is a whole block of colour, and the video is much closer to the frames: on a
+  cartridge's title, 44 dB against 35 dB without it, for 1.5 times the size.
+- The video's size is the first frame's, made even, doubled with `crisp`. Later frames of another
+  size are cut or padded with black, at the right and at the bottom. The file tells the player to
+  show it 4:3, as the window does ([0017](../decisions/0017-the-picture-is-shown-4-3.md)). The
+  pixels are not resampled to 4:3.
+- The video's frame rate is the rate the program's frames come at. Where it changes for three
+  frames running, a new part of the video begins at the new rate. Native, for example, starts at
+  50.08 Hz in the BIOS and goes on at 59.99 Hz.
+- Each frame and each sound sample is placed by the cycle it was made in. Where no frame was
+  completed (the video was off), the frame before is repeated, or black before the first. Where the
+  I2S made no sound, the sound is silent.
+- The record goes on across `emu.load` and `emu.reset`.
+- The path is relative to the server's working directory. An existing file is replaced.
+- ffmpeg is the program `JAGMCP_FFMPEG` names, or `ffmpeg` on the PATH. Beside `path`, the record
+  keeps `PATH.videoN.nut` (a part each), `PATH.sound.pcm` and `PATH.log` while it runs.
+
+Errors: `not_loaded`, `recording_running`, `encoder_missing`, `record_failed`, `bad_request`.
+
+### `video.record_stop`
+
+Ends the record, writes the file, and answers what it holds.
+
+```json
+{"id":9,"ok":true,"result":{"path":"native.mp4","crisp":true,"width":1380,"height":568,"frame_rate":59.990209878548356,
+  "segments":2,"frames":3028,"repeated":25,"dropped":2,"sample_rate":48000,"seconds":53.22579426108995}}
+```
+
+| Field | Meaning |
+|---|---|
+| `crisp` | As `video.record_start` was given it. |
+| `width`, `height` | The video's size, doubled with `crisp`. |
+| `frame_rate` | Its frames per second, in the part that holds the most frames. |
+| `segments` | The parts of the video, at a frame rate each. |
+| `frames` | Its frames. |
+| `repeated` | Of them, the frames that repeat the one before (or are black), as no frame was completed in time. |
+| `dropped` | Frames completed that are not in the video: another frame was completed in the same frame of the video, for example while the rate changes. |
+| `sample_rate` | The sound's samples per second. |
+| `seconds` | How long the record is, in console time. |
+
+On failure the file is removed. `PATH.log` is kept when ffmpeg failed.
+
+Errors: `recording_not_running`, `record_failed`.
 
 ### `audio.capture_start`
 

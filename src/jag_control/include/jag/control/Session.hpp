@@ -16,6 +16,8 @@
 namespace jag::control
 {
 
+class Recorder;
+
 // A machine as the control API drives it: the program loaded last, run on request, and what its
 // run makes kept for a look (the last frame, the sound being captured). Whoever owns the session
 // runs it on one thread: the CLI's, or the window's emulation thread, which hands it the requests.
@@ -155,6 +157,33 @@ public:
 
   std::expected<Captured, std::string> stopCapture();
 
+  // The video output and the I2S output recorded into `path` from now until stopRecord, by ffmpeg:
+  // H.264, lossless when asked, and AAC, in the container the path's extension names; each pixel a
+  // block of 2 by 2 when `crisp`. The record's clock goes on across loads.
+  std::optional<std::string> startRecord( std::string const& path, bool lossless, bool crisp );
+
+  bool recording() const
+  {
+    return mRecorder != nullptr;
+  }
+
+  struct Recorded
+  {
+    std::string path;
+    bool crisp = false;      // a pixel of the frames a block of 2 by 2
+    std::uint32_t width = 0; // the first frame's, made even
+    std::uint32_t height = 0;
+    double frameRate = 0;       // the rate most of the video has
+    std::uint64_t segments = 0; // parts of the video at a rate each
+    std::uint64_t frames = 0;   // the video's
+    std::uint64_t repeated = 0; // of them, a frame before again (or black): none was completed in time
+    std::uint64_t dropped = 0;  // frames completed in a frame of the video that had one already
+    std::uint32_t sampleRate = 0;
+    double seconds = 0;
+  };
+
+  std::expected<Recorded, std::string> stopRecord();
+
   // What else is given the frames and the sound as the machine makes them: the window's display
   // and audio. Kept across loads.
   void setObservers( FrameObserver frames, SampleObserver samples );
@@ -180,6 +209,8 @@ private:
   SampleObserver mSampleObserver;
   std::optional<std::string> mCapturePath;
   std::vector<std::int16_t> mCaptured; // left and right
+  std::unique_ptr<Recorder> mRecorder;
+  std::uint64_t mRecordBase = 0; // the record's cycle where the machine's count began
 };
 
 } // namespace jag::control

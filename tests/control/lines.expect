@@ -4,14 +4,14 @@
 {"id":3,"ok":false,"error":{"code":"load_failed","message":"cannot open missing.o"}}
 {"id":4,"ok":true,"result":{"program":"reference/op_bitmap.o","cpu":"gpu"}}
 {"id":5,"ok":true,"result":{"reason":"completed","cycles_executed":20000,"frames_executed":7,"running":true}}
-{"id":6,"ok":true,"result":{"version":"devel","program":"reference/op_bitmap.o","cpu":"gpu","cycles":20000,"seconds":0.0007520521623379798,"frame":7,"running":true,"paused":false,"diagnostics":0}}
+{"id":6,"ok":true,"result":{"version":"devel","program":"reference/op_bitmap.o","cpu":"gpu","cycles":20000,"seconds":0.0007520521623379798,"frame":7,"running":true,"paused":false,"recording":false,"diagnostics":0}}
 {"id":7,"ok":true,"result":{"width":85,"height":7,"frame":7,"png_base64":"iVBORw0KGgoAAAANSUhEUgAAAFUAAAAHCAIAAAD20ZbxAAAHC0lEQVR4AQEAB//4ADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSADQSAAAAAAA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgAANBIANBIANBIANBIANBIANBIANBIANBIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANBIANBIANBIAADQSADQSADQSADQSADQSADQSADQSADQSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADQSADQSADQSAAA0EgA0EgA0EgA0EgA0EgA0EgA0EgA0EgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0EgA0EgA0EgAANBIANBIANBIANBIANBIANBIANBIANBIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANBIANBIANBIAADQSADQSADQSADQSADQSADQSADQSADQSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADQSADQSADQSABpgPUFs6sDEAAAAAElFTkSuQmCC"}}
 {"id":8,"ok":true,"result":{"pc":15741038,"flags":321404928,"control":321396737,"registers":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,15741148,0,2623169,15728680,4096,15728644,0,1063,931,0,0,0,0,131392,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"started":true,"cycle":20000,"disasm":"loadw (r6),r8"}}
 {"id":9,"ok":true,"result":[{"address":15740928,"length":6,"opcode_hex":"980e00000001","text":"movei #$00010000,r14"},{"address":15740934,"length":6,"opcode_hex":"9801307800f0","text":"movei #$00f03078,r1"},{"address":15740940,"length":2,"opcode_hex":"8d02","text":"moveq #8,r2"},{"address":15740942,"length":2,"opcode_hex":"a423","text":"load (r1),r3"},{"address":15740944,"length":2,"opcode_hex":"0881","text":"addq #4,r1"},{"address":15740946,"length":2,"opcode_hex":"bdc3","text":"store r3,(r14)"},{"address":15740948,"length":2,"opcode_hex":"088e","text":"addq #4,r14"},{"address":15740950,"length":2,"opcode_hex":"1822","text":"subq #1,r2"}]}
 {"id":10,"ok":false,"error":{"code":"no_cpu","message":"This run has no 68000"}}
 {"id":11,"ok":true,"result":{"reason":"completed","cycles_executed":1000,"frames_executed":1,"running":true}}
 {"id":12,"ok":true,"result":{}}
-{"id":13,"ok":true,"result":{"version":"devel","program":"reference/op_bitmap.o","cpu":"gpu","cycles":0,"seconds":0.0,"frame":0,"running":true,"paused":false,"diagnostics":0}}
+{"id":13,"ok":true,"result":{"version":"devel","program":"reference/op_bitmap.o","cpu":"gpu","cycles":0,"seconds":0.0,"frame":0,"running":true,"paused":false,"recording":false,"diagnostics":0}}
 {"id":14,"ok":true,"result":{"program":"reference/m68k_gpu_start.o","cpu":"m68k"}}
 {"id":15,"ok":true,"result":{"pc":14680072,"d":[0,0,0,0,0,0,0,0],"a":[0,0,0,0,0,0,0,16384],"sr":9984,"usp":0,"isp":16384,"stopped":false,"halted":false,"disasm":"move.w  #$1861, $f00000.l"}}
 {"id":16,"ok":true,"result":{"reason":"completed","cycles_executed":10000,"frames_executed":0,"running":true}}
@@ -25,6 +25,7 @@
 {"id":24,"ok":true,"result":[{"address":15740928,"length":2,"opcode_hex":"e400","text":"nop"}]}
 {"id":25,"ok":true,"result":{"program":"programs/tj_julia/julia.o","cpu":"gpu"}}
 {"id":26,"ok":false,"error":{"code":"capture_not_running","message":"No capture is running"}}
+{"id":160,"ok":false,"error":{"code":"recording_not_running","message":"No record is running"}}
 {"id":27,"ok":true,"result":{"reason":"completed","cycles_executed":2000000,"frames_executed":0,"running":true}}
 {"id":28,"ok":true,"result":{"pc":15839296,"flags":853016582,"control":853024769,"registers":[524288,1048576,0,0,0,3840,56,0,0,532676609,6,30,7,15839328,15839342,1948816,1,15,0,512,1536,512,1534,6641,4565,4294965888,4294964992,225804,225312,1726464,1572864,15839274,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"started":true,"cycle":2000001,"disasm":"shrq #8,r1"}}
 {"id":40,"ok":true,"result":{"program":"reference/op_bitmap.o","cpu":"gpu"}}
@@ -34,7 +35,7 @@
 {"id":44,"ok":true,"result":{"cpu":"gpu","watchpoints":[{"address":65536,"size":4,"access":"write"}]}}
 {"id":45,"ok":true,"result":{"reason":"watchpoint","cycles_executed":4,"frames_executed":0,"running":true,"stop":{"cpu":"gpu","pc":15740946,"cycle":13,"exact":true,"address":65536,"access":"write","bytes":4,"value":33554464}}}
 {"id":46,"ok":true,"result":[{"pc":15740942,"cycle":10,"text":"load (r1),r3"},{"pc":15740944,"cycle":11,"text":"addq #4,r1"},{"pc":15740946,"cycle":12,"text":"store r3,(r14)"},{"pc":15740948,"cycle":13,"text":"addq #4,r14"}]}
-{"id":47,"ok":true,"result":{"version":"devel","program":"reference/op_bitmap.o","cpu":"gpu","cycles":14,"seconds":5.264365136365859e-07,"frame":0,"running":true,"paused":true,"diagnostics":0,"stop":{"cpu":"gpu","pc":15740946,"cycle":13,"exact":true,"address":65536,"access":"write","bytes":4,"value":33554464}}}
+{"id":47,"ok":true,"result":{"version":"devel","program":"reference/op_bitmap.o","cpu":"gpu","cycles":14,"seconds":5.264365136365859e-07,"frame":0,"running":true,"paused":true,"recording":false,"diagnostics":0,"stop":{"cpu":"gpu","pc":15740946,"cycle":13,"exact":true,"address":65536,"access":"write","bytes":4,"value":33554464}}}
 {"id":48,"ok":true,"result":{}}
 {"id":49,"ok":true,"result":{"gpu":[15740942],"dsp":[]}}
 {"id":50,"ok":true,"result":{"gpu":[{"address":65536,"size":4,"access":"write"}],"dsp":[]}}
@@ -58,7 +59,7 @@
 {"id":144,"ok":true,"result":[{"pc":15740928,"cycle":3,"text":"movei #$00010000,r14"},{"pc":15740934,"cycle":6,"text":"movei #$00f03078,r1"}]}
 {"id":145,"ok":true,"result":{"reason":"halted","cycles_executed":0,"frames_executed":0,"running":true}}
 {"id":146,"ok":true,"result":{"reason":"frame","cycles_executed":6354,"frames_executed":1,"running":true}}
-{"id":147,"ok":true,"result":{"version":"devel","program":"reference/op_bitmap.o","cpu":"gpu","cycles":6363,"seconds":0.00023926539544782827,"frame":1,"running":true,"paused":true,"diagnostics":0}}
+{"id":147,"ok":true,"result":{"version":"devel","program":"reference/op_bitmap.o","cpu":"gpu","cycles":6363,"seconds":0.00023926539544782827,"frame":1,"running":true,"paused":true,"recording":false,"diagnostics":0}}
 {"id":148,"ok":false,"error":{"code":"bad_request","message":"Fields frame and cpu cannot be given together"}}
 {"id":149,"ok":false,"error":{"code":"bad_request","message":"Field frame must be true or false"}}
 {"id":150,"ok":true,"result":{"program":"reference/m68k_gpu_start.o","cpu":"m68k"}}
@@ -69,7 +70,7 @@
 {"id":155,"ok":true,"result":{"reason":"step","cycles_executed":37,"frames_executed":0,"running":true,"stop":{"cpu":"gpu","pc":15740944,"cycle":1940,"exact":false,"registers":[0,65536,6,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}}}
 {"id":156,"ok":true,"result":{"reason":"step","cycles_executed":34,"frames_executed":0,"running":true,"stop":{"cpu":"gpu","pc":15740946,"cycle":1969,"exact":false,"registers":[0,65536,8,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}}}
 {"id":157,"ok":true,"result":[{"pc":15740948,"cycle":1998,"text":"movei #$00f02114,r4"},{"pc":15740954,"cycle":2001,"text":"moveq #0,r5"}]}
-{"id":158,"ok":true,"result":{"version":"devel","program":"reference/m68k_gpu_start.o","cpu":"m68k","cycles":2002,"seconds":7.528042145003177e-05,"frame":0,"running":true,"paused":true,"diagnostics":0,"bus_wait":{"cpu":"m68k","pc":16422,"address":65536,"access":"read","since":1993,"holder":"68000"},"stop":{"cpu":"gpu","pc":15740946,"cycle":1969,"exact":false,"registers":[0,65536,8,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}}}
+{"id":158,"ok":true,"result":{"version":"devel","program":"reference/m68k_gpu_start.o","cpu":"m68k","cycles":2002,"seconds":7.528042145003177e-05,"frame":0,"running":true,"paused":true,"recording":false,"diagnostics":0,"bus_wait":{"cpu":"m68k","pc":16422,"address":65536,"access":"read","since":1993,"holder":"68000"},"stop":{"cpu":"gpu","pc":15740946,"cycle":1969,"exact":false,"registers":[0,65536,8,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}}}
 {"id":159,"ok":true,"result":{}}
 {"id":70,"ok":true,"result":{"program":"reference/m68k_joypad.o","cpu":"m68k"}}
 {"id":71,"ok":true,"result":{"port1":["up","a","pause","3","star"],"port2":[]}}
@@ -88,7 +89,7 @@
 {"id":94,"ok":true,"result":{"reason":"completed","cycles_executed":14000,"frames_executed":0,"running":true}}
 {"id":95,"ok":true,"result":{"address":16484,"data_hex":"1861"}}
 {"id":96,"ok":true,"result":[{"kind":"undriven_read","cpu":"m68k","pc":16446,"text":"move.w  $f000e2.l, $4064.l","address":15728866,"register":"INT2","value":6241,"cycle":4038,"count":1}]}
-{"id":97,"ok":true,"result":{"version":"devel","program":"reference/m68k_irq.o","cpu":"m68k","cycles":14799,"seconds":0.0005564809975219881,"frame":0,"running":true,"paused":false,"diagnostics":1}}
+{"id":97,"ok":true,"result":{"version":"devel","program":"reference/m68k_irq.o","cpu":"m68k","cycles":14799,"seconds":0.0005564809975219881,"frame":0,"running":true,"paused":false,"recording":false,"diagnostics":1}}
 {"id":98,"ok":true,"result":{"program":"reference/op_bitmap.o","cpu":"gpu"}}
 {"id":99,"ok":true,"result":{"address":15740928,"size":12}}
 {"id":100,"ok":true,"result":{"reason":"completed","cycles_executed":200,"frames_executed":0,"running":true}}
@@ -106,7 +107,7 @@
 {"id":120,"ok":true,"result":{"program":"reference/m68k_op_hog.o","cpu":"m68k"}}
 {"id":121,"ok":true,"result":{"reason":"completed","cycles_executed":100000,"frames_executed":48,"running":true}}
 {"id":122,"ok":true,"result":{"reason":"completed","cycles_executed":20000,"frames_executed":10,"running":true}}
-{"id":123,"ok":true,"result":{"version":"devel","program":"reference/m68k_op_hog.o","cpu":"m68k","cycles":120199,"seconds":0.004519795893043141,"frame":58,"running":true,"paused":false,"diagnostics":0,"bus_wait":{"cpu":"m68k","pc":16572,"address":16574,"access":"read","since":2487,"holder":"object processor"}}}
+{"id":123,"ok":true,"result":{"version":"devel","program":"reference/m68k_op_hog.o","cpu":"m68k","cycles":120199,"seconds":0.004519795893043141,"frame":58,"running":true,"paused":false,"recording":false,"diagnostics":0,"bus_wait":{"cpu":"m68k","pc":16572,"address":16574,"access":"read","since":2487,"holder":"object processor"}}}
 {"id":124,"ok":true,"result":{"address":65560,"data_hex":"00000002"}}
 {"id":130,"ok":true,"result":{"program":"control/m68k_coff.cof","cpu":"m68k"}}
 {"id":131,"ok":true,"result":{"reason":"completed","cycles_executed":1661118,"frames_executed":2,"running":true}}

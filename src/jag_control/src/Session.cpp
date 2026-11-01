@@ -1,6 +1,9 @@
 #include "jag/control/Session.hpp"
 
+#include "Recorder.hpp"
+
 #include "jag/I2s.hpp"
+#include "jag/Risc.hpp"
 #include "jag/Tom.hpp"
 
 #include <algorithm>
@@ -86,6 +89,8 @@ std::optional<std::string> Session::load( RunOptions const& options, bool keepPr
   for ( std::size_t port = 0; port < mPads.size(); ++port )
     machine->setPad( port, mPads[port] );
   machine->runTo( 0 ); // powered on: the 68000 has read its vectors
+  if ( mRecorder && mMachine )
+    mRecordBase += mMachine->now();
   mMachine = std::move( machine );
   mLastStop.reset();
   mOptions = options;
@@ -293,6 +298,27 @@ std::expected<Session::Captured, std::string> Session::stopCapture()
   return captured;
 }
 
+std::optional<std::string> Session::startRecord( std::string const& path, bool lossless, bool crisp )
+{
+  if ( mRecorder )
+    return "A record runs already";
+  auto recorder = Recorder::start( path, lossless, crisp, mRecordBase + ( mMachine ? mMachine->now() : 0 ) );
+  if ( !recorder )
+    return recorder.error();
+  mRecorder = std::move( *recorder );
+  return std::nullopt;
+}
+
+std::expected<Session::Recorded, std::string> Session::stopRecord()
+{
+  if ( !mRecorder )
+    return std::unexpected( "No record runs" );
+  auto recorded = mRecorder->stop( mRecordBase + ( mMachine ? mMachine->now() : 0 ) );
+  mRecorder.reset();
+  mRecordBase = 0;
+  return recorded;
+}
+
 void Session::setObservers( FrameObserver frames, SampleObserver samples )
 {
   mFrameObserver = std::move( frames );
@@ -307,6 +333,8 @@ void Session::frame( void* context, Lines const& lines )
   // the processors stop at their next instruction, as at a breakpoint
   if ( self.mStopAtFrame && !self.mMachine->debugger().stop )
     self.mMachine->debugger().stop = DebugStop{ .kind = DebugStop::Kind::Frame };
+  if ( self.mRecorder && self.mMachine )
+    self.mRecorder->frame( lines, self.mRecordBase + self.mMachine->tom().renderedTo() );
   if ( self.mFrameObserver )
     self.mFrameObserver( lines );
 }
@@ -318,6 +346,16 @@ void Session::sample( void* context, std::uint16_t left, std::uint16_t right )
   {
     self.mCaptured.push_back( static_cast<std::int16_t>( left ) );
     self.mCaptured.push_back( static_cast<std::int16_t>( right ) );
+  }
+  if ( self.mRecorder && self.mMachine )
+  {
+    // the DSP's cycle, near the one the I2S made the frame in
+    Risc const* dsp = self.mMachine->dsp();
+    std::uint64_t const cycle = dsp != nullptr ? dsp->now() : self.mMachine->now();
+    self.mRecorder->sample( static_cast<std::int16_t>( left ),
+                            static_cast<std::int16_t>( right ),
+                            self.mRecordBase + cycle,
+                            self.mMachine->i2s().frameCycles() );
   }
   if ( self.mSampleObserver )
     self.mSampleObserver( left, right );
