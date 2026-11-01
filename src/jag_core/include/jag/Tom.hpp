@@ -169,6 +169,12 @@ public:
     mFrameContext = context;
   }
 
+  // The cycle the video output is made up to: in a frame sink, the cycle that completed the frame.
+  std::uint64_t renderedTo() const
+  {
+    return mRenderAt;
+  }
+
   // The PIT, as Jerry's timers (timer 0 only): its requests are the GPU's interrupt 2.
   Timers& pit()
   {

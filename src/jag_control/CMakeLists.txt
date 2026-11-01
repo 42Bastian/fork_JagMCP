@@ -7,6 +7,8 @@ add_library( jag_control STATIC
   src/InputMethods.cpp
   src/MemoryMethods.cpp
   src/Params.cpp
+  src/Process.cpp
+  src/Recorder.cpp
   src/Session.cpp
   src/VideoMethods.cpp )
 
