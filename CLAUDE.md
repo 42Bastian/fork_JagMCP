@@ -14,6 +14,7 @@ build/release/src/jag_cli/jagmcp-cli --check-all tests/reference --step # the sa
 build/release/src/jag_cli/jagmcp-cli --check tests/reference/abs        # one, with the first difference
 ./scripts/build-pgo.sh   # build/pgo, profile-guided (0016); extra runs to profile as arguments
 ./scripts/build-pgo.sh --brew  # the same with Homebrew's LLVM, build/pgo-brew (macOS)
+./scripts/build-bs42.sh        # the owner's build: --brew, a cartridge profiled, tested, installed in ~/bin
 ```
 
 Presets: `debug`, `release`, `asan`, and `pgo-gen` and `pgo` for the script; on macOS,
